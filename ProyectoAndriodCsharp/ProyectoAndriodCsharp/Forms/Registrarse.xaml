@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Base.Registrarse">
+
+
+    <Grid>
+        <Image Source="fondo.png" Aspect="AspectFill"/>
+        <BoxView Color="LightSkyBlue" Opacity="0.5"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Image Grid.Row="0" Source="logo1.png" WidthRequest="100"
+                   HeightRequest="100" Margin="0,50,0,30"/>
+
+
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                <Entry Placeholder="Nombre" x:Name="Nombre"/>
+                <Entry Placeholder="Apellido" x:Name="Apellido"/>
+                <Entry Placeholder="Email" x:Name="Email"/>
+                <Entry Placeholder="Contraseña" x:Name="Contra"/>
+                <Entry Placeholder="Confirmar Contraseña" x:Name="ConfirmContra"/>
+                <Button Text="Registrar" CornerRadius="3" x:Name="btnRegistrarse"></Button>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

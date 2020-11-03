@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Base.RecuperarContra">
+   
+        <Grid>
+            <Image Source="fondo.png" Aspect="AspectFill"/>
+            <BoxView Color="LightSkyBlue" Opacity="0.5"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Source="logo1.png" WidthRequest="100"
+                   HeightRequest="100" Margin="0,50,0,30"/>
+
+
+                <StackLayout Grid.Row="1" Padding="10,20">
+                <Entry Placeholder="Correo Electronico" PlaceholderColor="Gray"/>
+
+                <Button Text="Recuperar Contraseña" BackgroundColor="#003300" TextColor="#33FF33"
+                        CornerRadius="20" x:Name="btnRecuperar"/>
+
+                </StackLayout>
+            </Grid>
+        </Grid>
+
+</ContentPage>
