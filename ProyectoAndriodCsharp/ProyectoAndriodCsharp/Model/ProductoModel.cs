@@ -5,6 +5,7 @@ using System.Text;
 
 namespace ProyectoAndriodCsharp.Model
 {
+    [Table("Producto")]
     public class ProductoModel
     {
         [PrimaryKey,AutoIncrement]
