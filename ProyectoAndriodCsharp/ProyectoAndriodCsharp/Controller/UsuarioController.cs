@@ -15,30 +15,30 @@ namespace ProyectoAndriodCsharp.Controller
         public UsuarioController(string ConnectionPath)
         {
             sqliteConn = new SQLiteConnection(ConnectionPath);
-            sqliteConn.CreateTable<Model.UsuarioModel>(); // Crea la tabla si no existe.
+            sqliteConn.CreateTable<Model.Usuario>(); // Crea la tabla si no existe.
         }
 
         // -------------------------------------------------------------------
         // Funciones CRUD.
 
-        public IEnumerable<UsuarioModel> GetAllUsuarios()
+        public IEnumerable<Usuario> GetAllUsuarios()
         {
             try
             {
-                return sqliteConn.Table<Model.UsuarioModel>();
+                return sqliteConn.Table<Model.Usuario>();
             }
             catch (Exception e)
             {
                 this.Estado = e.Message;
             }
-            return Enumerable.Empty<Model.UsuarioModel>();
+            return Enumerable.Empty<Model.Usuario>();
         }
 
-        public UsuarioModel GetUsuario(int id)
+        public Usuario GetUsuario(int id)
         {
             try
             {
-                return sqliteConn.Table<Model.UsuarioModel>()
+                return sqliteConn.Table<Model.Usuario>()
                 .Where(i => i.UsuarioId == id).FirstOrDefault();
             }
             catch (Exception e)
@@ -48,7 +48,7 @@ namespace ProyectoAndriodCsharp.Controller
             return null;
         }
 
-        public int InsertarUsuario(UsuarioModel Usuario)
+        public int InsertarUsuario(Usuario Usuario)
         {
             int FilasAfectadas = 0;
             try
@@ -64,7 +64,7 @@ namespace ProyectoAndriodCsharp.Controller
         }
         
 
-        public int ActualizarUsuario(UsuarioModel Usuario)
+        public int ActualizarUsuario(Usuario Usuario)
         {
             int FilasAfectadas = 0;
             try
@@ -79,16 +79,16 @@ namespace ProyectoAndriodCsharp.Controller
             return FilasAfectadas;
         }
 
-        public static UsuarioModel GetUsuarioByUsername(string username)
+        public static Usuario GetUsuarioByUsername(string username)
         {
             using (SQLiteConnection sqliteConn = new SQLiteConnection(DataConnection.GetConnectionPath()))
             {
-                return sqliteConn.Table<Model.UsuarioModel>().Where(i => i.NombreUsuario == username).FirstOrDefault();
+                return sqliteConn.Table<Model.Usuario>().Where(i => i.NombreUsuario == username).FirstOrDefault();
             }
         }
         public static bool ValidarUsuario(LoginRequest loginRequest) {
             bool result = false;
-            UsuarioModel usuario=GetUsuarioByUsername(loginRequest.Username);
+            Usuario usuario=GetUsuarioByUsername(loginRequest.Username);
             if (usuario.NombreUsuario.Equals(loginRequest.Username) && usuario.Contrasenia.Equals(loginRequest.Password) && usuario.US_ROL.Equals("Usuario")) {
                 result = true;
             }
@@ -97,7 +97,7 @@ namespace ProyectoAndriodCsharp.Controller
         public static bool ValidarAdministrador(LoginRequest loginRequest)
         {
             bool result = false;
-            UsuarioModel usuario = GetUsuarioByUsername(loginRequest.Username);
+            Usuario usuario = GetUsuarioByUsername(loginRequest.Username);
             if (usuario.NombreUsuario.Equals(loginRequest.Username) && usuario.Contrasenia.Equals(loginRequest.Password) && usuario.US_ROL.Equals("Administrador"))
             {
                 result = true;
@@ -105,12 +105,12 @@ namespace ProyectoAndriodCsharp.Controller
             return result;
         }
 
-        public int EliminarUsuario(UsuarioModel Usuario)
+        public int EliminarUsuario(Usuario Usuario)
         {
             int FilasAfectadas = 0;
             try
             {
-                FilasAfectadas = sqliteConn.Delete<UsuarioModel>(Usuario);
+                FilasAfectadas = sqliteConn.Delete<Usuario>(Usuario);
                 this.Estado = string.Format("Cantidad de filas afectadas: {0}", FilasAfectadas);
             }
             catch (Exception e)

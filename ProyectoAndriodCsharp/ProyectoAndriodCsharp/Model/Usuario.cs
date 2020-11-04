@@ -3,7 +3,7 @@
 namespace ProyectoAndriodCsharp.Model
 {
     [Table("Usuario")]
-    public class UsuarioModel
+    public class Usuario
     {
         [PrimaryKey, AutoIncrement]
         public int UsuarioId { get; set; }

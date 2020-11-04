@@ -6,7 +6,7 @@ using System.Text;
 namespace ProyectoAndriodCsharp.Model
 {
     [Table("Producto")]
-    public class ProductoModel
+    public class Producto
     {
         [PrimaryKey,AutoIncrement]
         public int PRO_ID { get; set; }

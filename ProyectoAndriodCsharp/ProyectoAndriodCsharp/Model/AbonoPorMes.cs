@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ProyectoAndriodCsharp.Model
 {
-    public class AbonoPorMesModel
+    public class AbonoPorMes
     {
         [PrimaryKey,AutoIncrement]
         public int ABEM_ID { get; set; }

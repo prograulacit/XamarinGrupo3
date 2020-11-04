@@ -6,7 +6,7 @@ using System.Text;
 namespace ProyectoAndriodCsharp.Model
 {
     
-    public class CompraModel
+    public class Compra
     {
         [PrimaryKey,AutoIncrement]
         public int COM_ID { get; set; }

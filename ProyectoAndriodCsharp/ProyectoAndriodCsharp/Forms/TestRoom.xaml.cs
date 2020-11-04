@@ -18,7 +18,7 @@ namespace ProyectoAndriodCsharp.Forms
 
         private void RegistrarUsuario(object sender, EventArgs e)
         {
-            UsuarioModel UsuarioNuevo = new UsuarioModel()
+            Usuario UsuarioNuevo = new Usuario()
             {
                 NombreUsuario = entry_nombreUsuario.Text,
                 Nombre = entry_nombre.Text,
@@ -35,7 +35,7 @@ namespace ProyectoAndriodCsharp.Forms
             UsuarioController usuarioController =
                 new UsuarioController(DataConnection.GetConnectionPath());
 
-            IEnumerable<UsuarioModel> lista_usuarios = usuarioController.GetAllUsuarios();
+            IEnumerable<Usuario> lista_usuarios = usuarioController.GetAllUsuarios();
             label_listaUsuarios.Text = "";
             foreach (var itemUsuario in lista_usuarios)
             {

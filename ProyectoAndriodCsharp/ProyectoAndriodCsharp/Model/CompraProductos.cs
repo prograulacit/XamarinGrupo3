@@ -5,14 +5,14 @@ using System.Text;
 
 namespace ProyectoAndriodCsharp.Model
 {
-    public class AbonoModel
+    public class CompraProductos
     {
         [PrimaryKey,AutoIncrement]
-        public int ABO_ID { get; set; }
+        public int COMP_ID { get; set; }
         [Indexed]
         public int COM_ID { get; set; }
-        public decimal ABO_CANTIDAD_MENSUAL { get; set; }
-        public int ABO_CANTIDAD_DE_MESES { get; set; }
-        public int ABO_RESTANTE { get; set; }
+        [Indexed]
+        public int PRO_ID { get; set; }
+        public int COMP_CANTIDAD { get; set; }
     }
 }

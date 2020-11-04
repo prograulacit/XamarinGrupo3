@@ -10,7 +10,7 @@ namespace ProyectoAndriodCsharp.Controller
     public class ProductoController
     {
        
-        public static bool IngresarProducto(ProductoModel productoModel) {
+        public static bool IngresarProducto(Producto productoModel) {
             bool result=false;
             using (SQLiteConnection sqliteConnection = new SQLiteConnection(DataConnection.GetConnectionPath())) {
                 int filasAfectadas=sqliteConnection.Insert(productoModel);
@@ -19,7 +19,7 @@ namespace ProyectoAndriodCsharp.Controller
             return result;
         }
 
-        public static bool EliminarProducto(ProductoModel productoModel) {
+        public static bool EliminarProducto(Producto productoModel) {
             bool result = false;
             using (SQLiteConnection sQLiteConnection = new SQLiteConnection(DataConnection.GetConnectionPath())) {
                 int filasAfectadas=sQLiteConnection.Delete(productoModel);
@@ -30,7 +30,7 @@ namespace ProyectoAndriodCsharp.Controller
                 return result;        
         }
 
-        public static bool UpdateProducto(ProductoModel productoModel) {
+        public static bool UpdateProducto(Producto productoModel) {
             bool result = false;
             using (SQLiteConnection sQLiteConnection = new SQLiteConnection(DataConnection.GetConnectionPath()))
             {
@@ -43,14 +43,14 @@ namespace ProyectoAndriodCsharp.Controller
             return result;
         }
 
-        public static ProductoModel GetProductoByID(int ID) {
+        public static Producto GetProductoByID(int ID) {
             using (SQLiteConnection sQLiteConnection= new SQLiteConnection(DataConnection.GetConnectionPath())) {
-                return sQLiteConnection.Table<ProductoModel>().Where(i => i.PRO_ID == ID).FirstOrDefault();
+                return sQLiteConnection.Table<Producto>().Where(i => i.PRO_ID == ID).FirstOrDefault();
             }
         }
-        public static IEnumerable<ProductoModel> GetAllProductos() {
+        public static IEnumerable<Producto> GetAllProductos() {
             using (SQLiteConnection sQLiteConnection=new SQLiteConnection(DataConnection.GetConnectionPath())) {
-                return  sQLiteConnection.Table<ProductoModel>();
+                return  sQLiteConnection.Table<Producto>();
             }
         }
 
