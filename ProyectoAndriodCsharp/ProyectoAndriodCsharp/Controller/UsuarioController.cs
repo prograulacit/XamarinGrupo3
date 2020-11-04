@@ -14,7 +14,7 @@ namespace ProyectoAndriodCsharp.Controller
         public UsuarioController(string ConnectionPath)
         {
             sqliteConn = new SQLiteConnection(ConnectionPath);
-            sqliteConn.CreateTable<Model.UsuarioModel>(); // Crea la tabla si no existe.
+            sqliteConn.CreateTable<UsuarioModel>(); // Crea la tabla si no existe.
         }
 
         // -------------------------------------------------------------------
@@ -24,20 +24,20 @@ namespace ProyectoAndriodCsharp.Controller
         {
             try
             {
-                return sqliteConn.Table<Model.UsuarioModel>();
+                return sqliteConn.Table<UsuarioModel>();
             }
             catch (Exception e)
             {
                 this.Estado = e.Message;
             }
-            return Enumerable.Empty<Model.UsuarioModel>();
+            return Enumerable.Empty<UsuarioModel>();
         }
 
         public UsuarioModel GetUsuario(int id)
         {
             try
             {
-                return sqliteConn.Table<Model.UsuarioModel>()
+                return sqliteConn.Table<UsuarioModel>()
                 .Where(i => i.UsuarioId == id).FirstOrDefault();
             }
             catch (Exception e)
