@@ -3,6 +3,7 @@ using SQLite;
 using System.Linq;
 using System.Collections.Generic;
 using ProyectoAndriodCsharp.Model;
+using ProyectoAndriodCsharp.Models;
 
 namespace ProyectoAndriodCsharp.Controller
 {
@@ -61,6 +62,7 @@ namespace ProyectoAndriodCsharp.Controller
             }
             return FilasAfectadas;
         }
+        
 
         public int ActualizarUsuario(UsuarioModel Usuario)
         {
@@ -75,6 +77,32 @@ namespace ProyectoAndriodCsharp.Controller
                 this.Estado = e.Message;
             }
             return FilasAfectadas;
+        }
+
+        public static UsuarioModel GetUsuarioByUsername(string username)
+        {
+            using (SQLiteConnection sqliteConn = new SQLiteConnection(DataConnection.GetConnectionPath()))
+            {
+                return sqliteConn.Table<Model.UsuarioModel>().Where(i => i.NombreUsuario == username).FirstOrDefault();
+            }
+        }
+        public static bool ValidarUsuario(LoginRequest loginRequest) {
+            bool result = false;
+            UsuarioModel usuario=GetUsuarioByUsername(loginRequest.Username);
+            if (usuario.NombreUsuario.Equals(loginRequest.Username) && usuario.Contrasenia.Equals(loginRequest.Password) && usuario.US_ROL.Equals("Usuario")) {
+                result = true;
+            }
+            return result;
+        }
+        public static bool ValidarAdministrador(LoginRequest loginRequest)
+        {
+            bool result = false;
+            UsuarioModel usuario = GetUsuarioByUsername(loginRequest.Username);
+            if (usuario.NombreUsuario.Equals(loginRequest.Username) && usuario.Contrasenia.Equals(loginRequest.Password) && usuario.US_ROL.Equals("Administrador"))
+            {
+                result = true;
+            }
+            return result;
         }
 
         public int EliminarUsuario(UsuarioModel Usuario)
