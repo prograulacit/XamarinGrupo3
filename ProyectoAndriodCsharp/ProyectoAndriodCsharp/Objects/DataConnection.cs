@@ -15,9 +15,8 @@ namespace ProyectoAndriodCsharp.Models
         public static void CreateTables() {
             SQLiteConnection sqLiteConnection = new SQLiteConnection(GetConnectionPath());
             sqLiteConnection.CreateTable<UsuarioModel>();
-            //sqLiteConnection.CreateTable<Usuario>();
             //sqLiteConnection.CreateTable<Compra>();
-            //sqLiteConnection.CreateTable<Producto>();
+            sqLiteConnection.CreateTable<ProductoModel>();
             //sqLiteConnection.CreateTable<Abono>();
             //sqLiteConnection.CreateTable<AbonoPorMes>();
             //sqLiteConnection.CreateTable<CompraProductos>();
@@ -26,9 +25,8 @@ namespace ProyectoAndriodCsharp.Models
         public static void DropTables() {
             SQLiteConnection sqLiteConnection = new SQLiteConnection(GetConnectionPath());
             sqLiteConnection.DropTable<UsuarioModel>();
-            //sqLiteConnection.DropTable<Usuario>();
             //sqLiteConnection.DropTable<Compra>();
-            //sqLiteConnection.DropTable<Producto>();
+            sqLiteConnection.DropTable<ProductoModel>();
             //sqLiteConnection.DropTable<Abono>();
             //sqLiteConnection.DropTable<AbonoPorMes>();
             //sqLiteConnection.DropTable<CompraProductos>();
