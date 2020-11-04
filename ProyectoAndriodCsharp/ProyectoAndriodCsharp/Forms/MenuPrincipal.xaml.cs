@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Base
+namespace ProyectoAndriodCsharp.Forms
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPrincipal : ContentPage
@@ -15,8 +15,6 @@ namespace Base
         public MenuPrincipal()
         {
             InitializeComponent();
-
         }
-
     }
 }

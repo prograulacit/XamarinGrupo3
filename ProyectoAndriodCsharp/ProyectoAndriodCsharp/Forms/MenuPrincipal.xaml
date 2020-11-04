@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Base.MenuPrincipal">
-    <Grid>
-       
-    </Grid>     
+             x:Class="ProyectoAndriodCsharp.Forms.MenuPrincipal">
+    <StackLayout>
+        <Label Text="Este es el menú princial" FontSize="30"/>
+    </StackLayout>
 </ContentPage>
