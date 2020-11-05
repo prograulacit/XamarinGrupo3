@@ -3,22 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoAndriodCsharp.Forms.MenuPrincipal">
     
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!" />
-
-        <Label x:Name="ListNull"/>
-        <Label x:Name="List"/>
-        <Grid>
-            <Label x:Name="lblName1" Grid.Row="0" Grid.Column="0"/>
-            <Label x:Name="lblName2" Grid.Row="1" Grid.Column="0"/>
-            <Label x:Name="lblDesc2" Grid.Row="1" Grid.Column="1"/>
-            <Label x:Name="lblDesc1" Grid.Row="0" Grid.Column="1"/>
-
-        </Grid>
+        
+        <NavigationPage.TitleView>
+            <Grid>
+                <Label x:Name="NombreUsuario" Grid.Column="0" Grid.Row="0"/>
+                <Label x:Name="Rol" Grid.Column="1" Grid.Row="0"/>
+                <Button x:Name="NewAdmin" Grid.Column="2" Grid.Row="0"/>
+                <Button Grid.Row="0" Grid.Column="3" Text="Agregar Producto" x:Name="NewProducto"/>
+            </Grid>
+        </NavigationPage.TitleView>
+    <ContentPage.Content>
         <Grid x:Name="GridAllProducts">
             
             
         </Grid>
-        </StackLayout>
-    
+    </ContentPage.Content>
+
+
 </ContentPage>

@@ -48,7 +48,15 @@ namespace ProyectoAndriodCsharp.Controller
             }
             return null;
         }
-
+        public static bool IngresarUsuario(Usuario usuario) {
+            bool result = false;
+            using (SQLiteConnection sqliteConnection = new SQLiteConnection(DataConnection.GetConnectionPath()))
+            {
+                int filasAfectadas = sqliteConnection.Insert(usuario);
+                if (filasAfectadas > 0) { result = true; }
+            }
+            return result;
+        }
         public int InsertarUsuario(Usuario Usuario)
         {
             int FilasAfectadas = 0;

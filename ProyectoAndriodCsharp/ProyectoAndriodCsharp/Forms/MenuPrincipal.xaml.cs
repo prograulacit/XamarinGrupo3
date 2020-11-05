@@ -1,5 +1,6 @@
 ﻿using ProyectoAndriodCsharp.Controller;
 using ProyectoAndriodCsharp.Model;
+using ProyectoAndriodCsharp.Objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,18 +20,32 @@ namespace ProyectoAndriodCsharp.Forms
         public MenuPrincipal()
         {
             InitializeComponent();
-            ProductoController.InsertarPrueba();
-            IEnumerable<Producto> listProductos = ProductoController.GetAllProductos();
-            if (listProductos == null) { ListNull.Text = "Lista no trae nada"; }
-            else { ListNull.Text = "Lista trae cosas"; }
+            //ProductoController.InsertarPrueba();
             int count = 0;
-            foreach (var product in ProductoController.GetAllProductos())
-            {
-                GridAllProducts.Children.Add(new Label { Text = product.PRO_NOMBRE },0,count) ;
-                GridAllProducts.Children.Add(new Label { Text = product.PRO_DESCRIPCION }, 1, count);
-                GridAllProducts.Children.Add(new Label { Text = "$"+Math.Truncate(product.PRO_PRECIO).ToString() }, 1, count);
-            count += 1;
+            NombreUsuario.Text = Memoria.UsuarioActual.Nombre;
+            Rol.Text = Memoria.UsuarioActual.US_ROL;
+            if (Memoria.UsuarioActual.US_ROL.Equals("Usuario")) {
+                NewProducto.IsVisible = false;
+                NewAdmin.IsVisible = false;
+                foreach (var product in ProductoController.GetAllProductos())
+                {
+                    GridAllProducts.Children.Add(new Label { Text = product.PRO_NOMBRE }, 0, count);
+                    GridAllProducts.Children.Add(new Label { Text = product.PRO_DESCRIPCION }, 1, count);
+                    GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(product.PRO_PRECIO).ToString() }, 2, count);
+                    count += 1;
+                }
             }
+            if (Memoria.UsuarioActual.US_ROL.Equals("Administrador")) {
+                foreach (var product in ProductoController.GetAllProductos())
+                {
+                    GridAllProducts.Children.Add(new Label { Text = product.PRO_NOMBRE }, 0, count);
+                    GridAllProducts.Children.Add(new Label { Text = product.PRO_DESCRIPCION }, 1, count);
+                    GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(product.PRO_PRECIO).ToString() }, 2, count);
+                    GridAllProducts.Children.Add(new Button { Text = "Borrar Producto" }, 3, count);
+                    count += 1;
+                }
+            }
+            
 
 
         }
