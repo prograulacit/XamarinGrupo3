@@ -37,8 +37,7 @@ namespace ProyectoAndriodCsharp.Forms
                             , string.Format("Ingreso de {0} correcto.", Memoria.UsuarioActual.NombreUsuario)
                             , "Aceptar");
 
-                        // Va a menú principal de la aplicación.
-                        Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
+                        AbrirMenuPrincipal_Usuario();
                     }
 
                     if (EstadoAdministrador)
@@ -89,7 +88,7 @@ namespace ProyectoAndriodCsharp.Forms
                         ,string.Format("Se ha registrado correctamente como: {0}", Memoria.UsuarioActual.NombreUsuario)
                         , "Aceptar");
 
-                    // Va a menú de usuarios.
+                    AbrirMenuPrincipal_Usuario();
                 }
             }
         }
@@ -133,6 +132,11 @@ namespace ProyectoAndriodCsharp.Forms
         private async void MensajeEmergente(string titulo, string cuerpo, string mensajeBoton)
         {
             await DisplayAlert(titulo, cuerpo, mensajeBoton);
+        }
+
+        private void AbrirMenuPrincipal_Usuario()
+        {
+            Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
         }
     }
 }
