@@ -64,7 +64,7 @@ namespace ProyectoAndriodCsharp.Forms
             if (Registro_EspaciosLlenos() &&
                 Registro_ContraseniasCoinciden())
             {
-                UsuarioModel usuario = new UsuarioModel()
+                Usuario usuario = new Usuario()
                 {
                     NombreUsuario = entry_RegistroNombreUsuario.Text,
                     Nombre = entry_RegistroNombre.Text + " " + entry_RegistroApellido.Text,

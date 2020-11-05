@@ -11,6 +11,6 @@ namespace ProyectoAndriodCsharp.Objects
         /// Guarda el usuario que actualmente se ha logeado. Ejemplo de uso en
         /// UsuarioController -> ValidarUsuario
         /// </summary>
-        public static UsuarioModel UsuarioActual = null;
+        public static Usuario UsuarioActual = null;
     }
 }
