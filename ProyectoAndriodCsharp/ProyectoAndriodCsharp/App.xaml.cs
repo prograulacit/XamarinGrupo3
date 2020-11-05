@@ -11,9 +11,9 @@ namespace ProyectoAndriodCsharp
         public App()
         {
             InitializeComponent();
-            DataConnection.CreateTables();
             // DataConnection.DropTables();
-            MainPage = new TestRoom();
+            DataConnection.CreateTables();
+            MainPage = new LoginRegistro();
         }
 
         protected override void OnStart()
