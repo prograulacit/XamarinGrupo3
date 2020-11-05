@@ -23,7 +23,7 @@ namespace ProyectoAndriodCsharp.Forms
             //ProductoController.InsertarPrueba();
             int count = 0;
             NombreUsuario.Text = Memoria.UsuarioActual.Nombre;
-            Rol.Text = Memoria.UsuarioActual.US_ROL;
+            
             if (Memoria.UsuarioActual.US_ROL.Equals("Usuario")) {
                 NewProducto.IsVisible = false;
                 NewAdmin.IsVisible = false;
@@ -48,6 +48,22 @@ namespace ProyectoAndriodCsharp.Forms
             
 
 
+        }
+
+        private void Logout_Clicked(object sender, EventArgs e)
+        {
+            Memoria.UsuarioActual = null;
+            Application.Current.MainPage = new NavigationPage(new LoginRegistro());
+        }
+
+        private void NewProducto_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new NavigationPage(new NuevoProducto());
+        }
+
+        private void NewAdmin_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new NavigationPage(new NuevoAdmin());
         }
     }
 }

@@ -5,11 +5,11 @@
     
         
         <NavigationPage.TitleView>
-            <Grid>
-                <Label x:Name="NombreUsuario" Grid.Column="0" Grid.Row="0"/>
-                <Label x:Name="Rol" Grid.Column="1" Grid.Row="0"/>
-                <Button x:Name="NewAdmin" Grid.Column="2" Grid.Row="0"/>
-                <Button Grid.Row="0" Grid.Column="3" Text="Agregar Producto" x:Name="NewProducto"/>
+            <Grid Padding="0.5">
+                <Label x:Name="NombreUsuario" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Button x:Name="NewAdmin" Grid.Column="1" Grid.Row="0" Clicked="NewAdmin_Clicked" Text="Administrador" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <Button  x:Name="NewProducto" Grid.Row="0" Grid.Column="2" Text="Producto"  Clicked="NewProducto_Clicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <Button  x:Name="Logout" Text="Logout"  Grid.Column="3" Grid.Row="0" Clicked="Logout_Clicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
             </Grid>
         </NavigationPage.TitleView>
     <ContentPage.Content>
