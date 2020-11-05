@@ -61,7 +61,7 @@ namespace ProyectoAndriodCsharp.Controller
         }
 
         public static IEnumerable<Producto> GetAllProductos() {
-            using (SQLiteConnection sqliteConnection=new SQLiteConnection(DataConnection.GetConnectionPath())) {
+            SQLiteConnection sqliteConnection = new SQLiteConnection(DataConnection.GetConnectionPath());
                 try
                 {
                     sqliteConnection.CreateTable<Producto>();
@@ -70,7 +70,7 @@ namespace ProyectoAndriodCsharp.Controller
                 }
                 catch (Exception ex) { }
                 return Enumerable.Empty<Producto>();
-            }
+            
         }
 
 

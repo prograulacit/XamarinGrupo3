@@ -5,6 +5,20 @@
     
         <StackLayout>
             <Label Text="Welcome to Xamarin.Forms!" />
+
+        <Label x:Name="ListNull"/>
+        <Label x:Name="List"/>
+        <Grid>
+            <Label x:Name="lblName1" Grid.Row="0" Grid.Column="0"/>
+            <Label x:Name="lblName2" Grid.Row="1" Grid.Column="0"/>
+            <Label x:Name="lblDesc2" Grid.Row="1" Grid.Column="1"/>
+            <Label x:Name="lblDesc1" Grid.Row="0" Grid.Column="1"/>
+
+        </Grid>
+        <Grid x:Name="GridAllProducts">
+            
+            
+        </Grid>
         </StackLayout>
     
 </ContentPage>
