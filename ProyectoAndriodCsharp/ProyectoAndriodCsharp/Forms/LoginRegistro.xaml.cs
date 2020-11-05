@@ -24,37 +24,35 @@ namespace ProyectoAndriodCsharp.Forms
                 loginRequest.Username = entry_IngresoUsuario.Text;
                 loginRequest.Password = entry_IngresoContrasenia.Text;
 
-                bool EstadoUsuario = UsuarioController.ValidarUsuario(loginRequest);
-                bool EstadoAdministrador = UsuarioController.ValidarAdministrador(loginRequest);
 
-                if (EstadoUsuario || EstadoAdministrador)
+                if (CNIniciarComoAdmin.IsChecked && UsuarioController.ValidarAdministrador(loginRequest))
                 {
-                    if (EstadoUsuario)
-                    {
-                        Memoria.UsuarioActual = UsuarioController
-                            .GetUsuarioByUsername(loginRequest.Username);
-                        MensajeEmergente("Cliente correcto"
+                    Memoria.UsuarioActual = UsuarioController
+                                .GetUsuarioByUsername(loginRequest.Username);
+                    MensajeEmergente("Administrador correcto"
                             , string.Format("Ingreso de {0} correcto.", Memoria.UsuarioActual.NombreUsuario)
                             , "Aceptar");
+                    AbrirMenuPrincipal();
+                }
+                else { MensajeEmergente("Ingreso incorrecto", "Los credenciales son incorrectos.", "Aceptar"); }
 
-                        AbrirMenuPrincipal_Usuario();
-                    }
 
-                    if (EstadoAdministrador)
-                    {
-                        Memoria.UsuarioActual = UsuarioController
-                            .GetUsuarioByUsername(loginRequest.Username);
-                        MensajeEmergente("Administrador correcto"
-                            , string.Format("Ingreso de {0} correcto.", Memoria.UsuarioActual.NombreUsuario)
-                            , "Aceptar");
-
-                        // Va a menú de administradores.
-                    }
+                if (!CNIniciarComoAdmin.IsChecked) {
+                    Memoria.UsuarioActual = UsuarioController.GetUsuarioByUsername(loginRequest.Username);
+                    MensajeEmergente("Cliente correcto"
+                               , string.Format("Ingreso de {0} correcto.", Memoria.UsuarioActual.NombreUsuario)
+                               , "Aceptar");
+                    AbrirMenuPrincipal();
                 }
                 else
                 {
                     MensajeEmergente("Ingreso incorrecto", "Los credenciales son incorrectos.", "Aceptar");
                 }
+
+
+
+
+
             }
         }
 
@@ -88,7 +86,7 @@ namespace ProyectoAndriodCsharp.Forms
                         ,string.Format("Se ha registrado correctamente como: {0}", Memoria.UsuarioActual.NombreUsuario)
                         , "Aceptar");
 
-                    AbrirMenuPrincipal_Usuario();
+                    AbrirMenuPrincipal();
                 }
             }
         }
@@ -134,7 +132,7 @@ namespace ProyectoAndriodCsharp.Forms
             await DisplayAlert(titulo, cuerpo, mensajeBoton);
         }
 
-        private void AbrirMenuPrincipal_Usuario()
+        private void AbrirMenuPrincipal()
         {
             Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
         }

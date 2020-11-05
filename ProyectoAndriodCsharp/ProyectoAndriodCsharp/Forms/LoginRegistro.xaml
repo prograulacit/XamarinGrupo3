@@ -18,6 +18,10 @@
                            HeightRequest="90" Margin="0,0,0,0"/>
 
                 <StackLayout Grid.Row="1" Padding="10,20">
+                    <Grid>
+                        <CheckBox x:Name="CNIniciarComoAdmin" Grid.Column="0" Grid.Row="0" Color="Black" VerticalOptions="Center"/>
+                        <Label Text="Iniciar Como Administrador" Grid.Column="1" Grid.ColumnSpan="7" VerticalOptions="Center"/>
+                    </Grid>
                     <Entry Placeholder="Usuario" x:Name="entry_IngresoUsuario"/>
                     <Entry Placeholder="Contraseña" x:Name="entry_IngresoContrasenia" IsPassword="True"/>
                     <Button Text="Iniciar sesión" CornerRadius="3" Clicked="btn_IniciarSesion" />
@@ -41,6 +45,7 @@
                            HeightRequest="90" Margin="0,0,0,0"/>
 
                 <StackLayout Grid.Row="1" Padding="10,20">
+                    
                     <Entry Placeholder="Nombre de usuario" x:Name="entry_RegistroNombreUsuario"/>
                     <Entry Placeholder="Nombre" x:Name="entry_RegistroNombre"/>
                     <Entry Placeholder="Apellido" x:Name="entry_RegistroApellido"/>

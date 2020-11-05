@@ -12,6 +12,7 @@ namespace ProyectoAndriodCsharp
         {
             InitializeComponent();
             // DataConnection.DropTables();
+
             DataConnection.CreateTables();
             MainPage = new LoginRegistro();
         }
