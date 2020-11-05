@@ -24,7 +24,7 @@ namespace ProyectoAndriodCsharp
 
         void Btn_IniciarSesion_Clicked(object sender, EventArgs args)
         {
-            ((NavigationPage)this.Parent).PushAsync(new MenuPrincipal());
+            ((NavigationPage)this.Parent).PushAsync(new Forms.MenuPrincipal());
 
         }
 

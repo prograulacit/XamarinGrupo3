@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAndriodCsharp.Forms.LoginRegistro">
+    
+    <ContentPage Title="Ingreso">
+        <Grid>
+            <!--<Image Source="fondo.png" Aspect="AspectFill"></Image>-->
+            <BoxView Color="LightSkyBlue" Opacity="0.5"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Source="logo1.png" WidthRequest="90"
+                           HeightRequest="90" Margin="0,0,0,0"/>
+
+                <StackLayout Grid.Row="1" Padding="10,20">
+                    <Entry Placeholder="Usuario" x:Name="entry_IngresoUsuario"/>
+                    <Entry Placeholder="Contraseña" x:Name="entry_IngresoContrasenia" IsPassword="True"/>
+                    <Button Text="Iniciar sesión" CornerRadius="3" Clicked="btn_IniciarSesion" />
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage>
+
+    <ContentPage Title="Registro">
+        <Grid>
+            <!--<Image Source="fondo.png" Aspect="AspectFill"></Image>-->
+            <BoxView Color="LightSkyBlue" Opacity="0.5"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Source="logo1.png" WidthRequest="90"
+                           HeightRequest="90" Margin="0,0,0,0"/>
+
+                <StackLayout Grid.Row="1" Padding="10,20">
+                    <Entry Placeholder="Nombre de usuario" x:Name="entry_RegistroNombreUsuario"/>
+                    <Entry Placeholder="Nombre" x:Name="entry_RegistroNombre"/>
+                    <Entry Placeholder="Apellido" x:Name="entry_RegistroApellido"/>
+                    <Entry Placeholder="Email" x:Name="entry_RegistroEmail"/>
+                    <Entry Placeholder="Contraseña" x:Name="entry_RegistroContrasenia" IsPassword="True"/>
+                    <Entry Placeholder="Confirmar Contraseña" x:Name="entry_RegistroContraseniaConfirmar" IsPassword="True"/>
+                    <Button Text="Registrarse" CornerRadius="3" Clicked="btn_Registrarse" />
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage>
+
+</TabbedPage>

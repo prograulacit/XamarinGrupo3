@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using ProyectoAndriodCsharp.Model;
 using ProyectoAndriodCsharp.Models;
+using ProyectoAndriodCsharp.Objects;
 
 namespace ProyectoAndriodCsharp.Controller
 {
@@ -62,7 +63,6 @@ namespace ProyectoAndriodCsharp.Controller
             }
             return FilasAfectadas;
         }
-        
 
         public int ActualizarUsuario(Usuario Usuario)
         {
@@ -83,24 +83,40 @@ namespace ProyectoAndriodCsharp.Controller
         {
             using (SQLiteConnection sqliteConn = new SQLiteConnection(DataConnection.GetConnectionPath()))
             {
-                return sqliteConn.Table<Model.Usuario>().Where(i => i.NombreUsuario == username).FirstOrDefault();
+                return sqliteConn.Table<Usuario>()
+                    .Where(i => i.NombreUsuario == username).FirstOrDefault();
             }
         }
-        public static bool ValidarUsuario(LoginRequest loginRequest) {
+
+        public static bool ValidarUsuario(LoginRequest loginRequest)
+        {
             bool result = false;
-            Usuario usuario=GetUsuarioByUsername(loginRequest.Username);
-            if (usuario.NombreUsuario.Equals(loginRequest.Username) && usuario.Contrasenia.Equals(loginRequest.Password) && usuario.US_ROL.Equals("Usuario")) {
-                result = true;
+            Usuario usuario = GetUsuarioByUsername(loginRequest.Username);
+            if (usuario != null)
+            {
+                if (usuario.NombreUsuario.Equals(loginRequest.Username) &&
+                usuario.Contrasenia.Equals(loginRequest.Password) &&
+                usuario.US_ROL.Equals("Usuario"))
+                {
+                    result = true;
+                }
             }
             return result;
         }
+
         public static bool ValidarAdministrador(LoginRequest loginRequest)
         {
             bool result = false;
             Usuario usuario = GetUsuarioByUsername(loginRequest.Username);
-            if (usuario.NombreUsuario.Equals(loginRequest.Username) && usuario.Contrasenia.Equals(loginRequest.Password) && usuario.US_ROL.Equals("Administrador"))
+
+            if (usuario != null)
             {
-                result = true;
+                if (usuario.NombreUsuario.Equals(loginRequest.Username) &&
+                    usuario.Contrasenia.Equals(loginRequest.Password) &&
+                    usuario.US_ROL.Equals("Administrador"))
+                {
+                    result = true;
+                }
             }
             return result;
         }

@@ -3,15 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoAndriodCsharp.Forms.MenuPrincipal">
     
-
-    <Grid x:Name="gridProductos">
-        <!--<Label x:Name="lbl1" Grid.Column="0" Grid.Row="0"/>
-        <Label x:Name="lbl2" Grid.Column="1" Grid.Row="0"/>-->
-
-        <ScrollView>
-            <Label x:Name="prueba"/>  
-
-
-        </ScrollView>
-    </Grid>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!" />
+        </StackLayout>
+    
 </ContentPage>
