@@ -2,11 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoAndriodCsharp.Forms.NuevoAdmin">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
+    <NavigationPage.TitleView>
+        <Grid ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="MenuPrincipal" Grid.Column="0" Grid.Row="0" Clicked="MenuPrincipal_Clicked"  Text="Menu Principal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        <Button  x:Name="NewProducto" Grid.Row="0" Grid.Column="1" Text="Producto"  Clicked="NewProducto_Clicked"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        <Button  x:Name="Logout" Text="Logout"  Grid.Column="2" Grid.Row="0" Clicked="Logout_Clicked"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        </Grid>
+    </NavigationPage.TitleView>
+    <StackLayout>
+        <Entry Placeholder="Nombre de usuario" x:Name="entry_RegistroNombreUsuario"/>
+        <Entry Placeholder="Nombre" x:Name="entry_RegistroNombre"/>
+        <Entry Placeholder="Apellido" x:Name="entry_RegistroApellido"/>
+        <Entry Placeholder="Email" x:Name="entry_RegistroEmail"/>
+        <Entry Placeholder="Contraseña" x:Name="entry_RegistroContrasenia" IsPassword="True"/>
+        <Entry Placeholder="Confirmar Contraseña" x:Name="entry_RegistroContraseniaConfirmar" IsPassword="True"/>
+        <Button Text="Registrar Administrador" x:Name="NewAdmin" CornerRadius="3" Clicked="NewAdmin_Clicked" />
+    </StackLayout>
 </ContentPage>

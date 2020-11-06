@@ -1,4 +1,5 @@
-﻿using ProyectoAndriodCsharp.Forms;
+﻿using ProyectoAndriodCsharp.Controller;
+using ProyectoAndriodCsharp.Forms;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,10 +12,16 @@ namespace ProyectoAndriodCsharp.Objects
         public int DinamicValue { get; set; }
         
         
-        public void MyButton_Click(object sender, EventArgs e)
+        public void SetMemoriaIdByProductID(object sender, EventArgs e)
         {
             Memoria.ProductoID=DinamicValue;
             Application.Current.MainPage = new NavigationPage(new DescripcionProducto());
         }
+        public void BorrarProducto(object sender, EventArgs e)
+        {
+            ProductoController.EliminarProducto(ProductoController.GetProductoByID(Memoria.ProductoID));
+            Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
+        }
+
     }
 }

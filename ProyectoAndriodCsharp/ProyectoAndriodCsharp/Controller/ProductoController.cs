@@ -14,9 +14,9 @@ namespace ProyectoAndriodCsharp.Controller
         
         public static void InsertarPrueba()
         {
-            Producto product1 = new Producto { PRO_NOMBRE = "string1", PRO_DESCRIPCION = "string1", PRO_PRECIO = 12 };
-            Producto product2 = new Producto { PRO_NOMBRE = "string2", PRO_DESCRIPCION = "string2", PRO_PRECIO = 22 };
-            Producto product3 = new Producto { PRO_NOMBRE = "string3", PRO_DESCRIPCION = "string3", PRO_PRECIO = 32 };
+            Producto product1 = new Producto { PRO_NOMBRE = "string1", PRO_DESCRIPCION = "string1", PRO_PRECIO = 12 ,PRO_ESTADO="Activo"};
+            Producto product2 = new Producto { PRO_NOMBRE = "string2", PRO_DESCRIPCION = "string2", PRO_PRECIO = 22, PRO_ESTADO = "Activo" };
+            Producto product3 = new Producto { PRO_NOMBRE = "string3", PRO_DESCRIPCION = "string3", PRO_PRECIO = 32, PRO_ESTADO = "Activo" };
             ProductoController.IngresarProducto(product1);
             ProductoController.IngresarProducto(product2);
             ProductoController.IngresarProducto(product3);
@@ -33,8 +33,9 @@ namespace ProyectoAndriodCsharp.Controller
 
         public static bool EliminarProducto(Producto productoModel) {
             bool result = false;
+            productoModel.PRO_ESTADO = "Inactivo";
             using (SQLiteConnection sQLiteConnection = new SQLiteConnection(DataConnection.GetConnectionPath())) {
-                int filasAfectadas=sQLiteConnection.Delete(productoModel);
+                int filasAfectadas=sQLiteConnection.Update(productoModel);
                 if (filasAfectadas > 0) {
                     result = true;
                 }
@@ -60,18 +61,23 @@ namespace ProyectoAndriodCsharp.Controller
                 return sQLiteConnection.Table<Producto>().Where(i => i.PRO_ID == ID).FirstOrDefault();
             }
         }
+        public static IEnumerable<Producto> GetAllProductosDisponibles() {
+            SQLiteConnection sqliteConnection = new SQLiteConnection(DataConnection.GetConnectionPath());
+            IEnumerable<Producto> listProductos = sqliteConnection.Table<Producto>().Where(v=>v.PRO_ESTADO.Equals("Activo"));
+            return listProductos;
+        }
+        public static IEnumerable<Producto> GetAllProductosNoDisponibles()
+        {
+            SQLiteConnection sqliteConnection = new SQLiteConnection(DataConnection.GetConnectionPath());
+            IEnumerable<Producto> listProductos = sqliteConnection.Table<Producto>().Where(v => v.PRO_ESTADO.Equals("Inactivos"));
+            return listProductos;
+        }
+
 
         public static IEnumerable<Producto> GetAllProductos() {
             SQLiteConnection sqliteConnection = new SQLiteConnection(DataConnection.GetConnectionPath());
-                try
-                {
-                    sqliteConnection.CreateTable<Producto>();
-                    IEnumerable<Producto>listProductos= sqliteConnection.Table<Producto>();
-                    return listProductos;
-                }
-                catch (Exception ex) { }
-                return Enumerable.Empty<Producto>();
-            
+            IEnumerable<Producto>listProductos= sqliteConnection.Table<Producto>();
+            return listProductos;
         }
 
 
