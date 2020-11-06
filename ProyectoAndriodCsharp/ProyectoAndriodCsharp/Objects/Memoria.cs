@@ -1,4 +1,5 @@
-﻿using ProyectoAndriodCsharp.Model;
+﻿using ProyectoAndriodCsharp.Controller;
+using ProyectoAndriodCsharp.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,5 +13,8 @@ namespace ProyectoAndriodCsharp.Objects
         /// UsuarioController -> ValidarUsuario
         /// </summary>
         public static Usuario UsuarioActual = null;
+        public static int ProductoID = 0;
+        
+
     }
 }

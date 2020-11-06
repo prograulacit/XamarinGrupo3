@@ -1,5 +1,6 @@
 ﻿using ProyectoAndriodCsharp.Model;
 using ProyectoAndriodCsharp.Models;
+using ProyectoAndriodCsharp.Objects;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -53,7 +54,7 @@ namespace ProyectoAndriodCsharp.Controller
             }
             return result;
         }
-
+        
         public static Producto GetProductoByID(int ID) {
             using (SQLiteConnection sQLiteConnection= new SQLiteConnection(DataConnection.GetConnectionPath())) {
                 return sQLiteConnection.Table<Producto>().Where(i => i.PRO_ID == ID).FirstOrDefault();
