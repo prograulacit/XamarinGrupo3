@@ -12,13 +12,18 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
+
             
-            <Button x:Name="NewAdmin" Grid.Column="0" Grid.Row="0" Clicked="NewAdmin_Clicked" Text="Administrador" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-            <Button  x:Name="NewProducto" Grid.Row="0" Grid.Column="1" Text="Producto"  Clicked="NewProducto_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-            <Button  x:Name="Logout" Text="Logout"  Grid.Column="2" Grid.Row="0" Clicked="Logout_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-            </Grid>
+            <Button  x:Name="Carrito" Text="Carrito" Grid.Column="0" Grid.Row="0" Clicked="Carrito_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Button  x:Name="NewAdmin" Text="Administrador" Grid.Column="1" Grid.Row="0" Clicked="NewAdmin_Clicked"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Button  x:Name="NewProducto" Text="Producto" Grid.Column="2" Grid.Row="0"    Clicked="NewProducto_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Button  x:Name="Logout" Text="Logout"  Grid.Column="3" Grid.Row="0" Clicked="Logout_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+            
+
+        </Grid>
         </NavigationPage.TitleView>
-    
+
     <ContentPage.Content>
         
         <ScrollView>
@@ -49,5 +54,6 @@
         </ScrollView>
     </ContentPage.Content>
 
+   
 
 </ContentPage>

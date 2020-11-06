@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAndriodCsharp.Forms.Carrito">
+
+        <StackLayout>
+            <Label Text="Carrito" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+
+        <NavigationPage.TitleView>
+            <Grid ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+
+            <Button  x:Name="Volver" Text="Volver" Grid.Column="0" Grid.Row="0" Clicked="Volver_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Button  x:Name="Logout" Text="Logout"  Grid.Column="3" Grid.Row="0" Clicked="Logout_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+
+        </Grid>
+        </NavigationPage.TitleView>
+        
+  
+</ContentPage>
