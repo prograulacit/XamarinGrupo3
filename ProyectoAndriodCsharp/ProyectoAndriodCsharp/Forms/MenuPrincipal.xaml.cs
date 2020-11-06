@@ -20,7 +20,7 @@ namespace ProyectoAndriodCsharp.Forms
         public MenuPrincipal()
         {
             InitializeComponent();
-            ProductoController.InsertarPrueba();
+            //ProductoController.InsertarPrueba();
             int count = 0;
             NombreUsuario.Text = Memoria.UsuarioActual.Nombre;
             

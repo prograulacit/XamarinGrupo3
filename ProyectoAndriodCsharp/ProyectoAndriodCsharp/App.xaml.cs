@@ -13,13 +13,13 @@ namespace ProyectoAndriodCsharp
         public App()
         {
             InitializeComponent();
-            //DataConnection.DropTables();
+            
 
             DataConnection.CreateTables();
-            //Usuario usuario = new Usuario {Nombre="Edu",US_ROL="Usuario",Contrasenia="123",NombreUsuario="user" };
-            //Usuario administrador = new Usuario { Nombre = "Eduardo", US_ROL = "Administrador", Contrasenia = "123", NombreUsuario = "admin" };
-            //UsuarioController.IngresarUsuario(usuario);
-            //UsuarioController.IngresarUsuario(administrador);
+            Usuario usuario = new Usuario {Nombre="Edu",US_ROL="Usuario",Contrasenia="123",NombreUsuario="user" };
+            Usuario administrador = new Usuario { Nombre = "Eduardo", US_ROL = "Administrador", Contrasenia = "123", NombreUsuario = "admin" };
+            if (UsuarioController.GetUsuarioByUsername("admin") == null) { UsuarioController.IngresarUsuario(administrador); }
+            if (UsuarioController.GetUsuarioByUsername("user") == null) { UsuarioController.IngresarUsuario(usuario); }
             MainPage = new LoginRegistro();
         }
 
