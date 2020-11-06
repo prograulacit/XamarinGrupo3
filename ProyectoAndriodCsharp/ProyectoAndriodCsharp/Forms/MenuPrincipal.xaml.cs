@@ -33,6 +33,7 @@ namespace ProyectoAndriodCsharp.Forms
             if (Memoria.UsuarioActual.US_ROL.Equals("Usuario")) {
                 NewProducto.IsVisible = false;
                 NewAdmin.IsVisible = false;
+
                 foreach (var product in ProductoController.GetAllProductos())
                 {
                     DinamicButton dinamicButton = new DinamicButton();
@@ -66,7 +67,11 @@ namespace ProyectoAndriodCsharp.Forms
 
 
         }
-        
+
+        private void Carrito_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new NavigationPage(new Carrito());
+        }
 
         private void Logout_Clicked(object sender, EventArgs e)
         {
