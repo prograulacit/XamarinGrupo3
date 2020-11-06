@@ -4,6 +4,7 @@ using ProyectoAndriodCsharp.Objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,31 +18,47 @@ namespace ProyectoAndriodCsharp.Forms
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPrincipal : ContentPage
     {
+        
         public MenuPrincipal()
         {
-            InitializeComponent();
-            //ProductoController.InsertarPrueba();
-            int count = 0;
-            NombreUsuario.Text = Memoria.UsuarioActual.Nombre;
             
+            InitializeComponent();
+            
+            if (ProductoController.GetProductoByID(7) == null) {
+                ProductoController.InsertarPrueba();
+                ProductoController.InsertarPrueba();
+            }
+            int count = 1;
+            NombreUsuario.Text = Memoria.UsuarioActual.Nombre;
             if (Memoria.UsuarioActual.US_ROL.Equals("Usuario")) {
                 NewProducto.IsVisible = false;
                 NewAdmin.IsVisible = false;
                 foreach (var product in ProductoController.GetAllProductos())
                 {
+                    DinamicButton dinamicButton = new DinamicButton();
+                    dinamicButton.DinamicValue = product.PRO_ID;
+                    dinamicButton.Text = "Ver";
+                    dinamicButton.Clicked += new EventHandler(dinamicButton.MyButton_Click);
                     GridAllProducts.Children.Add(new Label { Text = product.PRO_NOMBRE }, 0, count);
                     GridAllProducts.Children.Add(new Label { Text = product.PRO_DESCRIPCION }, 1, count);
                     GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(product.PRO_PRECIO).ToString() }, 2, count);
+                    GridAllProducts.Children.Add(dinamicButton, 3, count);
                     count += 1;
                 }
             }
+            
             if (Memoria.UsuarioActual.US_ROL.Equals("Administrador")) {
                 foreach (var product in ProductoController.GetAllProductos())
                 {
-                    GridAllProducts.Children.Add(new Label { Text = product.PRO_NOMBRE }, 0, count);
-                    GridAllProducts.Children.Add(new Label { Text = product.PRO_DESCRIPCION }, 1, count);
-                    GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(product.PRO_PRECIO).ToString() }, 2, count);
-                    GridAllProducts.Children.Add(new Button { Text = "Borrar Producto" }, 3, count);
+                    DinamicButton dinamicButton = new DinamicButton();
+                    dinamicButton.DinamicValue = product.PRO_ID;
+                    dinamicButton.Text = "Ver";
+                    dinamicButton.Clicked += new EventHandler(dinamicButton.MyButton_Click);
+                    
+                    GridAllProducts.Children.Add(new Label { Text = product.PRO_NOMBRE ,HorizontalTextAlignment=TextAlignment.Center,VerticalTextAlignment=TextAlignment.Center}, 0, count);
+                    GridAllProducts.Children.Add(new Label { Text = product.PRO_DESCRIPCION, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center }, 1, count);
+                    GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(product.PRO_PRECIO).ToString(), HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center }, 2, count);
+                    GridAllProducts.Children.Add(dinamicButton, 3, count);
                     count += 1;
                 }
             }
@@ -49,6 +66,7 @@ namespace ProyectoAndriodCsharp.Forms
 
 
         }
+        
 
         private void Logout_Clicked(object sender, EventArgs e)
         {

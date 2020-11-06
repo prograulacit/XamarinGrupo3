@@ -5,18 +5,48 @@
     
         
         <NavigationPage.TitleView>
-            <Grid Padding="0.5">
-                <Label x:Name="NombreUsuario" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                <Button x:Name="NewAdmin" Grid.Column="1" Grid.Row="0" Clicked="NewAdmin_Clicked" Text="Administrador" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-            <Button  x:Name="NewProducto" Grid.Row="0" Grid.Column="2" Text="Producto"  Clicked="NewProducto_Clicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-            <Button  x:Name="Logout" Text="Logout"  Grid.Column="3" Grid.Row="0" Clicked="Logout_Clicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        <Grid ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <Button x:Name="NewAdmin" Grid.Column="0" Grid.Row="0" Clicked="NewAdmin_Clicked" Text="Administrador" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Button  x:Name="NewProducto" Grid.Row="0" Grid.Column="1" Text="Producto"  Clicked="NewProducto_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Button  x:Name="Logout" Text="Logout"  Grid.Column="2" Grid.Row="0" Clicked="Logout_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
             </Grid>
         </NavigationPage.TitleView>
+    
     <ContentPage.Content>
-        <Grid x:Name="GridAllProducts">
-            
-            
+        
+        <ScrollView>
+            <Grid x:Name="GridAllProducts" Margin="20,10,20,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75" />
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+            </Grid.RowDefinitions>
+                
+                        <Label x:Name="NombreUsuario"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.ColumnSpan="4" />
+               
+                
         </Grid>
+        </ScrollView>
     </ContentPage.Content>
 
 
