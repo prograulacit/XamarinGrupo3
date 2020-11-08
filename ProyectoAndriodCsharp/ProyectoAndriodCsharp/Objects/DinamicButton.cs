@@ -19,7 +19,7 @@ namespace ProyectoAndriodCsharp.Objects
         }
         public void BorrarProducto(object sender, EventArgs e)
         {
-            ProductoController.EliminarProducto(ProductoController.GetProductoByID(Memoria.ProductoID));
+            ProductoRepository.EliminarProducto(ProductoRepository.GetProductoByID(Memoria.ProductoID));
             Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
         }
 

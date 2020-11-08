@@ -24,9 +24,9 @@ namespace ProyectoAndriodCsharp.Forms
             
             InitializeComponent();
             
-            if (ProductoController.GetProductoByID(7) == null) {
-                ProductoController.InsertarPrueba();
-                ProductoController.InsertarPrueba();
+            if (ProductoRepository.GetProductoByID(7) == null) {
+                ProductoRepository.InsertarPrueba();
+                ProductoRepository.InsertarPrueba();
             }
             int count = 1;
             NombreUsuario.Text = Memoria.UsuarioActual.Nombre;
@@ -34,7 +34,7 @@ namespace ProyectoAndriodCsharp.Forms
                 NewProducto.IsVisible = false;
                 NewAdmin.IsVisible = false;
 
-                foreach (var product in ProductoController.GetAllProductos())
+                foreach (var product in ProductoRepository.GetAllProductos())
                 {
                     DinamicButton dinamicButton = new DinamicButton();
                     dinamicButton.DinamicValue = product.PRO_ID;
@@ -49,7 +49,7 @@ namespace ProyectoAndriodCsharp.Forms
             }
             
             if (Memoria.UsuarioActual.US_ROL.Equals("Administrador")) {
-                foreach (var product in ProductoController.GetAllProductos())
+                foreach (var product in ProductoRepository.GetAllProductos())
                 {
                     DinamicButton dinamicButton = new DinamicButton();
                     dinamicButton.DinamicValue = product.PRO_ID;

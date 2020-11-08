@@ -15,11 +15,11 @@ namespace ProyectoAndriodCsharp.Models
         public static void CreateTables() {
             SQLiteConnection sqLiteConnection = new SQLiteConnection(GetConnectionPath());
             sqLiteConnection.CreateTable<Usuario>();
-            //sqLiteConnection.CreateTable<Compra>();
+            sqLiteConnection.CreateTable<Compra>();
             sqLiteConnection.CreateTable<Producto>();
-            //sqLiteConnection.CreateTable<Abono>();
-            //sqLiteConnection.CreateTable<AbonoPorMes>();
-            //sqLiteConnection.CreateTable<CompraProductos>();
+            sqLiteConnection.CreateTable<CompraProductos>();
+            sqLiteConnection.CreateTable<Abono>();
+            sqLiteConnection.CreateTable<AbonoPorMes>();
         }
 
         public static void DropTables() {
