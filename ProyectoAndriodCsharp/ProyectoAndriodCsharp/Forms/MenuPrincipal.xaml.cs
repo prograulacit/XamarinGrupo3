@@ -55,7 +55,6 @@ namespace ProyectoAndriodCsharp.Forms
                     dinamicButton.DinamicValue = product.PRO_ID;
                     dinamicButton.Text = "Ver";
                     dinamicButton.Clicked += new EventHandler(dinamicButton.SetMemoriaIdByProductID);
-                    
                     GridAllProducts.Children.Add(new Label { Text = product.PRO_NOMBRE ,HorizontalTextAlignment=TextAlignment.Center,VerticalTextAlignment=TextAlignment.Center}, 0, count);
                     GridAllProducts.Children.Add(new Label { Text = product.PRO_DESCRIPCION, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center }, 1, count);
                     GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(product.PRO_PRECIO).ToString(), HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center }, 2, count);
