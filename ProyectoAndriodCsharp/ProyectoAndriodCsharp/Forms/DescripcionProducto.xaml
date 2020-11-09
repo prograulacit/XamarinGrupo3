@@ -14,11 +14,22 @@
 
             <Label Text="Precio:" ></Label>
             <Label x:Name="PrecioProducto"/>
+
+            <Label Grid.Row="3" Grid.Column="0"
+                       Text="Cantidad: "
+                      />
+            <Label x:Name="lbl_qnt_productos" Grid.Row="3" Grid.Column="1"
+                   BindingContext="{x:Reference stepperproducto}"
+                   Text="{Binding Value}"
+                   />
+            <Stepper x:Name="stepperproducto" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
+                 Minimum="1" Maximum="10" Increment="1"    />
+
             <Button x:Name="btnMenu" Text="Menu" Clicked="btnMenu_Clicked" ></Button>
             <Button x:Name="btnlogout" Text="Salir" Clicked="btnlogout_Clicked" ></Button>
             <ImageButton x:Name="btnCarrito" Source="carrito.png" WidthRequest="50" HeightRequest="50" Clicked="btnCarrito_Clicked"> </ImageButton>
-             
 
+           
 
         </StackLayout>
     </ContentPage.Content>
