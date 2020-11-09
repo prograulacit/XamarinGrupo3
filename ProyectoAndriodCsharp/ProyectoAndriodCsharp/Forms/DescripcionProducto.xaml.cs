@@ -24,6 +24,23 @@ namespace ProyectoAndriodCsharp.Forms
             PrecioProducto.Text = producto.PRO_PRECIO.ToString();
 
 
+
+
+        }
+
+        private async void btnMenu_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MenuPrincipal());
+        }
+
+        private async void btnlogout_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MainPage ());
+        }
+
+        private async void btnCarrito_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Carrito());
         }
     }
 }

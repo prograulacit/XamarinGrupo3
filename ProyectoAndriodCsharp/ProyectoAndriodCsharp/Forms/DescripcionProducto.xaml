@@ -4,10 +4,20 @@
              x:Class="ProyectoAndriodCsharp.Forms.DescripcionProducto">
     <ContentPage.Content>
         <StackLayout>
-            <Label x:Name="NombreProducto"/>
-            <Label x:Name="DescripcionProduct"/>
-            <Label x:Name="PrecioProducto"/>
 
+            <Label Text="Detalles del Producto" FontSize="Title" TextColor="Black"></Label>
+            <Label Text="Nombre del producto: " ></Label>
+          <Label x:Name="NombreProducto"/>
+
+            <Label Text="Descripción:" ></Label>
+            <Label x:Name="DescripcionProduct"/>
+
+            <Label Text="Precio:" ></Label>
+            <Label x:Name="PrecioProducto"/>
+            <Button x:Name="btnMenu" Text="Menu" Clicked="btnMenu_Clicked" ></Button>
+            <Button x:Name="btnlogout" Text="Salir" Clicked="btnlogout_Clicked" ></Button>
+            <ImageButton x:Name="btnCarrito" Source="carrito.png" WidthRequest="50" HeightRequest="50" Clicked="btnCarrito_Clicked"> </ImageButton>
+             
 
 
         </StackLayout>
