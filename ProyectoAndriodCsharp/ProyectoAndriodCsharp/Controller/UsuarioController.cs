@@ -72,6 +72,15 @@ namespace ProyectoAndriodCsharp.Controller
             return FilasAfectadas;
         }
 
+
+        public static bool ExisteUsuarioByUsername(string username) {
+            bool result = false;
+            SQLiteConnection sQLiteConnection = new SQLiteConnection(DataConnection.GetConnectionPath());
+            Usuario user=sQLiteConnection.Table<Usuario>().Where(i => i.NombreUsuario == username).FirstOrDefault();
+            if (user!=null) { result = true; }
+            return result;
+        }
+
         public int ActualizarUsuario(Usuario Usuario)
         {
             int FilasAfectadas = 0;

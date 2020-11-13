@@ -14,9 +14,9 @@ namespace ProyectoAndriodCsharp.Controller
         
         public static void InsertarPrueba()
         {
-            Producto product1 = new Producto { PRO_NOMBRE = "string1", PRO_DESCRIPCION = "string1", PRO_PRECIO = 12 ,PRO_ESTADO="Activo"};
-            Producto product2 = new Producto { PRO_NOMBRE = "string2", PRO_DESCRIPCION = "string2", PRO_PRECIO = 22, PRO_ESTADO = "Activo" };
-            Producto product3 = new Producto { PRO_NOMBRE = "string3", PRO_DESCRIPCION = "string3", PRO_PRECIO = 32, PRO_ESTADO = "Activo" };
+            Producto product1 = new Producto { PRO_NOMBRE = "Lavadora", PRO_DESCRIPCION = "Soporta 75kgs", PRO_PRECIO = 2000 ,PRO_ESTADO="Activo"};
+            Producto product2 = new Producto { PRO_NOMBRE = "Refrigeradora", PRO_DESCRIPCION = "2m alto", PRO_PRECIO = 1500, PRO_ESTADO = "Activo" };
+            Producto product3 = new Producto { PRO_NOMBRE = "Cocina", PRO_DESCRIPCION = "6 discos", PRO_PRECIO = 2500, PRO_ESTADO = "Activo" };
             ProductoRepository.IngresarProducto(product1);
             ProductoRepository.IngresarProducto(product2);
             ProductoRepository.IngresarProducto(product3);

@@ -12,7 +12,7 @@ namespace ProyectoAndriodCsharp.Model
         public int COMP_ID { get; set; }
         [Indexed]
         public int COM_ID { get; set; }
-        [Indexed,Unique]
+        [Indexed]
         public int PRO_ID { get; set; }
         public int COMP_CANTIDAD { get; set; }
     }

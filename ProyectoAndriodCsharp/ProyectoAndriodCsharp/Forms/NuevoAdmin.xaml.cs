@@ -39,10 +39,10 @@ namespace ProyectoAndriodCsharp.Forms
 
         private void NewAdmin_Clicked(object sender, EventArgs e)
         {
-            if (UsuarioController.GetUsuarioByUsername(entry_RegistroNombreUsuario.Text) == null)
+            if (!UsuarioController.ExisteUsuarioByUsername(entry_RegistroNombreUsuario.Text))
             {
 
-                if (entry_RegistroContrasenia.Text.Equals(entry_RegistroContraseniaConfirmar))
+                if (entry_RegistroContrasenia.Text.Equals(entry_RegistroContraseniaConfirmar.Text))
                 {
                     Usuario administrador = new Usuario
                     {
@@ -55,6 +55,15 @@ namespace ProyectoAndriodCsharp.Forms
                     UsuarioController.IngresarUsuario(administrador);
                 }
             }
+            else {
+                MostrarMensaje("Alerta","Este nombre de usuario ya está en uso","Ok");
+            }
+        }
+
+
+        public async void MostrarMensaje(string titulo,string mensaje,string Ok) {
+            await DisplayAlert(titulo,mensaje,Ok);
+
         }
     }
 }
