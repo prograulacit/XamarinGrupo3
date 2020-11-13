@@ -24,6 +24,7 @@ namespace ProyectoAndriodCsharp.Forms
         public Carrito()
         {
             InitializeComponent();
+            Factura.Clicked += Factura_Clicked;
 
             if (ProductoRepository.GetProductoByID(7) == null)
             {
@@ -56,6 +57,11 @@ namespace ProyectoAndriodCsharp.Forms
                     count += 1;
                 }
 
+        }
+
+        private void Factura_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new NavigationPage(new Factura());
         }
 
         private void Volver_Clicked(object sender, EventArgs e)

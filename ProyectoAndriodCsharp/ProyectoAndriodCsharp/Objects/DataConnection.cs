@@ -17,7 +17,7 @@ namespace ProyectoAndriodCsharp.Models
             sqLiteConnection.CreateTable<Usuario>();
             sqLiteConnection.CreateTable<Compra>();
             sqLiteConnection.CreateTable<Producto>();
-            sqLiteConnection.CreateTable<CompraProductos>();
+            sqLiteConnection.CreateTable<CompraProductos>();  //BORRAR UNIQUE EN EL MODEL COMPRAPRODUCTOS.CS PARA QUE SIRVA POR MIENTRAS
             sqLiteConnection.CreateTable<Abono>();
             sqLiteConnection.CreateTable<AbonoPorMes>();
         }
