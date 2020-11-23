@@ -5,11 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
-
 using ProyectoAndriodCsharp.Model;
 using System.Security.Cryptography.X509Certificates;
 using Xamarin.Forms.Markup;
@@ -25,8 +22,7 @@ namespace ProyectoAndriodCsharp.Forms
         public Carrito()
         {
             InitializeComponent();
-
-         
+                     
             int count = 1;
 
               foreach (var product in Memoria.listaCarrito)
@@ -58,7 +54,6 @@ namespace ProyectoAndriodCsharp.Forms
 
                 count += 1;
               }
-
         }
 
         private void Stepper_ValueChanged(object sender, ValueChangedEventArgs e)

@@ -14,7 +14,7 @@ namespace ProyectoAndriodCsharp.Model
         public CompraProductos(int COM_ID, int PRO_ID, int COMP_CANTIDAD)
         {
             this.COM_ID = COM_ID;
-            PRO_ID = PRO_ID;
+            this.PRO_ID = PRO_ID;
             this.COMP_CANTIDAD = COMP_CANTIDAD;
         }
 
