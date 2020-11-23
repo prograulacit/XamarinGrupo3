@@ -14,7 +14,7 @@ namespace ProyectoAndriodCsharp.Objects
         /// </summary>
         public static Usuario UsuarioActual = null;
         public static int ProductoID = 0;
-        public static string State="";
-
+        public static List<CompraProductos> listaCarrito = new List<CompraProductos>();
+        public static string State = "";
     }
 }

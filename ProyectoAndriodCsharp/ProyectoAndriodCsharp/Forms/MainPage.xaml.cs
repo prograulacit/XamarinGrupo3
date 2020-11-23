@@ -40,21 +40,5 @@ namespace ProyectoAndriodCsharp
 
         }
 
-        public async Task AvisoAsync()
-        {
-            await DisplayAlert("Control Alert", "Acabo de avisar", "OK");
-        }
-
-        public async Task OnAlertSiNoClicked()
-        {
-            bool answer = await DisplayAlert("Pregunta?", "Quiere jugar", "Si", "No");
-        }
-
-        public async Task OnActionSheetSimpleClicked()
-        {
-            string action = await DisplayActionSheet("Acciones: Donde quiere ir?", "Cancelar",
-                null, "Email", "Twitter", "Facebook");
-        }
-
     }
 }

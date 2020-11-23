@@ -7,7 +7,7 @@
 
             <Label Text="Detalles del Producto" FontSize="Title" TextColor="Black"></Label>
             <Label Text="Nombre del producto: " ></Label>
-          <Label x:Name="NombreProducto"/>
+            <Label x:Name="NombreProducto"/>
 
             <Label Text="Descripción:" ></Label>
             <Label x:Name="DescripcionProduct"/>
@@ -25,6 +25,7 @@
             <Stepper x:Name="stepperproducto" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
                  Minimum="1" Maximum="10" Increment="1"    />
 
+            <Button x:Name="btnComprar" Text="Comprar" Clicked="btnComprar_Clicked" ></Button>
             <Button x:Name="btnMenu" Text="Menu" Clicked="btnMenu_Clicked" ></Button>
             <Button x:Name="btnlogout" Text="Salir" Clicked="btnlogout_Clicked" ></Button>
             <ImageButton x:Name="btnCarrito" Source="carrito.png" WidthRequest="50" HeightRequest="50" Clicked="btnCarrito_Clicked"> </ImageButton>
