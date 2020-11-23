@@ -21,42 +21,49 @@ namespace ProyectoAndriodCsharp.Forms
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Carrito : ContentPage
     {
+        Label label;
         public Carrito()
         {
             InitializeComponent();
-            Factura.Clicked += Factura_Clicked;
 
-            if (ProductoRepository.GetProductoByID(7) == null)
-            {
-                ProductoRepository.InsertarPrueba();
-                ProductoRepository.InsertarPrueba();
-            }
+         
             int count = 1;
 
-                foreach (var product in ProductoRepository.GetAllProductos())
-                {
-                    DinamicButton dinamicButton = new DinamicButton();
-                    dinamicButton.DinamicValue = product.PRO_ID;
-                    dinamicButton.Text = "Ver";
+              foreach (var product in Memoria.listaCarrito)
+              {
+                DinamicButton dinamicButton = new DinamicButton();
+                dinamicButton.DinamicValue = product.PRO_ID;
+                dinamicButton.Text = "Eliminar";
+                
 
-                    DinamicButton dinamicButton2 = new DinamicButton();
-                    dinamicButton2.Text = "Eliminar";
+                Stepper stepper = new Stepper();
+                stepper.Margin = new Thickness(20);
+                stepper.HorizontalOptions = LayoutOptions.Start;
+                stepper.Maximum = 10;
+                stepper.Minimum = 1;
+                stepper.Increment = 1;
+                stepper.ValueChanged += Stepper_ValueChanged;
 
-                    DinamicButton dinamicButton3 = new DinamicButton();
-                    dinamicButton3.Text = "Agregar";
+                label = new Label { Text = "" };
+                
 
+                 GridAllProducts.Children.Add(new Label { Text = product.PRO_ID.ToString() }, 0, count);
+                 //GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(10).ToString() }, 1, count);
+                 GridAllProducts.Children.Add(new Label { Text = "$100" }, 1, count);
+                 GridAllProducts.Children.Add(new Label { Text = product.COMP_CANTIDAD.ToString() }, 2, count);
+                 
+                 GridAllProducts.Children.Add(label, 3, count);
+                 GridAllProducts.Children.Add(stepper, 4, count);
+                 //GridAllProducts.Children.Add(dinamicButton, 5, count);
 
-                    //dinamicButton.Clicked += new EventHandler(dinamicButton.SetMemoriaIdByProductID);
-                    GridAllProducts.Children.Add(new Label { Text = product.PRO_NOMBRE }, 0, count);
-                    GridAllProducts.Children.Add(new Label { Text = product.PRO_DESCRIPCION }, 1, count);
-                    GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(product.PRO_PRECIO).ToString() }, 2, count);
-                    GridAllProducts.Children.Add(dinamicButton, 3, count);
-                    GridAllProducts.Children.Add(dinamicButton2, 4, count);
-                    GridAllProducts.Children.Add(dinamicButton3, 5, count);
+                count += 1;
+              }
 
-                    count += 1;
-                }
+        }
 
+        private void Stepper_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            label.Text = String.Format(e.NewValue.ToString());
         }
 
         private void Factura_Clicked(object sender, EventArgs e)
