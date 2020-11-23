@@ -2,11 +2,31 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoAndriodCsharp.Forms.NuevoProducto">
+
+    <NavigationPage.TitleView>
+        <Grid ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Button  x:Name="Actualizar" Text="Actualizar" Grid.Column="0" Grid.Row="0" Clicked="Actualizar_Clicked"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Button  x:Name="MenuPrincipal" Text="Menu Principal" Grid.Column="1" Grid.Row="0" Clicked="MenuPrincipal_Clicked"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        </Grid>
+    </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+            <Grid>
+                <CheckBox x:Name="CNInsertarComoInactivo" Grid.Column="0" Grid.Row="0" Color="Black" VerticalOptions="Center"/>
+                <Label Text="Insertar como Producto Inactivo" Grid.Column="1" Grid.ColumnSpan="7" VerticalOptions="Center"/>
+            </Grid>
+            <Entry x:Name="entry_Nombre" Placeholder="Nombre"/>
+            <Entry x:Name="entry_Descripcion" Placeholder="Descripcion"/>
+            <Entry x:Name="entry_Precio" Placeholder="Precio"/>
+            <Button x:Name="Insertar" Clicked="Insertar_Clicked" Text="Insertar Producto"/>
+               </StackLayout>
     </ContentPage.Content>
 </ContentPage>

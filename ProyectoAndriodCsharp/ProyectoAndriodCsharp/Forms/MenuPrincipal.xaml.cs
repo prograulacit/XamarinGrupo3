@@ -34,7 +34,7 @@ namespace ProyectoAndriodCsharp.Forms
                 NewProducto.IsVisible = false;
                 NewAdmin.IsVisible = false;
 
-                foreach (var product in ProductoRepository.GetAllProductos())
+                foreach (var product in ProductoRepository.GetAllProductosDisponibles())
                 {
                     DinamicButton dinamicButton = new DinamicButton();
                     dinamicButton.DinamicValue = product.PRO_ID;

@@ -77,11 +77,12 @@ namespace ProyectoAndriodCsharp.Controller
             IEnumerable<Compra> listCompra = sqliteConnection.Table<Compra>().Where(v => v.US_ID==UserId);
             return listCompra;
         }
+
         public static bool ExisteCarritoPorUsuario(int UserID)
         {
             bool result = true;
             SQLiteConnection sqliteConnection = new SQLiteConnection(DataConnection.GetConnectionPath());
-            if (sqliteConnection.Table<Compra>().Where(v => (v.US_ID == UserID && v.COM_ESTADO.Equals("Carrito"))) == null) { result = false; }
+            if (sqliteConnection.Table<Compra>().Where(v => (v.US_ID == UserID && v.COM_ESTADO.Equals("Activo"))) == null) { result = false; }
             return result;
         }
 
