@@ -14,7 +14,7 @@ namespace ProyectoAndriodCsharp.Objects
         public void SetMemoriaIdByProductID(object sender, EventArgs e)
         {
             Memoria.ProductoID=DinamicValue;
-            ApplCrication.Current.MainPage = new NavigationPage(new DescripcionProducto());
+            Application.Current.MainPage = new NavigationPage(new DescripcionProducto());
         }
         public void ViewProductasAdmin(object sender, EventArgs e) {
             Memoria.ProductoID = DinamicValue;
@@ -26,6 +26,8 @@ namespace ProyectoAndriodCsharp.Objects
             ProductoRepository.EliminarProducto(ProductoRepository.GetProductoByID(Memoria.ProductoID));
             Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
         }
+
+
 
     }
 }
