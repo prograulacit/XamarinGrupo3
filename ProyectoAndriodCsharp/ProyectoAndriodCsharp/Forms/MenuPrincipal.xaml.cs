@@ -40,24 +40,20 @@ namespace ProyectoAndriodCsharp.Forms
                     dinamicButton.DinamicValue = product.PRO_ID;
                     dinamicButton.Text = "Ver";
                     dinamicButton.Clicked += new EventHandler(dinamicButton.SetMemoriaIdByProductID);
-
                     GridAllProducts.Children.Add(new Label { Text = product.PRO_NOMBRE }, 0, count);
                     GridAllProducts.Children.Add(new Label { Text = product.PRO_DESCRIPCION }, 1, count);
                     GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(product.PRO_PRECIO).ToString() }, 2, count);
-
                     GridAllProducts.Children.Add(dinamicButton, 3, count);
-
                     count += 1;
                 }
             }
-            
             if (Memoria.UsuarioActual.US_ROL.Equals("Administrador")) {
-                foreach (var product in ProductoRepository.GetAllProductos())
+                foreach (var product in ProductoRepository.GetAllProductosDisponibles())
                 {
                     DinamicButton dinamicButton = new DinamicButton();
                     dinamicButton.DinamicValue = product.PRO_ID;
                     dinamicButton.Text = "Ver";
-                    dinamicButton.Clicked += new EventHandler(dinamicButton.SetMemoriaIdByProductID);
+                    dinamicButton.Clicked += new EventHandler(dinamicButton.ViewProductasAdmin);
                     GridAllProducts.Children.Add(new Label { Text = product.PRO_NOMBRE ,HorizontalTextAlignment=TextAlignment.Center,VerticalTextAlignment=TextAlignment.Center}, 0, count);
                     GridAllProducts.Children.Add(new Label { Text = product.PRO_DESCRIPCION, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center }, 1, count);
                     GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(product.PRO_PRECIO).ToString(), HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center }, 2, count);
@@ -83,6 +79,7 @@ namespace ProyectoAndriodCsharp.Forms
 
         private void NewProducto_Clicked(object sender, EventArgs e)
         {
+            Memoria.State = "New";
             Application.Current.MainPage = new NavigationPage(new NuevoProducto());
         }
 

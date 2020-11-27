@@ -21,7 +21,7 @@
         <StackLayout>
             <Grid>
                 <CheckBox x:Name="CNInsertarComoInactivo" Grid.Column="0" Grid.Row="0" Color="Black" VerticalOptions="Center"/>
-                <Label Text="Insertar como Producto Inactivo" Grid.Column="1" Grid.ColumnSpan="7" VerticalOptions="Center"/>
+                <Label Text="Insertar como Producto Inactivo" Grid.Column="1" Grid.ColumnSpan="7" VerticalOptions="Center" x:Name="Activo"/>
             </Grid>
             <Entry x:Name="entry_Nombre" Placeholder="Nombre"/>
             <Entry x:Name="entry_Descripcion" Placeholder="Descripcion"/>

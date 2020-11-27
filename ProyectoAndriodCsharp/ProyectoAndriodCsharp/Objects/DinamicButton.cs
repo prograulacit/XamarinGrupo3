@@ -10,12 +10,16 @@ namespace ProyectoAndriodCsharp.Objects
     public partial class DinamicButton:Button
     {
         public int DinamicValue { get; set; }
-        
-        
+
         public void SetMemoriaIdByProductID(object sender, EventArgs e)
         {
             Memoria.ProductoID=DinamicValue;
-            Application.Current.MainPage = new NavigationPage(new DescripcionProducto());
+            ApplCrication.Current.MainPage = new NavigationPage(new DescripcionProducto());
+        }
+        public void ViewProductasAdmin(object sender, EventArgs e) {
+            Memoria.ProductoID = DinamicValue;
+            Memoria.State = "See";
+            Application.Current.MainPage = new NavigationPage(new NuevoProducto());
         }
         public void BorrarProducto(object sender, EventArgs e)
         {
