@@ -26,6 +26,11 @@ namespace ProyectoAndriodCsharp.Objects
             ProductoRepository.EliminarProducto(ProductoRepository.GetProductoByID(Memoria.ProductoID));
             Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
         }
+        public void SeeFactura(object sender,EventArgs e) {
+            Memoria.ProductoID = DinamicValue;
+            Memoria.State = "See";
+            Application.Current.MainPage = new NavigationPage(new Factura());
+        }
 
 
 

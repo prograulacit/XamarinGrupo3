@@ -87,5 +87,10 @@ namespace ProyectoAndriodCsharp.Forms
         {
             Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
         }
+
+        private void AllFacturas_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new NavigationPage(new AllFacturas());
+        }
     }
 }

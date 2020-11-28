@@ -1,5 +1,6 @@
 ﻿using ProyectoAndriodCsharp.Controller;
 using ProyectoAndriodCsharp.Model;
+using ProyectoAndriodCsharp.Objects;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -14,29 +15,27 @@ namespace ProyectoAndriodCsharp.Forms
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AllFacturas : ContentPage
     {
-        public ObservableCollection<Compra> Facturas { get; set; }
-        public ObservableCollection<Usuario> users { get; set; }
+        
         public AllFacturas()
         {
             InitializeComponent();
+            int count = 1;
+            if (CompraRepository.GetCompraByID(7) == null) { CompraRepository.InsertarPrueba(); }
 
-            Facturas = new ObservableCollection<Compra>();
 
-            foreach (var fact in CompraRepository.GetAllFacturas()) {
-                Facturas.Add(fact);
+            foreach (var compra in CompraRepository.GetAllFacturas()) {
+                DinamicButton dinamicButton = new DinamicButton();
+                dinamicButton.DinamicValue = compra.COM_ID;
+                dinamicButton.Text = "Ver";
+                dinamicButton.Clicked += new EventHandler(dinamicButton.SeeFactura);
+                GridAllFacturas.Children.Add(new Label { Text = compra.COM_FECHA_COMPRA.ToString() }, 0, count);
+                GridAllFacturas.Children.Add(new Label { Text = "$"+Math.Truncate(compra.COM_PRECIO_TOTAL).ToString() }, 1, count);
+                GridAllFacturas.Children.Add(dinamicButton, 2, count);
+                count += 1;
             }
-            MyListView.ItemsSource = Facturas;
+            
         }
 
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            if (e.Item == null)
-                return;
-
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
-
-            //Deselect Item
-            ((ListView)sender).SelectedItem = null;
-        }
+        
     }
 }

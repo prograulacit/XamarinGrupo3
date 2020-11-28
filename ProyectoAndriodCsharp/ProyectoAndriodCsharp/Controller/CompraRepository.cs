@@ -9,10 +9,25 @@ namespace ProyectoAndriodCsharp.Controller
 {
     public class CompraRepository
     {
+        public static void InsertarPrueba(){
+            DeleteAllRows();
+            Compra c1 = new Compra { US_ID = 1, COM_ESTADO = "Factura", COM_FECHA_COMPRA = DateTime.Now, COM_PRECIO_IVA = 100, COM_PRECIO_TOTAL=2000 };
+            Compra c2 = new Compra { US_ID = 1, COM_ESTADO = "Factura", COM_FECHA_COMPRA = DateTime.Now, COM_PRECIO_IVA = 200, COM_PRECIO_TOTAL = 3000 };
+            Compra c3 = new Compra { US_ID = 1, COM_ESTADO = "Factura", COM_FECHA_COMPRA = DateTime.Now, COM_PRECIO_IVA = 300, COM_PRECIO_TOTAL = 4000 };
+            IngresarCompra(c1);
+            IngresarCompra(c2);
+            IngresarCompra(c3);
+        }
         public static void CrearTabla() {
             SQLiteConnection sQLiteConnection = new SQLiteConnection(DataConnection.GetConnectionPath());
             sQLiteConnection.CreateTable<Compra>();
         
+        }
+        public static void DeleteAllRows() {
+            using (SQLiteConnection sQLiteConnection = new SQLiteConnection(DataConnection.GetConnectionPath())) {
+                sQLiteConnection.DeleteAll<Compra>();
+            
+            }
         }
         public static bool IngresarCompra(Compra compra)
         {
