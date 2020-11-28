@@ -13,20 +13,23 @@ namespace ProyectoAndriodCsharp.Objects
 
         public void SetMemoriaIdByProductID(object sender, EventArgs e)
         {
-            Memoria.ProductoID=DinamicValue;
+            Memoria.DinamicID=DinamicValue;
             Application.Current.MainPage = new NavigationPage(new DescripcionProducto());
         }
         public void ViewProductasAdmin(object sender, EventArgs e) {
-            Memoria.ProductoID = DinamicValue;
+            Memoria.DinamicID = DinamicValue;
             Memoria.State = "See";
             Application.Current.MainPage = new NavigationPage(new NuevoProducto());
         }
         public void BorrarProducto(object sender, EventArgs e)
         {
-            ProductoRepository.EliminarProducto(ProductoRepository.GetProductoByID(Memoria.ProductoID));
+            ProductoRepository.EliminarProducto(ProductoRepository.GetProductoByID(Memoria.DinamicID));
             Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
         }
-
+        public void SeeFacturasByUser(object sender,EventArgs e) {
+            Memoria.DinamicID = DinamicValue;
+            Application.Current.MainPage = new NavigationPage(new AllFacturas());
+        }
 
 
     }
