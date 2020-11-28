@@ -15,7 +15,6 @@
 
             <Button  x:Name="Actualizar" Text="Actualizar" Grid.Column="0" Grid.Row="0" Clicked="Actualizar_Clicked"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
             <Button  x:Name="MenuPrincipal" Text="Menu Principal" Grid.Column="1" Grid.Row="0" Clicked="MenuPrincipal_Clicked"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-            <Button  x:Name="AllFacts" Text="Facturas" Grid.Column="2" Grid.Row="0" Clicked="AllFacts_Clicked"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
         </Grid>
     </NavigationPage.TitleView>
     <ContentPage.Content>

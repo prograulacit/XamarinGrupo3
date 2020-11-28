@@ -1,6 +1,5 @@
 ﻿using ProyectoAndriodCsharp.Model;
 using ProyectoAndriodCsharp.Models;
-using ProyectoAndriodCsharp.Objects;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -10,29 +9,6 @@ namespace ProyectoAndriodCsharp.Controller
 {
     public class CompraRepository
     {
-        public static void InsertPrueba() {
-            Compra compra1 = new Compra { US_ID = Memoria.UsuarioActual.UsuarioId,COM_FECHA_COMPRA=DateTime.Now,COM_ESTADO="Factura",COM_PRECIO_IVA
-            =12,COM_PRECIO_TOTAL=1000};
-            Compra compra2 = new Compra {
-                US_ID = Memoria.UsuarioActual.UsuarioId,
-                COM_FECHA_COMPRA = DateTime.Now,
-                COM_ESTADO = "Factura",
-                COM_PRECIO_IVA
-            = 10,
-                COM_PRECIO_TOTAL = 3000
-            };
-            Compra compra3 = new Compra {
-                US_ID = Memoria.UsuarioActual.UsuarioId,
-                COM_FECHA_COMPRA = DateTime.Now,
-                COM_ESTADO = "Factura",
-                COM_PRECIO_IVA
-            = 11,
-                COM_PRECIO_TOTAL = 2000
-            };
-            IngresarCompra(compra1);
-            IngresarCompra(compra2);
-            IngresarCompra(compra3);
-        }
         public static void CrearTabla() {
             SQLiteConnection sQLiteConnection = new SQLiteConnection(DataConnection.GetConnectionPath());
             sQLiteConnection.CreateTable<Compra>();
