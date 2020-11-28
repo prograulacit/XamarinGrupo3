@@ -6,11 +6,11 @@
 
     <NavigationPage.TitleView>
         <Grid ColumnSpacing="0">
-            
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
@@ -18,11 +18,11 @@
             <Button  x:Name="Volver" Text="Volver" Grid.Column="0" Grid.Row="0" Clicked="Volver_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
             <Button  x:Name="Logout" Text="Logout"  Grid.Column="3" Grid.Row="0" Clicked="Logout_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
             <Button  x:Name="Factura" Text="Factura"  Grid.Column="4" Grid.Row="0" Clicked="Factura_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-            
+
 
         </Grid>
     </NavigationPage.TitleView>
-    
+
     <ContentPage.Content>
 
         <ScrollView>
@@ -38,23 +38,17 @@
                     <RowDefinition Height="75"/>
                     <RowDefinition Height="75"/>
                     <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
                 </Grid.RowDefinitions>
 
                 <Label Text="Carrito"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.ColumnSpan="4" />
             </Grid>
-             
+
         </ScrollView>
-       
+
     </ContentPage.Content>
 
-    
-   
+
+
 
 
 </ContentPage>

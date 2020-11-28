@@ -19,6 +19,7 @@ namespace ProyectoAndriodCsharp.Forms
     public partial class Carrito : ContentPage
     {
         Label label;
+        Label labelCantidad;
         public Carrito()
         {
             InitializeComponent();
@@ -28,29 +29,36 @@ namespace ProyectoAndriodCsharp.Forms
               foreach (var product in Memoria.listaCarrito)
               {
                 DinamicButton dinamicButton = new DinamicButton();
-                dinamicButton.DinamicValue = product.PRO_ID;
+                dinamicButton.DinamicValue = product.PRO_ID.PRO_ID;
                 dinamicButton.Text = "Eliminar";
-                
 
-                Stepper stepper = new Stepper();
-                stepper.Margin = new Thickness(20);
-                stepper.HorizontalOptions = LayoutOptions.Start;
-                stepper.Maximum = 10;
-                stepper.Minimum = 1;
-                stepper.Increment = 1;
-                stepper.ValueChanged += Stepper_ValueChanged;
+                var entry = new Entry { Text = "" };
+                entry.Text = product.COMP_CANTIDAD.ToString();
 
-                label = new Label { Text = "" };
-                
+                /*Stepper stepper = new Stepper
+                {
+                    Margin = new Thickness(20),
+                    HorizontalOptions = LayoutOptions.Start,
+                    Maximum = 10,
+                    Minimum = 1,
+                    Increment = 1,
+                    Value = product.COMP_CANTIDAD,
+                    
+                };*/
 
-                 GridAllProducts.Children.Add(new Label { Text = product.PRO_ID.ToString() }, 0, count);
-                 //GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(10).ToString() }, 1, count);
-                 GridAllProducts.Children.Add(new Label { Text = "$100" }, 1, count);
-                 GridAllProducts.Children.Add(new Label { Text = product.COMP_CANTIDAD.ToString() }, 2, count);
-                 
-                 GridAllProducts.Children.Add(label, 3, count);
-                 GridAllProducts.Children.Add(stepper, 4, count);
-                 //GridAllProducts.Children.Add(dinamicButton, 5, count);
+
+
+                //stepper.ValueChanged += Stepper_ValueChanged;
+
+
+                labelCantidad = new Label { Text = product.COMP_CANTIDAD.ToString() };
+
+                GridAllProducts.Children.Add(new Label { Text = product.PRO_ID.PRO_NOMBRE }, 0, count);
+                GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(product.PRO_ID.PRO_PRECIO).ToString() }, 1, count);
+
+                GridAllProducts.Children.Add(dinamicButton, 2, count);
+                GridAllProducts.Children.Add(entry, 3, count);
+
 
                 count += 1;
               }
@@ -58,7 +66,7 @@ namespace ProyectoAndriodCsharp.Forms
 
         private void Stepper_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            label.Text = String.Format(e.NewValue.ToString());
+            labelCantidad.Text = String.Format(e.NewValue.ToString());
         }
 
         private void Factura_Clicked(object sender, EventArgs e)

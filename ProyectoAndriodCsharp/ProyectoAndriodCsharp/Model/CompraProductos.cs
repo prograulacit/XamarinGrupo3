@@ -1,6 +1,7 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace ProyectoAndriodCsharp.Model
@@ -8,10 +9,8 @@ namespace ProyectoAndriodCsharp.Model
     [Table("CompraProductos")]
     public class CompraProductos
     {
-        private int v1;
-        private int v2;
 
-        public CompraProductos(int COM_ID, int PRO_ID, int COMP_CANTIDAD)
+        public CompraProductos(int COM_ID, Producto PRO_ID, int COMP_CANTIDAD)
         {
             this.COM_ID = COM_ID;
             this.PRO_ID = PRO_ID;
@@ -24,10 +23,13 @@ namespace ProyectoAndriodCsharp.Model
 
         [PrimaryKey,AutoIncrement]
         public int COMP_ID { get; set; }
+
         [Indexed]
         public int COM_ID { get; set; }
+
         [Indexed]
-        public int PRO_ID { get; set; }
+        public Producto PRO_ID { get; set; }
+
         public int COMP_CANTIDAD { get; set; }
 
 
