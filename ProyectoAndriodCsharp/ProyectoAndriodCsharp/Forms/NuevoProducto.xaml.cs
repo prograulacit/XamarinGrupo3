@@ -26,7 +26,7 @@ namespace ProyectoAndriodCsharp.Forms
             }
             else {
                 Insertar.Text = "Borrar Producto";
-                Producto producto = ProductoRepository.GetProductoByID(Memoria.ProductoID);
+                Producto producto = ProductoRepository.GetProductoByID(Memoria.DinamicValue);
                 Activo.Text = "Activo";
                 if (producto.PRO_ESTADO.Equals("Activo")) { CNInsertarComoInactivo.IsChecked = true; } 
                 entry_Nombre.Text = producto.PRO_NOMBRE;
@@ -56,7 +56,7 @@ namespace ProyectoAndriodCsharp.Forms
                 }
             }
             if (Memoria.State.Equals("See")) {
-                ProductoRepository.EliminarProducto(ProductoRepository.GetProductoByID(Memoria.ProductoID));
+                ProductoRepository.EliminarProducto(ProductoRepository.GetProductoByID(Memoria.DinamicValue));
                 Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
             }
 
@@ -72,7 +72,7 @@ namespace ProyectoAndriodCsharp.Forms
         {
             try
             {
-                Producto producto = new Producto { PRO_ID = Memoria.ProductoID, PRO_NOMBRE = entry_Nombre.Text, PRO_DESCRIPCION = entry_Descripcion.Text, PRO_PRECIO = Int32.Parse(entry_Precio.Text) };
+                Producto producto = new Producto { PRO_ID = Memoria.DinamicValue, PRO_NOMBRE = entry_Nombre.Text, PRO_DESCRIPCION = entry_Descripcion.Text, PRO_PRECIO = Int32.Parse(entry_Precio.Text) };
                 if (CNInsertarComoInactivo.IsChecked == true) { producto.PRO_ESTADO = "Activo"; }
                 else { producto.PRO_ESTADO = "Inactivo"; }
                 ProductoRepository.UpdateProducto(producto);

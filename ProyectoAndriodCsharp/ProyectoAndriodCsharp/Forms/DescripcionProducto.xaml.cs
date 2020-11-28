@@ -19,7 +19,7 @@ namespace ProyectoAndriodCsharp.Forms
         public DescripcionProducto()
         {
             InitializeComponent();
-            producto = ProductoRepository.GetProductoByID(Memoria.ProductoID);
+            producto = ProductoRepository.GetProductoByID(Memoria.DinamicValue);
             NombreProducto.Text = producto.PRO_NOMBRE;
             DescripcionProduct.Text = producto.PRO_DESCRIPCION;
             PrecioProducto.Text = producto.PRO_PRECIO.ToString();

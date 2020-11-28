@@ -39,7 +39,7 @@ namespace ProyectoAndriodCsharp.Forms
                 }
                 if (Memoria.State.Equals("See")) {
                     //Leer desde DB
-                    foreach (var cp in CompraProductosRepository.GetAllCPByCompraID(Memoria.ProductoID)) {
+                    foreach (var cp in CompraProductosRepository.GetAllCPByCompraID(Memoria.DinamicValue)) {
                     
                     
                     
