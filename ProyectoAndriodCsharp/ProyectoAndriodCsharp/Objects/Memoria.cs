@@ -13,7 +13,7 @@ namespace ProyectoAndriodCsharp.Objects
         /// UsuarioController -> ValidarUsuario
         /// </summary>
         public static Usuario UsuarioActual = null;
-        public static int ProductoID = 0;
+        public static int DinamicID = 0;
         public static List<CompraProductos> listaCarrito = new List<CompraProductos>();
         public static string State = "";
     }

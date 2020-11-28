@@ -22,7 +22,7 @@ namespace ProyectoAndriodCsharp.Forms
 
         private void Logout_Clicked(object sender, EventArgs e)
         {
-            Memoria.ProductoID = 0;
+            Memoria.DinamicID = 0;
             Memoria.UsuarioActual = null;
             Application.Current.MainPage = new NavigationPage(new LoginRegistro());
         }
