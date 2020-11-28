@@ -14,28 +14,35 @@
 
             <StackLayout Grid.Row="1" Padding="10,20">
                 <Label Text="FACTURA" TextColor="black" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-                <Label x:Name = "lblTienda"  BackgroundColor="white" Text="Importadora Monge" TextColor="Black" FontAttributes="Bold"/>
+                <Label x:Name = "lblTienda"  BackgroundColor="white" Text="ProTek" TextColor="Black" FontAttributes="Bold"/>
                 <Label x:Name = "lblCliente"  BackgroundColor="white" Text="Cliente:" TextColor="Black" FontAttributes="Bold"/>
                 <Label x:Name = "lblEmail"  BackgroundColor="white" Text="Correo Registrado:" TextColor="Black" FontAttributes="Bold"/>
 
 
-                <ListView x:Name ="listaProductos" IsVisible="false" BackgroundColor="White">
-                    <ListView.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Refrigeradora $800</x:String>
-                            <x:String>Lavadora $700</x:String>
-                            <x:String>Secadora $700</x:String>
-                            <x:String>TV $400</x:String>
-                            <x:String>Aire Acondicionado $650</x:String>
-                            <x:String>Ventilador grande $500</x:String>
-                            <x:String>Cocina $700</x:String>
-                        </x:Array>
-                    </ListView.ItemsSource>
-                </ListView>
+                <ScrollView BackgroundColor="White">
+                    <Grid x:Name="listaProductos" Margin="20,10,20,20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="75" />
+                            <RowDefinition Height="75"/>
+                            <RowDefinition Height="75"/>
+                            <RowDefinition Height="75"/>
+                            <RowDefinition Height="75"/>
+                            <RowDefinition Height="75"/>
+                            <RowDefinition Height="75"/>
+                            <RowDefinition Height="75"/>
+                            <RowDefinition Height="75"/>
+                            <RowDefinition Height="75"/>
+                            <RowDefinition Height="75"/>
+                            <RowDefinition Height="75"/>
+                            <RowDefinition Height="75"/>
+                            <RowDefinition Height="75"/>
+                            <RowDefinition Height="75"/>
+                            <RowDefinition Height="75"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </ScrollView>
 
                 <Label x:Name = "lblTotal"  BackgroundColor="white" Text="Monto Total a Pagar:" TextColor="Black" FontAttributes="Bold"/>
-
-                <Button x:Name ="btnVerFactura" Text="Ver Factura" BackgroundColor="Green" TextColor="Black" CornerRadius="20" FontAttributes="Bold"/>
                 <Button x:Name ="btnSalir" Text="Salir" BackgroundColor="Red" TextColor="Black" CornerRadius="20" FontAttributes="Bold"/>
 
             </StackLayout>
