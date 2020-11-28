@@ -28,12 +28,12 @@ namespace ProyectoAndriodCsharp.Forms
 
         private async void btnComprar_Clicked(object sender, EventArgs e)
         {
-           Memoria.listaCarrito.Add(new CompraProductos(10, producto, Int32.Parse(lbl_qnt_productos.Text)));
+           Memoria.listaCarrito.Add(new CompraProductos(10, producto.PRO_ID, Int32.Parse(lbl_qnt_productos.Text)));
            string texto = "";
             
             foreach (var i in Memoria.listaCarrito)
             {
-                texto += i.PRO_ID.PRO_NOMBRE + " " + i.COM_ID.ToString() + " " + i.COMP_CANTIDAD.ToString() + " " + "\n";
+                texto += ProductoRepository.GetProductoByID(i.PRO_ID).PRO_NOMBRE + " " + i.COM_ID.ToString() + " " + i.COMP_CANTIDAD.ToString() + " " + "\n";
             }
 
            await DisplayAlert("Aviso", "Productos: " + "\n" + texto, "OK");

@@ -10,7 +10,7 @@ namespace ProyectoAndriodCsharp.Model
     public class CompraProductos
     {
 
-        public CompraProductos(int COM_ID, Producto PRO_ID, int COMP_CANTIDAD)
+        public CompraProductos(int COM_ID, int PRO_ID, int COMP_CANTIDAD)
         {
             this.COM_ID = COM_ID;
             this.PRO_ID = PRO_ID;
@@ -28,7 +28,7 @@ namespace ProyectoAndriodCsharp.Model
         public int COM_ID { get; set; }
 
         [Indexed]
-        public Producto PRO_ID { get; set; }
+        public int PRO_ID { get; set; }
 
         public int COMP_CANTIDAD { get; set; }
 
