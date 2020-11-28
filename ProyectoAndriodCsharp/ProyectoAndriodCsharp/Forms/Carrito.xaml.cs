@@ -71,6 +71,7 @@ namespace ProyectoAndriodCsharp.Forms
 
         private void Factura_Clicked(object sender, EventArgs e)
         {
+            Memoria.State = "Create";
             Application.Current.MainPage = new NavigationPage(new Factura());
         }
 

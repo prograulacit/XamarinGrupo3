@@ -24,7 +24,7 @@ namespace ProyectoAndriodCsharp.Forms
             lblEmail.Text = "Correo Registrado: " + Memoria.UsuarioActual.Email;
             decimal cobroTotal = 0;
             int count = 0;
-            if (Memoria.UsuarioActual.US_ROL.Equals("Usuario"))
+            if (Memoria.UsuarioActual.US_ROL.Equals("Usuario") || Memoria.UsuarioActual.US_ROL.Equals("Administrador"))
             {
                 if (Memoria.State.Equals("Create"))
                 {
@@ -39,11 +39,16 @@ namespace ProyectoAndriodCsharp.Forms
                 }
                 if (Memoria.State.Equals("See")) {
                     //Leer desde DB
-                    foreach (var cp in CompraProductosRepository.GetAllCPByCompraID(Memoria.DinamicValue)) {
-                    
-                    
-                    
+                    if (CompraProductosRepository.GetAllCPByCompraID(Memoria.DinamicValue).FirstOrDefault()==null) {
+                        listaProductos.Children.Add(new Label { Text = "No hay productos registrados a esta factura.", TextColor = Color.Black }, 0, count);
                     }
+                    else {
+                        foreach (var cp in CompraProductosRepository.GetAllCPByCompraID(Memoria.DinamicValue)) {
+
+
+
+                        } 
+                        }
                 }
 
             }
