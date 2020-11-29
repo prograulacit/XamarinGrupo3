@@ -23,7 +23,7 @@
                    Text="{Binding Value}"
                    />
             <Stepper x:Name="stepperproducto" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
-                 Minimum="1" Maximum="10" Increment="1"    />
+                 Minimum="0" Maximum="10" Increment="1"  ValueChanged="stepperproducto_ValueChanged"  />
 
             <Button x:Name="btnComprar" Text="Comprar" Clicked="btnComprar_Clicked" ></Button>
             <Button x:Name="btnMenu" Text="Menu" Clicked="btnMenu_Clicked" ></Button>

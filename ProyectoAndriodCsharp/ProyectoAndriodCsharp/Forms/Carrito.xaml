@@ -45,8 +45,9 @@
                     </Grid.RowDefinitions>
                     <Label Text="Producto" Grid.Column="0" Grid.Row="0" FontAttributes="Bold"/>
                     <Label Text="Precio" Grid.Column="1" Grid.Row="0" FontAttributes="Bold"/>
-                    <Label Text="Cantidad" Grid.Column="3" Grid.Row="0" FontAttributes="Bold"/>
-
+                    <Label Text="Cantidad" Grid.Column="2" Grid.Row="0" FontAttributes="Bold"/>
+                    <Label Text="Eliminar" Grid.Column="3" Grid.Row="0" FontAttributes="Bold"/>
+                    <Label Text="Ver" Grid.Column="4" Grid.Row="0" FontAttributes="Bold"/>
                 </Grid>
             </ListView.Header>
         </ListView>

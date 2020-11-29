@@ -19,11 +19,15 @@ namespace ProyectoAndriodCsharp.Forms
         public DescripcionProducto()
         {
             InitializeComponent();
+            btnComprar.IsEnabled = false;
             producto = ProductoRepository.GetProductoByID(Memoria.DinamicValue);
             NombreProducto.Text = producto.PRO_NOMBRE;
             DescripcionProduct.Text = producto.PRO_DESCRIPCION;
             PrecioProducto.Text = producto.PRO_PRECIO.ToString();
-            if (Memoria.listaCarrito.Find(x => x.PRO_ID == producto.PRO_ID) != null) { stepperproducto.Value = Memoria.listaCarrito.Find(x => x.PRO_ID == producto.PRO_ID).COMP_CANTIDAD; }
+            if (Memoria.listaCarrito.Find(x => x.PRO_ID == producto.PRO_ID) != null) { 
+                stepperproducto.Value = Memoria.listaCarrito.Find(x => x.PRO_ID == producto.PRO_ID).COMP_CANTIDAD;
+                btnComprar.Text = "Actualizar";
+            }
 
         }
 
@@ -36,11 +40,20 @@ namespace ProyectoAndriodCsharp.Forms
                     if (cp.PRO_ID == producto.PRO_ID)
                     {
                         //update CompraProducto
-                        UpdateList.Add(new CompraProductos(0,producto.PRO_ID,Int32.Parse(lbl_qnt_productos.Text)));
+                        if (Int32.Parse(lbl_qnt_productos.Text) == 0)
+                        {
+
+                        }
+                        else
+                        {
+                            UpdateList.Add(new CompraProductos(0, producto.PRO_ID, Int32.Parse(lbl_qnt_productos.Text)));
+                        }
                     }
                     else {
                         //Seguir con proceso
-                        UpdateList.Add(cp);
+                        
+                            UpdateList.Add(cp);
+                        
                     }
 
                 }
@@ -49,9 +62,10 @@ namespace ProyectoAndriodCsharp.Forms
                 Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
             }
             else {
-                Memoria.listaCarrito.Add(new CompraProductos(0, producto.PRO_ID, Int32.Parse(lbl_qnt_productos.Text)));
-                await DisplayAlert("Aviso", "Producto agregado con éxito.", "Ok");
-                Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
+                
+                    Memoria.listaCarrito.Add(new CompraProductos(0, producto.PRO_ID, Int32.Parse(lbl_qnt_productos.Text)));
+                    await DisplayAlert("Aviso", "Producto agregado con éxito.", "Ok");
+                    Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
             }
             
         }
@@ -62,7 +76,7 @@ namespace ProyectoAndriodCsharp.Forms
         }
         
 
-        private async void btnlogout_Clicked(object sender, EventArgs e)
+        private void btnlogout_Clicked(object sender, EventArgs e)
         {
  
         }
@@ -70,6 +84,21 @@ namespace ProyectoAndriodCsharp.Forms
         private async void btnCarrito_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Carrito());
+        }
+
+        private void stepperproducto_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (Int32.Parse(lbl_qnt_productos.Text) > 0 && btnComprar.Text.Equals("Comprar"))
+            {
+                btnComprar.IsEnabled = true;
+            }
+            if(Int32.Parse(lbl_qnt_productos.Text) == 0 && btnComprar.Text.Equals("Comprar")) {
+                btnComprar.IsEnabled = false;
+            }
+            if (btnComprar.Text.Equals("Actualizar")) {
+                btnComprar.IsEnabled = true;
+            }
+            
         }
     }
 }

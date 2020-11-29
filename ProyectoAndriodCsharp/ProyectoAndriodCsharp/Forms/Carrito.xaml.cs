@@ -26,22 +26,25 @@ namespace ProyectoAndriodCsharp.Forms
 
               foreach (var product in Memoria.listaCarrito)
               {
+                //Boton para eliminar
                 DinamicButton dinamicButton = new DinamicButton();
                 dinamicButton.DinamicValue = product.PRO_ID;
                 dinamicButton.Text = "Eliminar";
-
-                var entry = new Entry { Text = "" };
-                entry.Text = product.COMP_CANTIDAD.ToString();
-                entry.Keyboard = Keyboard.Numeric;
-
-
+                dinamicButton.Clicked += new EventHandler(dinamicButton.BorrarCompraProducto);
                 labelCantidad = new Label { Text = product.COMP_CANTIDAD.ToString() };
+
+                //Boton para ver producto y actualizar
+                DinamicButton dinamicButtonVer = new DinamicButton();
+                dinamicButtonVer.DinamicValue = product.PRO_ID;
+                dinamicButtonVer.Text = "Ver";
+                dinamicButtonVer.Clicked += new EventHandler(dinamicButtonVer.SetMemoriaIdByProductID);
 
                 GridAllProducts.Children.Add(new Label { Text = ProductoRepository.GetProductoByID(product.PRO_ID).PRO_NOMBRE }, 0, count);
                 GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(ProductoRepository.GetProductoByID(product.PRO_ID).PRO_PRECIO).ToString() }, 1, count);
-
-                GridAllProducts.Children.Add(dinamicButton, 2, count);
-                GridAllProducts.Children.Add(entry, 3, count);
+                GridAllProducts.Children.Add(new Label { Text = product.COMP_CANTIDAD.ToString()}, 2, count);
+                GridAllProducts.Children.Add(dinamicButton, 3, count);
+                GridAllProducts.Children.Add(dinamicButtonVer, 4, count);
+               
 
 
                 count += 1;
