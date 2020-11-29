@@ -23,20 +23,20 @@ namespace ProyectoAndriodCsharp.Forms
             NombreProducto.Text = producto.PRO_NOMBRE;
             DescripcionProduct.Text = producto.PRO_DESCRIPCION;
             PrecioProducto.Text = producto.PRO_PRECIO.ToString();
-            if (Memoria.listaCarrito.Find(x => x.PRO_ID.PRO_ID == producto.PRO_ID) != null) { stepperproducto.Value = Memoria.listaCarrito.Find(x => x.PRO_ID.PRO_ID == producto.PRO_ID).COMP_CANTIDAD; }
+            if (Memoria.listaCarrito.Find(x => x.PRO_ID == producto.PRO_ID) != null) { stepperproducto.Value = Memoria.listaCarrito.Find(x => x.PRO_ID == producto.PRO_ID).COMP_CANTIDAD; }
 
         }
 
         private async void btnComprar_Clicked(object sender, EventArgs e)
         {
-            if (Memoria.listaCarrito.Find(x => x.PRO_ID.PRO_ID == producto.PRO_ID) != null)
+            if (Memoria.listaCarrito.Find(x => x.PRO_ID == producto.PRO_ID) != null)
             {
                 List<CompraProductos> UpdateList=new List<CompraProductos>();
                 foreach (var cp in Memoria.listaCarrito) {
-                    if (cp.PRO_ID.PRO_ID == producto.PRO_ID)
+                    if (cp.PRO_ID == producto.PRO_ID)
                     {
                         //update CompraProducto
-                        UpdateList.Add(new CompraProductos(0,producto,Int32.Parse(lbl_qnt_productos.Text)));
+                        UpdateList.Add(new CompraProductos(0,producto.PRO_ID,Int32.Parse(lbl_qnt_productos.Text)));
                     }
                     else {
                         //Seguir con proceso
@@ -49,7 +49,7 @@ namespace ProyectoAndriodCsharp.Forms
                 Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
             }
             else {
-                Memoria.listaCarrito.Add(new CompraProductos(0, producto, Int32.Parse(lbl_qnt_productos.Text)));
+                Memoria.listaCarrito.Add(new CompraProductos(0, producto.PRO_ID, Int32.Parse(lbl_qnt_productos.Text)));
                 await DisplayAlert("Aviso", "Producto agregado con éxito.", "Ok");
                 Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
             }

@@ -22,7 +22,6 @@ namespace ProyectoAndriodCsharp.Forms
         public Carrito()
         {
             InitializeComponent();
-                     
             int count = 1;
 
               foreach (var product in Memoria.listaCarrito)

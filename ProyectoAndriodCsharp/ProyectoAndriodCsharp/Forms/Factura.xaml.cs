@@ -30,10 +30,10 @@ namespace ProyectoAndriodCsharp.Forms
                 {
                     foreach (var product in Memoria.listaCarrito)
                     {
-                        listaProductos.Children.Add(new Label { Text = ProductoRepository.GetProductoByID(product.PRO_ID.PRO_ID).PRO_NOMBRE, TextColor = Color.Black }, 0, count);
-                        listaProductos.Children.Add(new Label { Text = "c/u $" + Math.Truncate(ProductoRepository.GetProductoByID(product.PRO_ID.PRO_ID).PRO_PRECIO).ToString(), TextColor = Color.Black }, 1, count);
+                        listaProductos.Children.Add(new Label { Text = ProductoRepository.GetProductoByID(product.PRO_ID).PRO_NOMBRE, TextColor = Color.Black }, 0, count);
+                        listaProductos.Children.Add(new Label { Text = "c/u $" + Math.Truncate(ProductoRepository.GetProductoByID(product.PRO_ID).PRO_PRECIO).ToString(), TextColor = Color.Black }, 1, count);
                         listaProductos.Children.Add(new Label { Text = "Cantidad: " + product.COMP_CANTIDAD.ToString(), TextColor = Color.Black }, 2, count);
-                        cobroTotal = cobroTotal + ((ProductoRepository.GetProductoByID(product.PRO_ID.PRO_ID).PRO_PRECIO) * product.COMP_CANTIDAD);
+                        cobroTotal = cobroTotal + ((ProductoRepository.GetProductoByID(product.PRO_ID).PRO_PRECIO) * product.COMP_CANTIDAD);
                         count += 1;
                     }
                 }
