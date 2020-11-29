@@ -24,16 +24,33 @@ namespace ProyectoAndriodCsharp.Forms
             lblEmail.Text = "Correo Registrado: " + Memoria.UsuarioActual.Email;
             decimal cobroTotal = 0;
             int count = 0;
-            if (Memoria.UsuarioActual.US_ROL.Equals("Usuario"))
+            if (Memoria.UsuarioActual.US_ROL.Equals("Usuario") || Memoria.UsuarioActual.US_ROL.Equals("Administrador"))
             {
-                foreach (var product in Memoria.listaCarrito)
+                if (Memoria.State.Equals("Create"))
                 {
-                    listaProductos.Children.Add(new Label { Text = ProductoRepository.GetProductoByID(product.PRO_ID).PRO_NOMBRE }, 0, count);
-                    listaProductos.Children.Add(new Label { Text = "c/u $" + Math.Truncate(ProductoRepository.GetProductoByID(product.PRO_ID).PRO_PRECIO).ToString() }, 1, count);
-                    listaProductos.Children.Add(new Label { Text = "Cantidad: " + product.COMP_CANTIDAD.ToString() }, 2, count);
-                    cobroTotal = cobroTotal + ((ProductoRepository.GetProductoByID(product.PRO_ID).PRO_PRECIO) * product.COMP_CANTIDAD);
-                    count += 1;
+                    foreach (var product in Memoria.listaCarrito)
+                    {
+                        listaProductos.Children.Add(new Label { Text = ProductoRepository.GetProductoByID(product.PRO_ID.PRO_ID).PRO_NOMBRE, TextColor = Color.Black }, 0, count);
+                        listaProductos.Children.Add(new Label { Text = "c/u $" + Math.Truncate(ProductoRepository.GetProductoByID(product.PRO_ID.PRO_ID).PRO_PRECIO).ToString(), TextColor = Color.Black }, 1, count);
+                        listaProductos.Children.Add(new Label { Text = "Cantidad: " + product.COMP_CANTIDAD.ToString(), TextColor = Color.Black }, 2, count);
+                        cobroTotal = cobroTotal + ((ProductoRepository.GetProductoByID(product.PRO_ID.PRO_ID).PRO_PRECIO) * product.COMP_CANTIDAD);
+                        count += 1;
+                    }
                 }
+                if (Memoria.State.Equals("See")) {
+                    //Leer desde DB
+                    if (CompraProductosRepository.GetAllCPByCompraID(Memoria.DinamicValue).FirstOrDefault()==null) {
+                        listaProductos.Children.Add(new Label { Text = "No hay productos registrados a esta factura.", TextColor = Color.Black }, 0, count);
+                    }
+                    else {
+                        foreach (var cp in CompraProductosRepository.GetAllCPByCompraID(Memoria.DinamicValue)) {
+
+
+
+                        } 
+                        }
+                }
+
             }
             lblTotal.Text = "Total: $" + cobroTotal;
             btnSalir.Clicked += BtnSalir_Clicked;
@@ -42,7 +59,7 @@ namespace ProyectoAndriodCsharp.Forms
 
         private void BtnSalir_Clicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new NavigationPage(new LoginRegistro());
+            Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
         }
     }
 }
