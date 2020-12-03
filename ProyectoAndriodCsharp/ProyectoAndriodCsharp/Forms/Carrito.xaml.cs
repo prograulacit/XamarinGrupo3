@@ -50,7 +50,14 @@ namespace ProyectoAndriodCsharp.Forms
         private void Factura_Clicked(object sender, EventArgs e)
         {
             Memoria.State = "Create";
-            Application.Current.MainPage = new NavigationPage(new Factura());
+            decimal total=0;
+            foreach (var product in Memoria.listaCarrito)
+            {
+                total += ((ProductoRepository.GetProductoByID(product.PRO_ID).PRO_PRECIO) * product.COMP_CANTIDAD);
+            }
+            Memoria.compra.US_ID =Memoria.UsuarioActual.UsuarioId;
+            Memoria.compra.COM_PRECIO_TOTAL = total;
+            Application.Current.MainPage = new NavigationPage(new AbonoConfigForm());
         }
 
         private void Volver_Clicked(object sender, EventArgs e)

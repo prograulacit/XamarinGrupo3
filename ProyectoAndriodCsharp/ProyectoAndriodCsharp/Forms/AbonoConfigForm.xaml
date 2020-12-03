@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAndriodCsharp.Forms.AbonoConfigForm">
+    <ContentPage.Content>
+        
+        
+            <StackLayout Margin="15" Padding="15">
+            <Grid>
+                
+                <Label Text="Precio Total" Grid.Row="0" Grid.Column="0"/>
+                <Label x:Name="PrecioTotal" Grid.Row="0" Grid.Column="1"/>
+                
+            </Grid>
+            <Grid>
+                <CheckBox CheckedChanged="cb_Abono_CheckedChanged"  x:Name="cb_Abono" Grid.Row="0" Grid.Column="1"/>
+                <Label Text="Pagar con Abono" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand"/>
+            </Grid>
+                <StackLayout x:Name="ConfigAbono">
+
+                <Grid>
+                    <Label Text="Cantidad de meses" Grid.Row="0" Grid.Column="0"/>
+                    <Label x:Name="CantidadDeMeses" Grid.Row="0" Grid.Column="1" BindingContext="{x:Reference stepper}"
+                   Text="{Binding Value}"/>
+                    <Stepper x:Name="stepper" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Minimum="2" Maximum="24" Increment="2"  ValueChanged="ValidacionStepper" HorizontalOptions="CenterAndExpand" />
+                    <Label Text="Cantidad a Pagar mensualmente" Grid.Row="2" Grid.Column="0"/>
+                    <Label x:Name="CantidadMensual" Grid.Row="2" Grid.Column="1"/>
+                </Grid>
+            </StackLayout>
+
+            <Button HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Text="Facturar"/>
+
+        </StackLayout>
+        
+        
+    </ContentPage.Content>
+</ContentPage>

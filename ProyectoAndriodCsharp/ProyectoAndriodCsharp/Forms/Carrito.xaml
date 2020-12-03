@@ -19,7 +19,7 @@
 
                 <Button  x:Name="Volver" Text="Volver" Grid.Column="0" Grid.Row="0" Clicked="Volver_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                 <Button  x:Name="Logout" Text="Cerrar Sesion"  Grid.Column="3" Grid.Row="0" Clicked="Logout_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="-2"/>
-                <Button  x:Name="Factura" Text="Factura"  Grid.Column="4" Grid.Row="0" Clicked="Factura_Clicked" HorizontalOptions="Center"  VerticalOptions="FillAndExpand" Margin="-2"/>
+                <Button  x:Name="Facturar" Text="Factura"  Grid.Column="4" Grid.Row="0" Clicked="Factura_Clicked" HorizontalOptions="Center"  VerticalOptions="FillAndExpand" Margin="-2"/>
 
 
             </Grid>
