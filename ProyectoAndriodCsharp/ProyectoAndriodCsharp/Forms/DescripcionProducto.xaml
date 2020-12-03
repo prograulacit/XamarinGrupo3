@@ -9,6 +9,7 @@
             <StackLayout>
 
                 <Label Text="Detalles del Producto" FontSize="Title" TextColor="White"></Label>
+                <Image x:Name="FileImage" WidthRequest="400" HeightRequest="220"/>
                 <Label Text="Nombre del producto: " TextColor="White" ></Label>
                 <Label x:Name="NombreProducto" TextColor="White" />
 

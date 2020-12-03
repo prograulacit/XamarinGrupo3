@@ -16,9 +16,9 @@ namespace ProyectoAndriodCsharp.Forms
         public NuevoProducto()
         {
             InitializeComponent();
+            FileImage.Source = ProductoRepository.GetProductoByID(Memoria.DinamicValue).ImagePath;
             if (Memoria.State.Equals("New"))
             {
-
                 Actualizar.IsVisible = false;
 
             }
@@ -96,25 +96,11 @@ namespace ProyectoAndriodCsharp.Forms
 
         }
 
-        private async  void subir_foto_Clicked(object sender, EventArgs e)
+        private void subir_foto_Clicked(object sender, EventArgs e)
         {
-            await CrossMedia.Current.Initialize();
-            if (!CrossMedia.Current.IsPickPhotoSupported)
-            {
-                await DisplayAlert("No PickPhoto", ":(No PickPhoto available", "Ok");
-                return;
-            }
-            _mediaFile = await CrossMedia.Current.PickPhotoAsync();
-            if (_mediaFile == null)
-                return;
-
-            LocalPathLabel.Text = _mediaFile.Path;
-            FileImage.Source = ImageSource.FromStream(() =>
-            {
-                return _mediaFile.GetStream();
-            });
-
-
+            
+            ProductoRepository.SetImageByIDAsync(Memoria.DinamicValue);
+            Application.Current.MainPage = new NavigationPage(new NuevoProducto());
         }
     }
 }

@@ -1,7 +1,10 @@
-﻿using ProyectoAndriodCsharp.Model;
+﻿using Plugin.Media;
+using Plugin.Media.Abstractions;
+using ProyectoAndriodCsharp.Model;
 using ProyectoAndriodCsharp.Objects;
 using SQLite;
 using System.Collections.Generic;
+using System.IO;
 
 namespace ProyectoAndriodCsharp.Controller
 {
@@ -70,6 +73,18 @@ namespace ProyectoAndriodCsharp.Controller
             IEnumerable<Producto> listProductos = sqliteConnection.Table<Producto>().Where(v => v.PRO_ESTADO.Equals("Inactivos"));
             return listProductos;
         }
+
+        public static async void SetImageByIDAsync(int id) {
+            MediaFile _mediaFile;
+            await CrossMedia.Current.Initialize();
+            _mediaFile = await CrossMedia.Current.PickPhotoAsync();
+            if (_mediaFile == null)
+                return;
+            Producto producto = GetProductoByID(id);
+            producto.ImagePath = _mediaFile.Path;
+            UpdateProducto(producto);
+        }
+
 
         public static IEnumerable<Producto> GetAllProductos() {
             SQLiteConnection sqliteConnection = new SQLiteConnection(DataConnection.GetConnectionPath());

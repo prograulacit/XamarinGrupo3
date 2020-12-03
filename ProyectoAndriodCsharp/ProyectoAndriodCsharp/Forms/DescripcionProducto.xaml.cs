@@ -15,6 +15,15 @@ namespace ProyectoAndriodCsharp.Forms
         public DescripcionProducto()
         {
             InitializeComponent();
+            if (String.IsNullOrEmpty(ProductoRepository.GetProductoByID(Memoria.DinamicValue).ImagePath))
+            {
+                FileImage.IsVisible = false;
+
+            }
+            else {
+                FileImage.Source = ProductoRepository.GetProductoByID(Memoria.DinamicValue).ImagePath;
+            }
+            
             btnComprar.IsEnabled = false;
             producto = ProductoRepository.GetProductoByID(Memoria.DinamicValue);
             NombreProducto.Text = producto.PRO_NOMBRE ;
