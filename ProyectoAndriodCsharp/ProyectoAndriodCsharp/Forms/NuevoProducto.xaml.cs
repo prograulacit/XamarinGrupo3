@@ -1,4 +1,6 @@
-﻿using ProyectoAndriodCsharp.Controller;
+﻿using Plugin.Media;
+using Plugin.Media.Abstractions;
+using ProyectoAndriodCsharp.Controller;
 using ProyectoAndriodCsharp.Model;
 using ProyectoAndriodCsharp.Objects;
 using System;
@@ -15,6 +17,7 @@ namespace ProyectoAndriodCsharp.Forms
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NuevoProducto : ContentPage
     {
+        private MediaFile _mediaFile;
         public NuevoProducto()
         {
             InitializeComponent();
@@ -91,6 +94,32 @@ namespace ProyectoAndriodCsharp.Forms
         private void AllFacturas_Clicked(object sender, EventArgs e)
         {
             Application.Current.MainPage = new NavigationPage(new AllFacturas());
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private async  void subir_foto_Clicked(object sender, EventArgs e)
+        {
+            await CrossMedia.Current.Initialize();
+            if (!CrossMedia.Current.IsPickPhotoSupported)
+            {
+                await DisplayAlert("No PickPhoto", ":(No PickPhoto available", "Ok");
+                return;
+            }
+            _mediaFile = await CrossMedia.Current.PickPhotoAsync();
+            if (_mediaFile == null)
+                return;
+
+            LocalPathLabel.Text = _mediaFile.Path;
+            FileImage.Source = ImageSource.FromStream(() =>
+            {
+                return _mediaFile.GetStream();
+            });
+
+
         }
     }
 }

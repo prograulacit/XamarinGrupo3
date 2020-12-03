@@ -38,11 +38,13 @@ namespace ProyectoAndriodCsharp.Forms
                 {
                     DinamicButton dinamicButton = new DinamicButton();
                     dinamicButton.DinamicValue = product.PRO_ID;
-                    dinamicButton.Text = "Ver";
+                    
+                    dinamicButton.ImageSource = "puntos.png" ;
+
                     dinamicButton.Clicked += new EventHandler(dinamicButton.SetMemoriaIdByProductID);
-                    GridAllProducts.Children.Add(new Label { Text = product.PRO_NOMBRE }, 0, count);
-                    GridAllProducts.Children.Add(new Label { Text = product.PRO_DESCRIPCION }, 1, count);
-                    GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(product.PRO_PRECIO).ToString() }, 2, count);
+                    GridAllProducts.Children.Add(new Label { Text = product.PRO_NOMBRE, TextColor = Color.White }, 0, count);
+                    GridAllProducts.Children.Add(new Label { Text = product.PRO_DESCRIPCION , TextColor = Color.White }, 1, count);
+                    GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(product.PRO_PRECIO).ToString() , TextColor = Color.White }, 2, count);
                     GridAllProducts.Children.Add(dinamicButton, 3, count);
                     count += 1;
                 }
@@ -54,9 +56,9 @@ namespace ProyectoAndriodCsharp.Forms
                     dinamicButton.DinamicValue = product.PRO_ID;
                     dinamicButton.Text = "Ver";
                     dinamicButton.Clicked += new EventHandler(dinamicButton.ViewProductasAdmin);
-                    GridAllProducts.Children.Add(new Label { Text = product.PRO_NOMBRE ,HorizontalTextAlignment=TextAlignment.Center,VerticalTextAlignment=TextAlignment.Center}, 0, count);
-                    GridAllProducts.Children.Add(new Label { Text = product.PRO_DESCRIPCION, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center }, 1, count);
-                    GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(product.PRO_PRECIO).ToString(), HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center }, 2, count);
+                    GridAllProducts.Children.Add(new Label { Text = product.PRO_NOMBRE ,HorizontalTextAlignment=TextAlignment.Center,VerticalTextAlignment=TextAlignment.Center,TextColor = Color.White }, 0, count);
+                    GridAllProducts.Children.Add(new Label { Text = product.PRO_DESCRIPCION, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center ,TextColor = Color.White }, 1, count);
+                    GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(product.PRO_PRECIO).ToString(), HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White }, 2, count);
                     GridAllProducts.Children.Add(dinamicButton, 3, count);
                     count += 1;
                 }

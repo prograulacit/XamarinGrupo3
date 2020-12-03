@@ -3,35 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoAndriodCsharp.Forms.DescripcionProducto">
     <ContentPage.Content>
-        <StackLayout>
+        <Grid>
+            <!--<Image Source="fondo.png" Aspect="AspectFill"></Image>-->
+            <BoxView Color="Black"/>
+            <StackLayout>
 
-            <Label Text="Detalles del Producto" FontSize="Title" TextColor="Black"></Label>
-            <Label Text="Nombre del producto: " ></Label>
-            <Label x:Name="NombreProducto"/>
+                <Label Text="Detalles del Producto" FontSize="Title" TextColor="White"></Label>
+                <Label Text="Nombre del producto: " TextColor="White" ></Label>
+                <Label x:Name="NombreProducto" TextColor="White" />
 
-            <Label Text="Descripción:" ></Label>
-            <Label x:Name="DescripcionProduct"/>
+                <Label Text="Descripción:" TextColor="White" ></Label>
+                <Label x:Name="DescripcionProduct" TextColor="White"/>
 
-            <Label Text="Precio:" ></Label>
-            <Label x:Name="PrecioProducto"/>
+                <Label Text="Precio:" TextColor="White" ></Label>
+                <Label x:Name="PrecioProducto" TextColor="White" />
 
-            <Label Grid.Row="3" Grid.Column="0"
-                       Text="Cantidad: "
+                <Label Grid.Row="3" Grid.Column="0"
+                       Text="Cantidad: " TextColor="White"
                       />
-            <Label x:Name="lbl_qnt_productos" Grid.Row="3" Grid.Column="1"
+                <Label x:Name="lbl_qnt_productos" TextColor="White" Grid.Row="3" Grid.Column="1"
                    BindingContext="{x:Reference stepperproducto}"
                    Text="{Binding Value}"
                    />
-            <Stepper x:Name="stepperproducto" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
+                <Stepper x:Name="stepperproducto" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
                  Minimum="0" Maximum="10" Increment="1"  ValueChanged="stepperproducto_ValueChanged"  />
 
-            <Button x:Name="btnComprar" Text="Comprar" Clicked="btnComprar_Clicked" ></Button>
-            <Button x:Name="btnMenu" Text="Menu" Clicked="btnMenu_Clicked" ></Button>
-            <Button x:Name="btnlogout" Text="Salir" Clicked="btnlogout_Clicked" ></Button>
-            <ImageButton x:Name="btnCarrito" Source="carrito.png" WidthRequest="50" HeightRequest="50" Clicked="btnCarrito_Clicked"> </ImageButton>
+                <Button x:Name="btnComprar" Text="Comprar" Clicked="btnComprar_Clicked" BackgroundColor="LightGray" ></Button>
+                <Button x:Name="btnMenu" Text="Menu" Clicked="btnMenu_Clicked" BackgroundColor="LightGray"></Button>
+                <Button x:Name="btnlogout" Text="Salir" Clicked="btnlogout_Clicked" BackgroundColor="LightGray" ></Button>
+                <ImageButton x:Name="btnCarrito" Source="carrito.png" WidthRequest="50" HeightRequest="50" Clicked="btnCarrito_Clicked" BackgroundColor="LightGray"></ImageButton>
 
-           
 
-        </StackLayout>
+
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

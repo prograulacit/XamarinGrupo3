@@ -21,7 +21,7 @@ namespace ProyectoAndriodCsharp.Forms
             InitializeComponent();
             btnComprar.IsEnabled = false;
             producto = ProductoRepository.GetProductoByID(Memoria.DinamicValue);
-            NombreProducto.Text = producto.PRO_NOMBRE;
+            NombreProducto.Text = producto.PRO_NOMBRE ;
             DescripcionProduct.Text = producto.PRO_DESCRIPCION;
             PrecioProducto.Text = producto.PRO_PRECIO.ToString();
             if (Memoria.listaCarrito.Find(x => x.PRO_ID == producto.PRO_ID) != null) { 

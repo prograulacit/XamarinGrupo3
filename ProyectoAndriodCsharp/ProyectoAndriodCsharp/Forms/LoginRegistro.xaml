@@ -6,7 +6,7 @@
     <ContentPage Title="Ingreso">
         <Grid>
             <!--<Image Source="fondo.png" Aspect="AspectFill"></Image>-->
-            <BoxView Color="LightSkyBlue" Opacity="0.5"/>
+            <BoxView Color="Black"/>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -14,17 +14,17 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <Image Grid.Row="0" Source="logo1.png" WidthRequest="90"
+                <Image Grid.Row="0" Source="logo.png" WidthRequest="90"
                            HeightRequest="90" Margin="0,0,0,0"/>
 
                 <StackLayout Grid.Row="1" Padding="10,20">
                     <Grid>
-                        <CheckBox x:Name="CNIniciarComoAdmin" Grid.Column="0" Grid.Row="0" Color="Black" VerticalOptions="Center"/>
-                        <Label Text="Iniciar Como Administrador" Grid.Column="1" Grid.ColumnSpan="7" VerticalOptions="Center"/>
+                        <CheckBox x:Name="CNIniciarComoAdmin" Grid.Column="0" Grid.Row="0" Color="#ecc42c" VerticalOptions="Center"/>
+                        <Label Text="Iniciar Como Administrador" Grid.Column="1" Grid.ColumnSpan="7" TextColor="White" VerticalOptions="Center"/>
                     </Grid>
-                    <Entry Placeholder="Usuario" x:Name="entry_IngresoUsuario"/>
-                    <Entry Placeholder="Contraseña" x:Name="entry_IngresoContrasenia" IsPassword="True"/>
-                    <Button Text="Iniciar sesión" CornerRadius="3" Clicked="btn_IniciarSesion" />
+                    <Entry Placeholder="Usuario" x:Name="entry_IngresoUsuario" PlaceholderColor="White" TextColor="#ecc42c"/>
+                    <Entry Placeholder="Contraseña" x:Name="entry_IngresoContrasenia" IsPassword="True" PlaceholderColor="White" TextColor="#ecc42c"/>
+                    <Button Text="Iniciar sesión" CornerRadius="3" Clicked="btn_IniciarSesion" BackgroundColor="#ecc42c" />
                 </StackLayout>
             </Grid>
         </Grid>
@@ -33,7 +33,7 @@
     <ContentPage Title="Registro">
         <Grid>
             <!--<Image Source="fondo.png" Aspect="AspectFill"></Image>-->
-            <BoxView Color="LightSkyBlue" Opacity="0.5"/>
+            <BoxView Color="Black"/>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -41,18 +41,18 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <Image Grid.Row="0" Source="logo1.png" WidthRequest="90"
+                <Image Grid.Row="0" Source="logo.png" WidthRequest="90"
                            HeightRequest="90" Margin="0,0,0,0"/>
 
                 <StackLayout Grid.Row="1" Padding="10,20">
-                    
-                    <Entry Placeholder="Nombre de usuario" x:Name="entry_RegistroNombreUsuario"/>
-                    <Entry Placeholder="Nombre" x:Name="entry_RegistroNombre"/>
-                    <Entry Placeholder="Apellido" x:Name="entry_RegistroApellido"/>
-                    <Entry Placeholder="Email" x:Name="entry_RegistroEmail"/>
-                    <Entry Placeholder="Contraseña" x:Name="entry_RegistroContrasenia" IsPassword="True"/>
-                    <Entry Placeholder="Confirmar Contraseña" x:Name="entry_RegistroContraseniaConfirmar" IsPassword="True"/>
-                    <Button Text="Registrarse" CornerRadius="3" Clicked="btn_Registrarse" />
+
+                    <Entry Placeholder="Nombre de usuario" x:Name="entry_RegistroNombreUsuario" PlaceholderColor="White" TextColor="#ecc42c"/>
+                    <Entry Placeholder="Nombre" x:Name="entry_RegistroNombre" PlaceholderColor="White" TextColor="#ecc42c"/>
+                    <Entry Placeholder="Apellido" x:Name="entry_RegistroApellido" PlaceholderColor="White" TextColor="#ecc42c"/>
+                    <Entry Placeholder="Email" x:Name="entry_RegistroEmail" PlaceholderColor="White" TextColor="#ecc42c"/>
+                    <Entry Placeholder="Contraseña" x:Name="entry_RegistroContrasenia" IsPassword="True" PlaceholderColor="White" TextColor="#ecc42c"/>
+                    <Entry Placeholder="Confirmar Contraseña" x:Name="entry_RegistroContraseniaConfirmar" IsPassword="True" PlaceholderColor="White" TextColor="#ecc42c"/>
+                    <Button Text="Registrarse" CornerRadius="3" Clicked="btn_Registrarse" BackgroundColor="#ecc42c" />
                 </StackLayout>
             </Grid>
         </Grid>

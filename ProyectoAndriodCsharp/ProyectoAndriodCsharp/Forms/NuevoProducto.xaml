@@ -28,6 +28,9 @@
             <Entry x:Name="entry_Descripcion" Placeholder="Descripcion"/>
             <Entry x:Name="entry_Precio" Placeholder="Precio"/>
             <Button x:Name="Insertar" Clicked="Insertar_Clicked" Text="Insertar Producto"/>
-               </StackLayout>
+            <Button  x:Name="subir_foto" Text="Subir Foto" Clicked="subir_foto_Clicked"/>
+            <Image x:Name="FileImage" WidthRequest="400" HeightRequest="220"/>
+            <Label x:Name="LocalPathLabel" TextColor="Black" FontSize="18"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

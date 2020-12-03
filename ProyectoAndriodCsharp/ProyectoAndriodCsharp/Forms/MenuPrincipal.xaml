@@ -5,12 +5,13 @@
     
         
         <NavigationPage.TitleView>
+
         <Grid ColumnSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
             
@@ -24,11 +25,12 @@
         </Grid>
         </NavigationPage.TitleView>
 
-    <ContentPage.Content>
+    <ContentPage.Content  >
+
         
-        <ScrollView>
-            <Grid x:Name="GridAllProducts" Margin="20,10,20,20">
-                <Grid.RowDefinitions>
+        <ScrollView BackgroundColor="Black" >
+            <Grid x:Name="GridAllProducts" Margin="20,10,20,20"  >
+                <Grid.RowDefinitions >
                     <RowDefinition Height="75" />
                     <RowDefinition Height="75"/>
                     <RowDefinition Height="75"/>
@@ -46,7 +48,7 @@
                     <RowDefinition Height="75"/>
                     <RowDefinition Height="75"/>
                 </Grid.RowDefinitions>
-                <Label x:Name="NombreUsuario"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.ColumnSpan="4" />
+                <Label x:Name="NombreUsuario" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.ColumnSpan="4" />
             </Grid>
         </ScrollView>
     </ContentPage.Content>
