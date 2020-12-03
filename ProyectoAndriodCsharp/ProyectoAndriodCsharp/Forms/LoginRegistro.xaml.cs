@@ -1,6 +1,5 @@
 ﻿using ProyectoAndriodCsharp.Controller;
 using ProyectoAndriodCsharp.Model;
-using ProyectoAndriodCsharp.Models;
 using ProyectoAndriodCsharp.Objects;
 using System;
 using Xamarin.Forms;
@@ -39,18 +38,9 @@ namespace ProyectoAndriodCsharp.Forms
                     MensajeEmergente("Cliente correcto"
                                , string.Format("Ingreso de {0} correcto.", Memoria.UsuarioActual.NombreUsuario)
                                , "Aceptar");
-                    AbrirMenuPrincipal();
+                    AbrirMenuPrincipalCliente();
                 }
                 else { MensajeEmergente("Ingreso incorrecto", "Los credenciales son incorrectos.", "Aceptar"); }
-
-
-                
-                
-
-
-
-
-
             }
         }
 
@@ -65,7 +55,8 @@ namespace ProyectoAndriodCsharp.Forms
                     Nombre = entry_RegistroNombre.Text + " " + entry_RegistroApellido.Text,
                     Contrasenia = entry_RegistroContrasenia.Text,
                     Email = entry_RegistroEmail.Text,
-                    US_ROL = "Usuario"
+                    US_ROL = "Usuario",
+                    Saldo = Tareas.GenerarNumeroAleatorio(1000, 2000)
                 };
 
                 UsuarioController usuarioController = new UsuarioController(DataConnection.GetConnectionPath());
@@ -84,7 +75,7 @@ namespace ProyectoAndriodCsharp.Forms
                         ,string.Format("Se ha registrado correctamente como: {0}", Memoria.UsuarioActual.NombreUsuario)
                         , "Aceptar");
 
-                    AbrirMenuPrincipal();
+                    AbrirMenuPrincipalCliente();
                 }
             }
         }
@@ -133,6 +124,11 @@ namespace ProyectoAndriodCsharp.Forms
         private void AbrirMenuPrincipal()
         {
             Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
+        }
+
+        private void AbrirMenuPrincipalCliente()
+        {
+            Application.Current.MainPage = new NavigationPage(new MenuPrincipalCliente());
         }
     }
 }

@@ -24,13 +24,28 @@
   </ItemGroup>
 
   <ItemGroup>
+	<EmbeddedResource Update="Forms\AbonoConfigForm.xaml">
+	  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Forms\AjustesCuenta.xaml">
+	  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	</EmbeddedResource>
 	<EmbeddedResource Update="Forms\AllFacturas.xaml">
+	  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Forms\CambiarContraseniaCliente.xaml">
 	  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 	</EmbeddedResource>
 	<EmbeddedResource Update="Forms\Carrito.xaml">
 	  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 	</EmbeddedResource>
+	<EmbeddedResource Update="Forms\CompraRealizada.xaml">
+	  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	</EmbeddedResource>
 	<EmbeddedResource Update="Forms\DescripcionProducto.xaml">
+	  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Forms\DevRoom.xaml">
 	  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 	</EmbeddedResource>
 	<EmbeddedResource Update="Forms\Factura.xaml">
@@ -43,6 +58,12 @@
 	  <Generator>MSBuild:Compile</Generator>
 	</EmbeddedResource>
     <EmbeddedResource Update="Forms\MenuPrincipal.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\MenuPrincipalCliente.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\MisCompras.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\NuevoAdmin.xaml">

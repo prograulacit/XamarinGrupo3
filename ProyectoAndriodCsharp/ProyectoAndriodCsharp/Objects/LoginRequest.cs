@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProyectoAndriodCsharp.Model
+namespace ProyectoAndriodCsharp.Objects
 {
     public class LoginRequest
     {

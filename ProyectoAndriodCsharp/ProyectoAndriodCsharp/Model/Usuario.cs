@@ -13,5 +13,6 @@ namespace ProyectoAndriodCsharp.Model
         public string Nombre { get; set; }
         public string US_ROL { get; set; }
         public string Email { get; set; }
+        public decimal Saldo { get; set; }
     }
 }

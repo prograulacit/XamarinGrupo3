@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAndriodCsharp.Forms.DevRoom">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="DevRoom" FontSize="30"/>
+
+            <Button Text="Continuar a la aplicacion" Clicked="button_Continuar"/>
+            <Button Text="Reiniciar tablas" Clicked="button_ReiniciarTablas"/>
+            <Button Text="Crear usuarios iniciales" Clicked="button_CrearUsuariosIniciales"/>
+            <Button Text="Ver registros de Compra y CompraProductos" Clicked="button_RegistrosCompra"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

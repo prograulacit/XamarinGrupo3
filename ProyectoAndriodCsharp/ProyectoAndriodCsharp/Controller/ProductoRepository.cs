@@ -1,11 +1,7 @@
 ﻿using ProyectoAndriodCsharp.Model;
-using ProyectoAndriodCsharp.Models;
 using ProyectoAndriodCsharp.Objects;
 using SQLite;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace ProyectoAndriodCsharp.Controller
 {
@@ -61,11 +57,13 @@ namespace ProyectoAndriodCsharp.Controller
                 return sQLiteConnection.Table<Producto>().Where(i => i.PRO_ID == ID).FirstOrDefault();
             }
         }
+
         public static IEnumerable<Producto> GetAllProductosDisponibles() {
             SQLiteConnection sqliteConnection = new SQLiteConnection(DataConnection.GetConnectionPath());
             IEnumerable<Producto> listProductos = sqliteConnection.Table<Producto>().Where(v=>v.PRO_ESTADO.Equals("Activo"));
             return listProductos;
         }
+
         public static IEnumerable<Producto> GetAllProductosNoDisponibles()
         {
             SQLiteConnection sqliteConnection = new SQLiteConnection(DataConnection.GetConnectionPath());
@@ -73,14 +71,10 @@ namespace ProyectoAndriodCsharp.Controller
             return listProductos;
         }
 
-
         public static IEnumerable<Producto> GetAllProductos() {
             SQLiteConnection sqliteConnection = new SQLiteConnection(DataConnection.GetConnectionPath());
             IEnumerable<Producto>listProductos= sqliteConnection.Table<Producto>();
             return listProductos;
         }
-
-
-
     }
 }

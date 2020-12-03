@@ -3,7 +3,6 @@ using SQLite;
 using System.Linq;
 using System.Collections.Generic;
 using ProyectoAndriodCsharp.Model;
-using ProyectoAndriodCsharp.Models;
 using ProyectoAndriodCsharp.Objects;
 
 namespace ProyectoAndriodCsharp.Controller
@@ -18,9 +17,6 @@ namespace ProyectoAndriodCsharp.Controller
             sqliteConn = new SQLiteConnection(ConnectionPath);
             sqliteConn.CreateTable<Model.Usuario>(); // Crea la tabla si no existe.
         }
-
-        // -------------------------------------------------------------------
-        // Funciones CRUD.
 
         public IEnumerable<Usuario> GetAllUsuarios()
         {
@@ -48,21 +44,28 @@ namespace ProyectoAndriodCsharp.Controller
             }
             return null;
         }
+
         public static bool IngresarUsuario(Usuario usuario) {
             bool result = false;
+            Console.WriteLine("********************* NO CREADO: " + usuario.UsuarioId);
             using (SQLiteConnection sqliteConnection = new SQLiteConnection(DataConnection.GetConnectionPath()))
             {
                 int filasAfectadas = sqliteConnection.Insert(usuario);
-                if (filasAfectadas > 0) { result = true; }
+                if (filasAfectadas > 0) {
+                    Console.WriteLine("********************* CREADO: " + usuario.UsuarioId);
+                    result = true; }
             }
             return result;
         }
-        public int InsertarUsuario(Usuario Usuario)
+
+        public int InsertarUsuario(Usuario usuario)
         {
             int FilasAfectadas = 0;
             try
             {
-                FilasAfectadas = sqliteConn.Insert(Usuario);
+                Console.WriteLine("********************* NO CREADO: " + usuario.UsuarioId);
+                FilasAfectadas = sqliteConn.Insert(usuario);
+                Console.WriteLine("********************* CREADO: " + usuario.UsuarioId);
                 this.Estado = string.Format("Cantidad de filas afectadas: {0}", FilasAfectadas);
             }
             catch (Exception e)
@@ -71,7 +74,6 @@ namespace ProyectoAndriodCsharp.Controller
             }
             return FilasAfectadas;
         }
-
 
         public static bool ExisteUsuarioByUsername(string username) {
             bool result = false;
@@ -153,5 +155,18 @@ namespace ProyectoAndriodCsharp.Controller
             return FilasAfectadas;
         }
 
+        public bool NombreUsuarioUnico(string NombreUsuario)
+        {
+            Usuario registro = GetUsuarioByUsername(NombreUsuario);
+            if (registro != null)
+            {
+                if (registro.UsuarioId == Memoria.UsuarioActual.UsuarioId)
+                    return true;
+                else
+                    return false;
+            }
+            else
+                return true;
+        }
     }
 }

@@ -1,8 +1,5 @@
-﻿using ProyectoAndriodCsharp.Controller;
-using ProyectoAndriodCsharp.Model;
-using System;
+﻿using ProyectoAndriodCsharp.Model;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ProyectoAndriodCsharp.Objects
 {
@@ -15,6 +12,16 @@ namespace ProyectoAndriodCsharp.Objects
         public static Usuario UsuarioActual = null;
         public static int DinamicValue = 0;
         public static List<CompraProductos> listaCarrito = new List<CompraProductos>();
+
+        //Para diferenciar si un form es para la creacion de un objeto o su actualizacion, se utiliza el "State" para diferenciarlo, valores posibles "See" o "Create"
         public static string State = "";
+
+        // Si es true, abre el menu formulario DevRoom al inicio.
+        public static bool CaracteristicasDesarrollador = false;
+
+
+
+        //Factura temporal
+        public static Compra compra=new Compra();
     }
 }

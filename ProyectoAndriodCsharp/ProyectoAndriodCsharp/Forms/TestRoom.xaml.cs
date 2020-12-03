@@ -1,10 +1,10 @@
 ﻿using ProyectoAndriodCsharp.Model;
-using ProyectoAndriodCsharp.Models;
 using ProyectoAndriodCsharp.Controller;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ProyectoAndriodCsharp.Objects;
 
 namespace ProyectoAndriodCsharp.Forms
 {
@@ -51,6 +51,11 @@ namespace ProyectoAndriodCsharp.Forms
         {
             DataConnection.DropTables();
             DataConnection.CreateTables();
+        }
+
+        private void EjecutarSELECTLast_inserted_rowid(object sender, EventArgs e)
+        {
+            
         }
     }
 }
