@@ -18,14 +18,11 @@ namespace ProyectoAndriodCsharp
             btnIniciarSesion.Clicked += Btn_IniciarSesion_Clicked;
             btnRecContra.Clicked += Btn_RecContra_Clicked;
             btnRegistrarse.Clicked += Btn_Registrarse_Clicked;
-
         }
-
 
         void Btn_IniciarSesion_Clicked(object sender, EventArgs args)
         {
             ((NavigationPage)this.Parent).PushAsync(new Forms.MenuPrincipal());
-
         }
 
         void Btn_RecContra_Clicked(object sender, EventArgs args)

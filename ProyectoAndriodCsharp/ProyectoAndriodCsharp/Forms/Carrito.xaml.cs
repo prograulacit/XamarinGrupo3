@@ -1,17 +1,8 @@
 ﻿using ProyectoAndriodCsharp.Controller;
 using ProyectoAndriodCsharp.Objects;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using ProyectoAndriodCsharp.Model;
-using System.Security.Cryptography.X509Certificates;
-using Xamarin.Forms.Markup;
-using Xamarin.Forms.Markup.LeftToRight;
-
 
 namespace ProyectoAndriodCsharp.Forms
 {

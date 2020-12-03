@@ -1,10 +1,6 @@
-﻿using ProyectoAndriodCsharp.Controller;
-using ProyectoAndriodCsharp.Forms;
-using ProyectoAndriodCsharp.Model;
-using ProyectoAndriodCsharp.Models;
-using System;
+﻿using ProyectoAndriodCsharp.Forms;
+using ProyectoAndriodCsharp.Objects;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace ProyectoAndriodCsharp
 {
@@ -13,14 +9,14 @@ namespace ProyectoAndriodCsharp
         public App()
         {
             InitializeComponent();
-            
 
             DataConnection.CreateTables();
-            Usuario usuario = new Usuario {Nombre="Edu",US_ROL="Usuario",Contrasenia="123",NombreUsuario="user" };
-            Usuario administrador = new Usuario { Nombre = "Eduardo", US_ROL = "Administrador", Contrasenia = "123", NombreUsuario = "admin" };
-            if (UsuarioController.GetUsuarioByUsername("admin") == null) { UsuarioController.IngresarUsuario(administrador); }
-            if (UsuarioController.GetUsuarioByUsername("user") == null) { UsuarioController.IngresarUsuario(usuario); }
-            MainPage = new LoginRegistro();
+            Tareas.CrearUsuariosIniciales();
+
+            if(!Memoria.CaracteristicasDesarrollador)
+                MainPage = new LoginRegistro();
+            else
+                MainPage = new DevRoom();
         }
 
         protected override void OnStart()

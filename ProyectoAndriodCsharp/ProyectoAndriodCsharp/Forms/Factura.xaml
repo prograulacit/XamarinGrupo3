@@ -43,6 +43,7 @@
                 </ScrollView>
 
                 <Label x:Name = "lblTotal"  BackgroundColor="white" Text="Monto Total a Pagar:" TextColor="Black" FontAttributes="Bold"/>
+                <Button x:Name="Btn_ConfirmarCompra_variable" Clicked="Btn_ConfirmarCompra" Text="Confirmar compra" BackgroundColor="Green" TextColor="White" CornerRadius="20" FontAttributes="Bold"/>
                 <Button x:Name ="btnSalir" Text="Volver" BackgroundColor="Red" TextColor="Black" CornerRadius="20" FontAttributes="Bold"/>
 
             </StackLayout>

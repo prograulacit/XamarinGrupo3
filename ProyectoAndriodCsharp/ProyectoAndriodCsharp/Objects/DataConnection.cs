@@ -1,9 +1,10 @@
 ﻿using ProyectoAndriodCsharp.Model;
 using SQLite;
 using System;
+using System.Collections.Generic;
 using System.IO;
 
-namespace ProyectoAndriodCsharp.Models
+namespace ProyectoAndriodCsharp.Objects
 {
     public class DataConnection
     {
@@ -25,11 +26,11 @@ namespace ProyectoAndriodCsharp.Models
         public static void DropTables() {
             SQLiteConnection sqLiteConnection = new SQLiteConnection(GetConnectionPath());
             sqLiteConnection.DropTable<Usuario>();
-            //sqLiteConnection.DropTable<Compra>();
+            sqLiteConnection.DropTable<Compra>();
             sqLiteConnection.DropTable<Producto>();
             //sqLiteConnection.DropTable<Abono>();
             //sqLiteConnection.DropTable<AbonoPorMes>();
-            //sqLiteConnection.DropTable<CompraProductos>();
+            sqLiteConnection.DropTable<CompraProductos>();
         }
     }
 }

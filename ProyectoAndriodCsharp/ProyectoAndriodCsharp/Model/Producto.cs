@@ -1,8 +1,4 @@
-﻿using ProyectoAndriodCsharp.Controller;
-using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using SQLite;
 
 namespace ProyectoAndriodCsharp.Model
 {
@@ -15,9 +11,5 @@ namespace ProyectoAndriodCsharp.Model
         public string PRO_DESCRIPCION { get; set; }
         public decimal PRO_PRECIO { get; set; }
         public string PRO_ESTADO{get;set;}
-
-
-
-       
     }
 }

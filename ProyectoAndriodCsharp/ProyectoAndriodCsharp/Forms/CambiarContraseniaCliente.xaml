@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAndriodCsharp.Forms.CambiarContraseniaCliente">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Cambio de contraseña" FontSize="36"/>
+
+            <Entry Placeholder="Contraseña actual" x:Name="entry_ContraseniaActual" IsPassword="True"/>
+            <Entry Placeholder="Nueva contraseña" x:Name="entry_NuevaContrasenia" IsPassword="True"/>
+            <Entry Placeholder="Confirmar contraseña" x:Name="entry_ConfirmarContrasenia" IsPassword="True"/>
+
+            <Button Text="Guardar cambios" Clicked="Button_GuardarCambios"/>
+            <Button Text="Volver" Clicked="Button_Volver"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

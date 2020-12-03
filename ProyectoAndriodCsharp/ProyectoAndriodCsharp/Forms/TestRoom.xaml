@@ -16,6 +16,7 @@
         <Button Text="Registrarse" Clicked="RegistrarUsuario"/>
         <Button Text="Mostrar usuarios" Clicked="MostrarUsuarios"/>
         <Button Text="Eliminar tablas (Base de datos)" Clicked="EliminarTablas"/>
+        <Button Text="Ejecutar SELECT last_insert_rowid()" Clicked="EjecutarSELECTLast_inserted_rowid"/>
         
         <ScrollView>
             <Label x:Name="label_listaUsuarios"/>

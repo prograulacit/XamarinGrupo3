@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAndriodCsharp.Forms.MisCompras">
+    <ContentPage.Content>
+        
+        <StackLayout>
+                <Label Text="Mis compras" FontSize="30"/>
+                <Button Text="Volver" Clicked="Button_Volver"/>
+            <ScrollView>
+                <Label x:Name="label_compras"/>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
