@@ -15,10 +15,11 @@
             <StackLayout Grid.Row="1" Padding="10,20">
                 <Label Text="FACTURA" TextColor="black" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
                 <Label x:Name = "lblTienda"  BackgroundColor="white" Text="ProTek" TextColor="Black" FontAttributes="Bold"/>
-                <Label x:Name = "lblCliente"  BackgroundColor="white" Text="Cliente:" TextColor="Black" FontAttributes="Bold"/>
-                <Label x:Name = "lblEmail"  BackgroundColor="white" Text="Correo Registrado:" TextColor="Black" FontAttributes="Bold"/>
-
-
+                <Label x:Name = "lblCliente"  BackgroundColor="white" Text="Cliente: " TextColor="Black" FontAttributes="Bold"/>
+                <Label x:Name = "lblEmail"  BackgroundColor="white" Text="Correo Registrado: " TextColor="Black" FontAttributes="Bold"/>
+                <Label x:Name = "lblFecha"  BackgroundColor="white" Text="Fecha de Compra: " TextColor="Black" FontAttributes="Bold"/>
+                <Label x:Name = "lblEstado"  BackgroundColor="white" Text="Estado: " TextColor="Black" FontAttributes="Bold"/>
+                <Label x:Name = "lblFacturaID"  BackgroundColor="white" Text="ID: " TextColor="Black" FontAttributes="Bold"/>
                 <ScrollView BackgroundColor="White">
                     <Grid x:Name="listaProductos" Margin="20,10,20,20">
                         <Grid.RowDefinitions>

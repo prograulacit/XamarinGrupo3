@@ -42,6 +42,7 @@ namespace ProyectoAndriodCsharp.Forms
                 if (Memoria.UsuarioActual.Saldo >= Decimal.Parse(PrecioTotal.Text))
                 {
                     Memoria.compra.COM_FECHA_COMPRA = DateTime.Today;
+                    Memoria.compra.COM_ESTADO = "Abonos";
                     Memoria.compra.COM_PRECIO_TOTAL = Decimal.Parse(PrecioTotal.Text);
                     Memoria.compra.COM_INTERES = (Decimal.Parse(PrecioTotal.Text));
                     int CompraID=CompraRepository.InsertAndReturn(Memoria.compra);
@@ -71,6 +72,7 @@ namespace ProyectoAndriodCsharp.Forms
                 //set Contado
                 if (Memoria.UsuarioActual.Saldo >= Decimal.Parse(PrecioTotal.Text)) {
                     Memoria.compra.COM_FECHA_COMPRA = DateTime.Today;
+                    Memoria.compra.COM_ESTADO = "Contado";
                     Memoria.compra.COM_PRECIO_TOTAL = Decimal.Parse(PrecioTotal.Text);
                     Memoria.compra.COM_INTERES = (Decimal.Parse(PrecioTotal.Text) * Decimal.Parse("0,3"));
                     int CompraID = CompraRepository.InsertAndReturn(Memoria.compra);

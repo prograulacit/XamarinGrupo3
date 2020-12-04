@@ -13,6 +13,7 @@ namespace ProyectoAndriodCsharp.Forms
         public LoginRegistro()
         {
             InitializeComponent();
+            Memoria.ResetParameters();
         }
 
         private void btn_IniciarSesion(object sender, EventArgs e)
@@ -30,7 +31,7 @@ namespace ProyectoAndriodCsharp.Forms
                     MensajeEmergente("Administrador correcto"
                             , string.Format("Ingreso de {0} correcto.", Memoria.UsuarioActual.NombreUsuario)
                             , "Aceptar");
-                    AbrirMenuPrincipal();
+                    AbrirMenuPrincipalCliente();
                 }
                 else if (!CNIniciarComoAdmin.IsChecked && UsuarioController.ValidarUsuario(loginRequest))
                 {

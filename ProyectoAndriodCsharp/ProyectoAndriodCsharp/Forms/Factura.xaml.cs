@@ -13,7 +13,8 @@ namespace ProyectoAndriodCsharp.Forms
     public partial class Factura : ContentPage
     {
         decimal cobroTotal = 0;
-
+        Usuario user = UsuarioController.GetUserByID(CompraRepository.GetCompraByID(Memoria.DinamicValue).US_ID);
+        Compra compra = CompraRepository.GetCompraByID(Memoria.DinamicValue);
         public Factura()
         {
             InitializeComponent();
@@ -22,20 +23,24 @@ namespace ProyectoAndriodCsharp.Forms
 
         private void inicializacion()
         {
-            lblCliente.Text = "Cliente: " + Memoria.UsuarioActual.Nombre;
-            lblEmail.Text = "Correo Registrado: ";
-            if (!string.IsNullOrWhiteSpace(Memoria.UsuarioActual.Email))
-                lblEmail.Text += Memoria.UsuarioActual.Email;
+            lblFacturaID.Text += compra.COM_ID.ToString();
+            lblCliente.Text = "Cliente: " + user.Nombre;
+            lblEmail.Text += user.Email;
+            lblEstado.Text += compra.COM_ESTADO;
+            lblFecha.Text += compra.COM_FECHA_COMPRA.ToString();
+            if (!string.IsNullOrWhiteSpace(user.Email))
+                lblEmail.Text += user.Email;
             else
-                lblEmail.Text += "correo no registrado";
+                lblEmail.Text += "Correo no registrado";
 
-            if (Memoria.UsuarioActual.US_ROL == "Administrador")
+            if (user.US_ROL == "Administrador")
                 Btn_ConfirmarCompra_variable.IsVisible = false;
 
             int contador = 0;
 
             if (Memoria.State.Equals("Create"))
             {
+
                 foreach (var product in CompraProductosRepository.GetAllCPByCompraID(Memoria.DinamicValue))
                 {
                     listaProductos.Children.Add(new Label { Text = ProductoRepository.GetProductoByID(product.PRO_ID).PRO_NOMBRE, TextColor = Color.Black }, 0, contador);
@@ -65,7 +70,7 @@ namespace ProyectoAndriodCsharp.Forms
 
         private void BtnSalir_Clicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new NavigationPage(new Carrito());
+            Application.Current.MainPage = new NavigationPage(new MenuPrincipalCliente());
         }
 
         private void Btn_ConfirmarCompra(object sender, EventArgs e)

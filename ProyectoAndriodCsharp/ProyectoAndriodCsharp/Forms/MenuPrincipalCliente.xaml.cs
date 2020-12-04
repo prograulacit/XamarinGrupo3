@@ -10,6 +10,9 @@ namespace ProyectoAndriodCsharp.Forms
         public MenuPrincipalCliente()
         {
             InitializeComponent();
+            if (Memoria.UsuarioActual.US_ROL.Equals("Administrador")) {
+                btn_verCompras.Text="Buscar Compra";
+            }
         }
 
         private void Button_MisCompras(object sender, System.EventArgs e)

@@ -7,7 +7,7 @@
             <Label Text="Bienvenido" FontSize="30"/>
 
             <Button Text="Ver productos" Clicked="Button_Productos"/>
-            <Button Text="Mis compras" Clicked="Button_MisCompras"/>
+            <Button Text="Mis compras" Clicked="Button_MisCompras" x:Name="btn_verCompras"/>
             <Button Text="Mis abonos" Clicked="Button_MisAbonos"/>
             <Button Text="Ajustes de la cuenta" Clicked="Button_AjustesCuenta"/>
             <Button Text="Cerrar sesión" Clicked="Button_CerrarSesion"/>
