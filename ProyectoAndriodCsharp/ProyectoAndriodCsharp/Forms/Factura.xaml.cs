@@ -131,7 +131,7 @@ namespace ProyectoAndriodCsharp.Forms
                 US_ID = Memoria.UsuarioActual.UsuarioId,
                 COM_FECHA_COMPRA = DateTime.Now,
                 COM_ESTADO = "obsoleto",
-                COM_PRECIO_IVA = 0,
+                COM_INTERES = 0,
                 COM_PRECIO_TOTAL = cobroTotal
             };
             return CompraRepository.IngresarCompraRetornarID(compra);

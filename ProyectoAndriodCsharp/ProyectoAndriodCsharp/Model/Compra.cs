@@ -14,7 +14,7 @@ namespace ProyectoAndriodCsharp.Model
 
         public DateTime COM_FECHA_COMPRA { get; set; }
         public string COM_ESTADO { get; set; } // Propiedad obsoleta.
-        public decimal COM_PRECIO_IVA { get; set; }
+        public decimal COM_INTERES { get; set; }
         public decimal COM_PRECIO_TOTAL { get; set; }
     }
 }

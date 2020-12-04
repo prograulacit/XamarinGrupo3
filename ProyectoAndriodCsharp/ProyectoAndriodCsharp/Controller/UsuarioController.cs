@@ -82,7 +82,12 @@ namespace ProyectoAndriodCsharp.Controller
             if (user!=null) { result = true; }
             return result;
         }
-
+        public static void UpdateUser(Usuario user) {
+            using (SQLiteConnection sQLiteConnection=new SQLiteConnection(DataConnection.GetConnectionPath())) {
+                sQLiteConnection.Update(user);
+            
+            }
+        }
         public int ActualizarUsuario(Usuario Usuario)
         {
             int FilasAfectadas = 0;

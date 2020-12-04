@@ -11,14 +11,19 @@ namespace ProyectoAndriodCsharp.Controller
         public static void InsertarPrueba()
         {
             DeleteAllRows();
-            Compra c1 = new Compra { US_ID = 1, COM_ESTADO = "Factura", COM_FECHA_COMPRA = DateTime.Now, COM_PRECIO_IVA = 100, COM_PRECIO_TOTAL = 2000 };
-            Compra c2 = new Compra { US_ID = 1, COM_ESTADO = "Factura", COM_FECHA_COMPRA = DateTime.Now, COM_PRECIO_IVA = 200, COM_PRECIO_TOTAL = 3000 };
-            Compra c3 = new Compra { US_ID = 1, COM_ESTADO = "Factura", COM_FECHA_COMPRA = DateTime.Now, COM_PRECIO_IVA = 300, COM_PRECIO_TOTAL = 4000 };
+            Compra c1 = new Compra { US_ID = 1, COM_ESTADO = "Factura", COM_FECHA_COMPRA = DateTime.Now, COM_INTERES = 100, COM_PRECIO_TOTAL = 2000 };
+            Compra c2 = new Compra { US_ID = 1, COM_ESTADO = "Factura", COM_FECHA_COMPRA = DateTime.Now, COM_INTERES = 200, COM_PRECIO_TOTAL = 3000 };
+            Compra c3 = new Compra { US_ID = 1, COM_ESTADO = "Factura", COM_FECHA_COMPRA = DateTime.Now, COM_INTERES = 300, COM_PRECIO_TOTAL = 4000 };
             IngresarCompra(c1);
             IngresarCompra(c2);
             IngresarCompra(c3);
         }
-
+        public static int InsertAndReturn(Compra compra) {
+            using (SQLiteConnection sqliteConnection = new SQLiteConnection(DataConnection.GetConnectionPath())) {
+                sqliteConnection.Insert(compra);
+                return sqliteConnection.Table<Compra>().Where(v => v.US_ID == compra.US_ID && v.COM_PRECIO_TOTAL == compra.COM_PRECIO_TOTAL && v.COM_FECHA_COMPRA == compra.COM_FECHA_COMPRA).FirstOrDefault().COM_ID;
+            }
+        }
         public static void CrearTabla()
         {
             SQLiteConnection sQLiteConnection = new SQLiteConnection(DataConnection.GetConnectionPath());

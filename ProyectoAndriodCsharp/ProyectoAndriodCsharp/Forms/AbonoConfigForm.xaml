@@ -28,7 +28,7 @@
                 </Grid>
             </StackLayout>
 
-            <Button HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Text="Facturar"/>
+            <Button HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Text="Facturar" x:Name="Facturar" Clicked="Facturar_Clicked"/>
 
         </StackLayout>
         
