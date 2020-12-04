@@ -14,7 +14,7 @@ namespace ProyectoAndriodCsharp.Forms
 
         private void Button_MisCompras(object sender, System.EventArgs e)
         {
-            Application.Current.MainPage = new NavigationPage(new MisCompras());
+            Application.Current.MainPage = new NavigationPage(new AllFacturas());
         }
 
         private void Button_MisAbonos(object sender, System.EventArgs e)

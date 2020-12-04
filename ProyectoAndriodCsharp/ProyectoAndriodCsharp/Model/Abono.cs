@@ -11,6 +11,6 @@ namespace ProyectoAndriodCsharp.Model
         public int COM_ID { get; set; }
         public decimal ABO_CANTIDAD_MENSUAL { get; set; }
         public int ABO_CANTIDAD_DE_MESES { get; set; }
-        public int ABO_RESTANTE { get; set; }
+        public decimal ABO_RESTANTE { get; set; }
     }
 }

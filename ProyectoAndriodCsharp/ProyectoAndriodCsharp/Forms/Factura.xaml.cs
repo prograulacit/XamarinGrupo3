@@ -36,7 +36,7 @@ namespace ProyectoAndriodCsharp.Forms
 
             if (Memoria.State.Equals("Create"))
             {
-                foreach (var product in Memoria.listaCarrito)
+                foreach (var product in CompraProductosRepository.GetAllCPByCompraID(Memoria.DinamicValue))
                 {
                     listaProductos.Children.Add(new Label { Text = ProductoRepository.GetProductoByID(product.PRO_ID).PRO_NOMBRE, TextColor = Color.Black }, 0, contador);
                     listaProductos.Children.Add(new Label { Text = "c/u $" + Math.Truncate(ProductoRepository.GetProductoByID(product.PRO_ID).PRO_PRECIO).ToString(), TextColor = Color.Black }, 1, contador);

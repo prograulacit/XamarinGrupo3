@@ -14,10 +14,7 @@ namespace ProyectoAndriodCsharp.Forms
         {
             InitializeComponent();
             int count = 1;
-            if (CompraRepository.GetCompraByID(7) == null) { CompraRepository.InsertarPrueba(); }
-
-
-            foreach (var compra in CompraRepository.GetAllFacturas()) {
+            foreach (var compra in CompraRepository.GetAllComprasByUserId(Memoria.UsuarioActual.UsuarioId)) {
                 DinamicButton dinamicButton = new DinamicButton();
                 dinamicButton.DinamicValue = compra.COM_ID;
                 dinamicButton.Text = "Ver";
