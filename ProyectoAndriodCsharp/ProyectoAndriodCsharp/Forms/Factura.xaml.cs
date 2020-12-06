@@ -28,7 +28,7 @@ namespace ProyectoAndriodCsharp.Forms
             lblCliente.Text = "Cliente: " + user.Nombre;
             lblEmail.Text += user.Email;
             lblEstado.Text += compra.COM_ESTADO;
-            lblFecha.Text += compra.COM_FECHA_COMPRA.ToString();
+            lblFecha.Text += compra.COM_FECHA_COMPRA.ToString("dd/MM/yyyy");
             if (!string.IsNullOrWhiteSpace(user.Email))
                 lblEmail.Text += user.Email;
             else
@@ -64,6 +64,12 @@ namespace ProyectoAndriodCsharp.Forms
             }
 
             lblTotal.Text = "Total: $" + cobroTotal;
+            lblMontoAbono.Text = "Próximo Abono es de: $" + abono.ABO_CANTIDAD_MENSUAL;
+            if (abono.ABO_CANTIDAD_MENSUAL <= 0)
+            {
+                lblMontoAbono.Text = "Monto Cancelado";
+            }
+            lblFechaGarantia.Text += compra.COM_FECHA_COMPRA.AddYears(1).ToString("dd/MM/yyyy");
             btnSalir.Clicked += BtnSalir_Clicked;
         }
 

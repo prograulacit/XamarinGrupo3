@@ -44,6 +44,8 @@
                 </ScrollView>
 
                 <Label x:Name = "lblTotal"  BackgroundColor="white" Text="Monto Total a Pagar:" TextColor="Black" FontAttributes="Bold"/>
+                <Label x:Name="lblMontoAbono"  BackgroundColor="white" Text="Próximo Abono es de:" TextColor="Black" FontAttributes="Bold"/>
+                <Label x:Name="lblFechaGarantia"  BackgroundColor="white" Text="La garantía aplica hasta: " TextColor="Black" FontAttributes="Bold"/>
                 <Button x:Name ="btnSalir" Text="Volver" BackgroundColor="Red" TextColor="Black" CornerRadius="20" FontAttributes="Bold"/>
 
             </StackLayout>

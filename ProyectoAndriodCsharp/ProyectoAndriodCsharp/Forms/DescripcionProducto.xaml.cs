@@ -79,11 +79,6 @@ namespace ProyectoAndriodCsharp.Forms
             await Navigation.PushAsync(new MenuPrincipal());
         }
 
-        private void btnlogout_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
         private async void btnCarrito_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Carrito());
