@@ -65,7 +65,10 @@ namespace ProyectoAndriodCsharp.Forms
 
                 if (FilasAfectadas <= 0) // Ha ocurrido un error.
                 {
-                    MensajeEmergente("Error!", usuarioController.Estado, "Aceptar");
+                    if(usuarioController.Estado.ToLower().Contains("unique constraint")) // Nombre de usuario ya en uso
+                        MensajeEmergente("Alerta", "El nombre de usuario que ha ingresado se encuentra en uso.", "Aceptar");
+                    else
+                        MensajeEmergente("Error", usuarioController.Estado, "Aceptar");
                 }
                 else
                 {
