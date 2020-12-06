@@ -17,13 +17,15 @@ namespace ProyectoAndriodCsharp.Forms
         public NuevoProducto()
         {
             InitializeComponent();
-            FileImage.Source = ProductoRepository.GetProductoByID(Memoria.DinamicValue).ImagePath;
+            
             if (Memoria.State.Equals("New"))
             {
                 Actualizar.IsVisible = false;
+                
 
             }
             else {
+                FileImage.Source = ProductoRepository.GetProductoByID(Memoria.DinamicValue).ImagePath;
                 Insertar.Text = "Borrar Producto";
                 Producto producto = ProductoRepository.GetProductoByID(Memoria.DinamicValue);
                 Activo.Text = "Activo";
@@ -45,6 +47,7 @@ namespace ProyectoAndriodCsharp.Forms
                     producto.PRO_DESCRIPCION = entry_Descripcion.Text;
                     producto.PRO_PRECIO = Int32.Parse(entry_Precio.Text);
                     producto.PRO_ESTADO = "Activo";
+                    producto.ImagePath = ImagePath;
                     if (CNInsertarComoInactivo.IsChecked == true) { producto.PRO_ESTADO = "Inactivo"; }
                     ProductoRepository.IngresarProducto(producto);
                     Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
@@ -102,8 +105,13 @@ namespace ProyectoAndriodCsharp.Forms
 
         private void subir_foto_Clicked(object sender, EventArgs e)
         {
+
+            if (Memoria.State.Equals("New")) { ProductoRepository.SetImageByIDAsync();
+                FileImage.Source = ImagePath;
+                FileImage.IsVisible = true;
+            }
+            else { ProductoRepository.SetImageByIDAsync(Memoria.DinamicValue); }
             
-            ProductoRepository.SetImageByIDAsync(Memoria.DinamicValue);
             
         }
     }

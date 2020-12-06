@@ -20,11 +20,13 @@ namespace ProyectoAndriodCsharp.Forms
             InitializeComponent();
             IEnumerable<Compra> compras = CompraRepository.GetAllComprasAbonosActivosByUserID(Memoria.UsuarioActual.UsuarioId);
             int count = 2;
-            if (compras == null)
+            if (compras.Count() == 0)
             {
                 lblInit.Text = "No hay Facturas con abonos Activos";
                 btnInit.IsEnabled = false;
                 btnInit.IsVisible = false;
+                lblInit.IsEnabled = true;
+                lblInit.IsVisible = true;
             }
             else {
                 lblInit.IsVisible = false;

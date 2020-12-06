@@ -89,6 +89,15 @@ namespace ProyectoAndriodCsharp.Controller
             UpdateProducto(producto);
             Application.Current.MainPage = new NavigationPage(new NuevoProducto());
         }
+        public static async void SetImageByIDAsync()
+        {
+            MediaFile _mediaFile;
+            await CrossMedia.Current.Initialize();
+            _mediaFile = await CrossMedia.Current.PickPhotoAsync();
+            if (_mediaFile == null)
+                return; 
+            NuevoProducto.ImagePath = _mediaFile.Path;
+        }
 
 
         public static IEnumerable<Producto> GetAllProductos() {
