@@ -28,8 +28,8 @@
                 </Grid>
             </StackLayout>
 
-            <Button HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Text="Facturar" x:Name="Facturar" Clicked="Facturar_Clicked"/>
-
+            <Button HorizontalOptions="Center" VerticalOptions="Center" Text="Facturar" x:Name="Facturar" Clicked="Facturar_Clicked"/>
+            <Button HorizontalOptions="Center" VerticalOptions="Center" Text="Volver" x:Name="Volver" Clicked="Volver_Clicked"/>
         </StackLayout>
         
         

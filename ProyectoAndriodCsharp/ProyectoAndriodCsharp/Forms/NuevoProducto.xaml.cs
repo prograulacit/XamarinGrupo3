@@ -12,6 +12,7 @@ namespace ProyectoAndriodCsharp.Forms
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NuevoProducto : ContentPage
     {
+        public static string ImagePath="";
         private MediaFile _mediaFile;
         public NuevoProducto()
         {
@@ -73,6 +74,9 @@ namespace ProyectoAndriodCsharp.Forms
                 Producto producto = new Producto { PRO_ID = Memoria.DinamicValue, PRO_NOMBRE = entry_Nombre.Text, PRO_DESCRIPCION = entry_Descripcion.Text, PRO_PRECIO = Int32.Parse(entry_Precio.Text) };
                 if (CNInsertarComoInactivo.IsChecked == true) { producto.PRO_ESTADO = "Activo"; }
                 else { producto.PRO_ESTADO = "Inactivo"; }
+                if (!String.IsNullOrEmpty(ImagePath)) {
+                    producto.ImagePath = ImagePath;
+                }
                 ProductoRepository.UpdateProducto(producto);
                 Application.Current.MainPage = new NavigationPage(new MenuPrincipal());
             }
@@ -100,7 +104,7 @@ namespace ProyectoAndriodCsharp.Forms
         {
             
             ProductoRepository.SetImageByIDAsync(Memoria.DinamicValue);
-            Application.Current.MainPage = new NavigationPage(new NuevoProducto());
+            
         }
     }
 }

@@ -20,6 +20,9 @@ namespace ProyectoAndriodCsharp.Controller
                 }
             }
         }
+        
+
+
 
         public static void CrearTabla()
         {

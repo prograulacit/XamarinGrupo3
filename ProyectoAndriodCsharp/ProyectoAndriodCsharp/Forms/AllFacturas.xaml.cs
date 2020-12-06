@@ -55,6 +55,10 @@ namespace ProyectoAndriodCsharp.Forms
         public async void Alert(string a, string b, string c) {
             await DisplayAlert(a,b,c);
         }
-        
+
+        private void Home_Clicked2(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new NavigationPage(new MenuPrincipalCliente());
+        }
     }
 }

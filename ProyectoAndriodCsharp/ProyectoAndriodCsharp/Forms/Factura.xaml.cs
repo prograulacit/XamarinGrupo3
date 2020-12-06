@@ -15,6 +15,7 @@ namespace ProyectoAndriodCsharp.Forms
         decimal cobroTotal = 0;
         Usuario user = UsuarioController.GetUserByID(CompraRepository.GetCompraByID(Memoria.DinamicValue).US_ID);
         Compra compra = CompraRepository.GetCompraByID(Memoria.DinamicValue);
+        Abono abono = AbonoRepository.GetAbonoByCompraID(Memoria.DinamicValue);
         public Factura()
         {
             InitializeComponent();
@@ -33,8 +34,6 @@ namespace ProyectoAndriodCsharp.Forms
             else
                 lblEmail.Text += "Correo no registrado";
 
-            if (user.US_ROL == "Administrador")
-                Btn_ConfirmarCompra_variable.IsVisible = false;
 
             int contador = 0;
 

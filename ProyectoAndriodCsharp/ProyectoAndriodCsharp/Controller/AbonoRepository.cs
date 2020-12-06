@@ -12,11 +12,17 @@ namespace ProyectoAndriodCsharp.Controller
     {
         public static int InsertAndReturn(Abono abono) {
             using (SQLiteConnection sqliteConnection = new SQLiteConnection(DataConnection.GetConnectionPath())) {
-                int RowsAffected = sqliteConnection.Insert(abono);
-                return sqliteConnection.Table<Abono>().Where(v => v.ABO_CANTIDAD_MENSUAL == abono.ABO_CANTIDAD_MENSUAL && v.ABO_CANTIDAD_DE_MESES == abono.ABO_CANTIDAD_DE_MESES && v.ABO_RESTANTE == abono.ABO_RESTANTE && v.COM_ID==abono.COM_ID).FirstOrDefault().ABO_ID;
-            }
+                sqliteConnection.Insert(abono);
 
+                int id= sqliteConnection.Table<Abono>().Where(v => v.COM_ID==0).FirstOrDefault().ABO_ID;
+                abono = GetAbonoByID(id);
+                abono.COM_ID = Memoria.DinamicValue;
+                UpdateAbono(abono);
+                return id;
+            }
         }
+        
+
         public static bool UpdateAbono(Abono abono)
         {
             using (SQLiteConnection sqliteConnection = new SQLiteConnection(DataConnection.GetConnectionPath()))
@@ -30,6 +36,22 @@ namespace ProyectoAndriodCsharp.Controller
                 {
                     return false;
                 }
+            }
+
+        }
+        public static Abono GetAbonoByCompraID(int id)
+        {
+            using (SQLiteConnection sqliteConnection = new SQLiteConnection(DataConnection.GetConnectionPath()))
+            {
+                return sqliteConnection.Table<Abono>().Where(v => v.COM_ID == id).FirstOrDefault();
+            }
+
+        }
+        public static Abono GetAbonoByID(int id)
+        {
+            using (SQLiteConnection sqliteConnection = new SQLiteConnection(DataConnection.GetConnectionPath()))
+            {
+                return sqliteConnection.Table<Abono>().Where(v => v.ABO_ID==id).FirstOrDefault();
             }
 
         }

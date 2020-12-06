@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAndriodCsharp.Forms.PagarAbono">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="CompraID"/>
+            <Label x:Name="CompraSiguientePago"/>
+            <Label x:Name="CompraTotal"/>
+            <Label x:Name="AbonoPagarEsteMes"/>
+            <Label x:Name="AbonoCantidadMesesRestantes"/>
+            <Label x:Name="AbonoRestante"/>
+            <Button x:Name="Pagar" Text="Pagar" Clicked="Pagar_Clicked"/>
+            <Button x:Name="Volver" Text="Volver" Clicked="Volver_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

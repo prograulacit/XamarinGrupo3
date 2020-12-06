@@ -22,7 +22,7 @@ namespace ProyectoAndriodCsharp.Forms
 
         private void Button_MisAbonos(object sender, System.EventArgs e)
         {
-            MensajeEmergente("Pendiente", "Aun no implementado", "OK");
+            Application.Current.MainPage = new NavigationPage(new AllAbonosPendientes());
         }
 
         private void Button_AjustesCuenta(object sender, System.EventArgs e)

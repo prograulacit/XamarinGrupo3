@@ -1,10 +1,12 @@
 ﻿using Plugin.Media;
 using Plugin.Media.Abstractions;
+using ProyectoAndriodCsharp.Forms;
 using ProyectoAndriodCsharp.Model;
 using ProyectoAndriodCsharp.Objects;
 using SQLite;
 using System.Collections.Generic;
 using System.IO;
+using Xamarin.Forms;
 
 namespace ProyectoAndriodCsharp.Controller
 {
@@ -82,7 +84,10 @@ namespace ProyectoAndriodCsharp.Controller
                 return;
             Producto producto = GetProductoByID(id);
             producto.ImagePath = _mediaFile.Path;
+            
+            NuevoProducto.ImagePath = _mediaFile.Path;
             UpdateProducto(producto);
+            Application.Current.MainPage = new NavigationPage(new NuevoProducto());
         }
 
 
