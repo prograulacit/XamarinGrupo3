@@ -31,7 +31,6 @@
 
                 <Button x:Name="btnComprar" Text="Comprar" Clicked="btnComprar_Clicked" BackgroundColor="LightGray" ></Button>
                 <Button x:Name="btnMenu" Text="Menu" Clicked="btnMenu_Clicked" BackgroundColor="LightGray"></Button>
-                <Button x:Name="btnlogout" Text="Salir" Clicked="btnlogout_Clicked" BackgroundColor="LightGray" ></Button>
                 <ImageButton x:Name="btnCarrito" Source="carrito.png" WidthRequest="50" HeightRequest="50" Clicked="btnCarrito_Clicked" BackgroundColor="LightGray"></ImageButton>
 
 
