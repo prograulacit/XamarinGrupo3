@@ -33,8 +33,7 @@ namespace ProyectoAndriodCsharp
 
         void Btn_Registrarse_Clicked(object sender, EventArgs args)
         {
-            ((NavigationPage)this.Parent).PushAsync(new TestRoom());
-
+            ((NavigationPage)this.Parent).PushAsync(new LoginRegistro());
         }
 
     }
