@@ -45,7 +45,7 @@ namespace ProyectoAndriodCsharp.Forms
             if (Memoria.UsuarioActual.US_ROL.Equals("Administrador"))
             {
                 Home.IsVisible = true; 
-                foreach (var product in ProductoRepository.GetAllProductosDisponibles())
+                foreach (var product in ProductoRepository.GetAllProductos())
                 {
                     DinamicButton dinamicButton = new DinamicButton();
                     dinamicButton.DinamicValue = product.PRO_ID;

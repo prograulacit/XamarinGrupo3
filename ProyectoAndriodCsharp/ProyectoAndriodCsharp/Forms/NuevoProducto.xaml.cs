@@ -106,7 +106,8 @@ namespace ProyectoAndriodCsharp.Forms
         private void subir_foto_Clicked(object sender, EventArgs e)
         {
 
-            if (Memoria.State.Equals("New")) { ProductoRepository.SetImageByIDAsync();
+            if (Memoria.State.Equals("New")) { 
+                ProductoRepository.SetImageByIDAsync();
                 FileImage.Source = ImagePath;
                 FileImage.IsVisible = true;
             }
