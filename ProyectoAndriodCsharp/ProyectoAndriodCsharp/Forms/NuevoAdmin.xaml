@@ -11,18 +11,22 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="MenuPrincipal" Grid.Column="0" Grid.Row="0" Clicked="MenuPrincipal_Clicked"  Text="Menu Principal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-        
-        <Button  x:Name="Logout" Text="Logout"  Grid.Column="1" Grid.Row="0" Clicked="Logout_Clicked"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Button x:Name="MenuPrincipal" Grid.Column="0" Grid.Row="0" Clicked="MenuPrincipal_Clicked"  Text="Menu Principal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand "  BackgroundColor="#ecc42c"/>
+
+            <Button  x:Name="Logout" Text="Logout"  Grid.Column="1" Grid.Row="0" Clicked="Logout_Clicked"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="#ecc42c"/>
         </Grid>
     </NavigationPage.TitleView>
-    <StackLayout>
-        <Entry Placeholder="Nombre de usuario" x:Name="entry_RegistroNombreUsuario"/>
-        <Entry Placeholder="Nombre" x:Name="entry_RegistroNombre"/>
-        <Entry Placeholder="Apellido" x:Name="entry_RegistroApellido"/>
-        <Entry Placeholder="Email" x:Name="entry_RegistroEmail"/>
-        <Entry Placeholder="Contraseña" x:Name="entry_RegistroContrasenia" IsPassword="True"/>
-        <Entry Placeholder="Confirmar Contraseña" x:Name="entry_RegistroContraseniaConfirmar" IsPassword="True"/>
-        <Button Text="Registrar Administrador" x:Name="NewAdmin" CornerRadius="3" Clicked="NewAdmin_Clicked" />
+    <Grid>
+       
+        <BoxView Color="Black"/>
+        <StackLayout>
+            <Entry Placeholder="Nombre de usuario" x:Name="entry_RegistroNombreUsuario"  PlaceholderColor="White" TextColor="#ecc42c"/>
+            <Entry Placeholder="Nombre" x:Name="entry_RegistroNombre"  PlaceholderColor="White" TextColor="#ecc42c"/>
+            <Entry Placeholder="Apellido" x:Name="entry_RegistroApellido"  PlaceholderColor="White" TextColor="#ecc42c"/>
+            <Entry Placeholder="Email" x:Name="entry_RegistroEmail" PlaceholderColor="White" TextColor="#ecc42c"/>
+            <Entry Placeholder="Contraseña" x:Name="entry_RegistroContrasenia" IsPassword="True"  PlaceholderColor="White" TextColor="#ecc42c"/>
+            <Entry Placeholder="Confirmar Contraseña" x:Name="entry_RegistroContraseniaConfirmar" IsPassword="True"  PlaceholderColor="White" TextColor="#ecc42c"/>
+            <Button Text="Registrar Administrador" x:Name="NewAdmin" CornerRadius="3" Clicked="NewAdmin_Clicked" BackgroundColor="#ecc42c"  />
     </StackLayout>
+    </Grid>
 </ContentPage>

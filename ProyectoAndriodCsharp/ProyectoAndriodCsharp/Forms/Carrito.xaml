@@ -17,9 +17,9 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <Button  x:Name="Volver" Text="Volver" Grid.Column="0" Grid.Row="0" Clicked="Volver_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                <Button  x:Name="Logout" Text="Cerrar Sesion"  Grid.Column="3" Grid.Row="0" Clicked="Logout_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="-2"/>
-                <Button  x:Name="Facturar" Text="Factura"  Grid.Column="4" Grid.Row="0" Clicked="Factura_Clicked" HorizontalOptions="Center"  VerticalOptions="FillAndExpand" Margin="-2"/>
+                <Button  x:Name="Volver" Text="Volver" Grid.Column="0" Grid.Row="0" Clicked="Volver_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#ecc42c" />
+                <Button  x:Name="Logout" Text="Cerrar Sesion"  Grid.Column="3" Grid.Row="0" Clicked="Logout_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="-2" BackgroundColor="#ecc42c"/>
+                <Button  x:Name="Facturar" Text="Factura"  Grid.Column="4" Grid.Row="0" Clicked="Factura_Clicked" HorizontalOptions="Center"  VerticalOptions="FillAndExpand" Margin="-2" BackgroundColor="#ecc42c"/>
 
 
             </Grid>
@@ -30,7 +30,7 @@
 
         <ListView>
             <ListView.Header>
-                <Grid x:Name="GridAllProducts" Margin="20,10,20,20">
+                <Grid x:Name="GridAllProducts" Margin="20,10,20,20" BackgroundColor="Black">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="75" />
                         <RowDefinition Height="75"/>
@@ -43,11 +43,11 @@
                         <RowDefinition Height="75"/>
                         <RowDefinition Height="75"/>
                     </Grid.RowDefinitions>
-                    <Label Text="Producto" Grid.Column="0" Grid.Row="0" FontAttributes="Bold"/>
-                    <Label Text="Precio" Grid.Column="1" Grid.Row="0" FontAttributes="Bold"/>
-                    <Label Text="Cantidad" Grid.Column="2" Grid.Row="0" FontAttributes="Bold"/>
-                    <Label Text="Eliminar" Grid.Column="3" Grid.Row="0" FontAttributes="Bold"/>
-                    <Label Text="Ver" Grid.Column="4" Grid.Row="0" FontAttributes="Bold"/>
+                    <Label Text="Producto" Grid.Column="0" Grid.Row="0" FontAttributes="Bold" TextColor="White"/>
+                    <Label Text="Precio" Grid.Column="1" Grid.Row="0" FontAttributes="Bold" TextColor="White"/>
+                    <Label Text="Cantidad" Grid.Column="2" Grid.Row="0" FontAttributes="Bold" TextColor="White"/>
+                    <Label Text="Eliminar" Grid.Column="3" Grid.Row="0" FontAttributes="Bold" TextColor="White"/>
+                    <Label Text="Ver" Grid.Column="4" Grid.Row="0" FontAttributes="Bold" TextColor="White"/>
                 </Grid>
             </ListView.Header>
         </ListView>

@@ -109,6 +109,7 @@ namespace ProyectoAndriodCsharp.Forms
                 return;
 
             LocalPathLabel.Text = _mediaFile.Path;
+
             FileImage.Source = ImageSource.FromStream(() =>
             {
                 return _mediaFile.GetStream();

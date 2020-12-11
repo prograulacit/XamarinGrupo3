@@ -30,9 +30,9 @@ namespace ProyectoAndriodCsharp.Forms
                 dinamicButtonVer.Text = "Ver";
                 dinamicButtonVer.Clicked += new EventHandler(dinamicButtonVer.SetMemoriaIdByProductID);
 
-                GridAllProducts.Children.Add(new Label { Text = ProductoRepository.GetProductoByID(product.PRO_ID).PRO_NOMBRE }, 0, count);
-                GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(ProductoRepository.GetProductoByID(product.PRO_ID).PRO_PRECIO).ToString() }, 1, count);
-                GridAllProducts.Children.Add(new Label { Text = product.COMP_CANTIDAD.ToString()}, 2, count);
+                GridAllProducts.Children.Add(new Label { Text = ProductoRepository.GetProductoByID(product.PRO_ID).PRO_NOMBRE, TextColor = Color.White }, 0, count);
+                GridAllProducts.Children.Add(new Label { Text = "$" + Math.Truncate(ProductoRepository.GetProductoByID(product.PRO_ID).PRO_PRECIO).ToString() , TextColor = Color.White }, 1, count);
+                GridAllProducts.Children.Add(new Label { Text = product.COMP_CANTIDAD.ToString(), TextColor = Color.White }, 2, count);
                 GridAllProducts.Children.Add(dinamicButton, 3, count);
                 GridAllProducts.Children.Add(dinamicButtonVer, 4, count);
                

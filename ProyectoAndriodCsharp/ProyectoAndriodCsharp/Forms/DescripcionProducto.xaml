@@ -4,7 +4,7 @@
              x:Class="ProyectoAndriodCsharp.Forms.DescripcionProducto">
     <ContentPage.Content>
         <Grid>
-            <!--<Image Source="fondo.png" Aspect="AspectFill"></Image>-->
+           
             <BoxView Color="Black"/>
             <StackLayout>
 

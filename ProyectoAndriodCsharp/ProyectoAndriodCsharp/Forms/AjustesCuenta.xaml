@@ -3,17 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoAndriodCsharp.Forms.AjustesCuenta">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Ajustes de la cuenta" FontSize="30"/>
-            <Entry x:Name="entry_NombreUsuario" Placeholder="Nombre de usuario"/>
-            <Entry x:Name="entry_CorreoElectronico" Placeholder="Correo electronico"/>
-            <Entry x:Name="entry_NombreCompleto" Placeholder="Nombre completo"/>
-            <Label Text="Saldo de la cuenta:"/>
-            <Entry x:Name="entry_Saldo" Placeholder="Saldo actual" />
+        <Grid>
+            <!--<Image Source="fondo.png" Aspect="AspectFill"></Image>-->
+            <BoxView Color="Black"/>
+            <StackLayout>
+                <Label Text="Ajustes de la cuenta" FontSize="30" TextColor="White"/>
+                <Label Text="Nombre del Usuario: " TextColor="White"/>
+                <Entry x:Name="entry_NombreUsuario" Placeholder="Nombre de usuario" PlaceholderColor="White" TextColor="#ecc42c"/>
+                <Label Text="Correo Electrónico: " TextColor="White"/>
+                <Entry x:Name="entry_CorreoElectronico" Placeholder="Correo electronico" PlaceholderColor="White" TextColor="#ecc42c"/>
+                <Label Text="Nombre Completo: " TextColor="White"/>
+                <Entry x:Name="entry_NombreCompleto" Placeholder="Nombre completo" PlaceholderColor="White" TextColor="#ecc42c"/>
+                <Label Text="Saldo de la cuenta:" TextColor="White"/>
+                <Entry x:Name="entry_Saldo" Placeholder="Saldo actual" PlaceholderColor="White" TextColor="#ecc42c" />
 
-            <Button Clicked="button_GuardarCambios" Text="Guardar cambios"/>
-            <Button Clicked="button_CambiarContrasenia" Text="Cambiar contraseña"/>
-            <Button Clicked="button_Volver" Text="Volver"/>
+                <Button Clicked="button_GuardarCambios" Text="Guardar cambios" BackgroundColor="#ecc42c"/>
+                <Button Clicked="button_CambiarContrasenia" Text="Cambiar contraseña" BackgroundColor="#ecc42c"/>
+                <Button Clicked="button_Volver" Text="Volver" BackgroundColor="#ecc42c"/>
         </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -22,8 +22,8 @@ namespace ProyectoAndriodCsharp.Forms
                 dinamicButton.DinamicValue = compra.COM_ID;
                 dinamicButton.Text = "Ver";
                 dinamicButton.Clicked += new EventHandler(dinamicButton.SeeFactura);
-                GridAllFacturas.Children.Add(new Label { Text = compra.COM_FECHA_COMPRA.ToString() }, 0, count);
-                GridAllFacturas.Children.Add(new Label { Text = "$"+Math.Truncate(compra.COM_PRECIO_TOTAL).ToString() }, 1, count);
+                GridAllFacturas.Children.Add(new Label { Text = compra.COM_FECHA_COMPRA.ToString(), TextColor = Color.White }, 0, count);
+                GridAllFacturas.Children.Add(new Label { Text = "$"+Math.Truncate(compra.COM_PRECIO_TOTAL).ToString() , TextColor = Color.White }, 1, count);
                 GridAllFacturas.Children.Add(dinamicButton, 2, count);
                 count += 1;
             }

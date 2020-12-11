@@ -3,15 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoAndriodCsharp.Forms.CambiarContraseniaCliente">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Cambio de contraseña" FontSize="36"/>
+        <Grid>
+            <!--<Image Source="fondo.png" Aspect="AspectFill"></Image>-->
+            <BoxView Color="Black"/>
+            <StackLayout>
+                <Label Text="Cambio de contraseña" FontSize="36" TextColor="White"/>
 
-            <Entry Placeholder="Contraseña actual" x:Name="entry_ContraseniaActual" IsPassword="True"/>
-            <Entry Placeholder="Nueva contraseña" x:Name="entry_NuevaContrasenia" IsPassword="True"/>
-            <Entry Placeholder="Confirmar contraseña" x:Name="entry_ConfirmarContrasenia" IsPassword="True"/>
+                <Entry Placeholder="Contraseña actual" x:Name="entry_ContraseniaActual" IsPassword="True" PlaceholderColor="White" TextColor="#ecc42c"/>
+                <Entry Placeholder="Nueva contraseña" x:Name="entry_NuevaContrasenia" IsPassword="True" PlaceholderColor="White" TextColor="#ecc42c"/>
+                <Entry Placeholder="Confirmar contraseña" x:Name="entry_ConfirmarContrasenia" IsPassword="True" PlaceholderColor="White" TextColor="#ecc42c"/>
 
-            <Button Text="Guardar cambios" Clicked="Button_GuardarCambios"/>
-            <Button Text="Volver" Clicked="Button_Volver"/>
+                <Button Text="Guardar cambios" Clicked="Button_GuardarCambios" BackgroundColor="#ecc42c"/>
+                <Button Text="Volver" Clicked="Button_Volver" BackgroundColor="#ecc42c"/>
         </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

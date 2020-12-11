@@ -3,13 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoAndriodCsharp.Forms.CompraRealizada">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Compra realizada con exito" FontSize="30"/>
-            <Label Text="Para ver las compras realizadas dirijase a la ventana de compras realizadas."/>
-            <Label Text="Para administrar sus abonos dirijase a la ventana de abonos."/>
+        <Grid>
 
-            <Button Text="Ir a Mis compras" Clicked="Button_MisCompras"/>
-            <Button Text="Volver a productos" Clicked="Button_Volver" />
+            <BoxView Color="Black"/>
+            <StackLayout>
+                <Label Text="Compra realizada con exito" FontSize="30" TextColor="White"/>
+                <Label Text="Para ver las compras realizadas dirijase a la ventana de compras realizadas." TextColor="White"/>
+                <Label Text="Para administrar sus abonos dirijase a la ventana de abonos." TextColor="White"/>
+
+                <Button Text="Ir a Mis compras" Clicked="Button_MisCompras" BackgroundColor="#ecc42c"/>
+                <Button Text="Volver a productos" Clicked="Button_Volver" BackgroundColor="#ecc42c" />
         </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -38,9 +38,9 @@ namespace ProyectoAndriodCsharp.Forms
             {
                 foreach (var product in Memoria.listaCarrito)
                 {
-                    listaProductos.Children.Add(new Label { Text = ProductoRepository.GetProductoByID(product.PRO_ID).PRO_NOMBRE, TextColor = Color.Black }, 0, contador);
-                    listaProductos.Children.Add(new Label { Text = "c/u $" + Math.Truncate(ProductoRepository.GetProductoByID(product.PRO_ID).PRO_PRECIO).ToString(), TextColor = Color.Black }, 1, contador);
-                    listaProductos.Children.Add(new Label { Text = "Cantidad: " + product.COMP_CANTIDAD.ToString(), TextColor = Color.Black }, 2, contador);
+                    listaProductos.Children.Add(new Label { Text = ProductoRepository.GetProductoByID(product.PRO_ID).PRO_NOMBRE, TextColor = Color.White }, 0, contador);
+                    listaProductos.Children.Add(new Label { Text = "c/u $" + Math.Truncate(ProductoRepository.GetProductoByID(product.PRO_ID).PRO_PRECIO).ToString(), TextColor = Color.White }, 1, contador);
+                    listaProductos.Children.Add(new Label { Text = "Cantidad: " + product.COMP_CANTIDAD.ToString(), TextColor = Color.White}, 2, contador);
                     cobroTotal += ((ProductoRepository.GetProductoByID(product.PRO_ID).PRO_PRECIO) * product.COMP_CANTIDAD);
                     contador++;
                 }
@@ -50,7 +50,7 @@ namespace ProyectoAndriodCsharp.Forms
             {
                 //Leer desde DB
                 if (CompraProductosRepository.GetAllCPByCompraID(Memoria.DinamicValue).FirstOrDefault() == null)
-                    listaProductos.Children.Add(new Label { Text = "No hay productos registrados a esta factura.", TextColor = Color.Black }, 0, contador);
+                    listaProductos.Children.Add(new Label { Text = "No hay productos registrados a esta factura.", TextColor = Color.White}, 0, contador);
                 else
                 {
                     foreach (var cp in CompraProductosRepository.GetAllCPByCompraID(Memoria.DinamicValue))

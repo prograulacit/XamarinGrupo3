@@ -3,14 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoAndriodCsharp.Forms.MisCompras">
     <ContentPage.Content>
-        
+        <Grid>
+            <BoxView Color="Black"/>
         <StackLayout>
-                <Label Text="Mis compras" FontSize="30"/>
-                <Button Text="Volver" Clicked="Button_Volver"/>
+                <Label Text="Mis compras" FontSize="30" TextColor="White"/>
+                <Button Text="Volver" Clicked="Button_Volver" BackgroundColor="#ecc42c"/>
             <ScrollView>
-                <Label x:Name="label_compras"/>
+                    <Label x:Name="label_compras" TextColor="White"/>
             </ScrollView>
         </StackLayout>
+        </Grid>
     </ContentPage.Content>
 
 </ContentPage>

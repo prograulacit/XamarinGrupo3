@@ -3,14 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoAndriodCsharp.Forms.MenuPrincipalCliente">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Bienvenido" FontSize="30"/>
 
-            <Button Text="Ver productos" Clicked="Button_Productos"/>
-            <Button Text="Mis compras" Clicked="Button_MisCompras"/>
-            <Button Text="Mis abonos" Clicked="Button_MisAbonos"/>
-            <Button Text="Ajustes de la cuenta" Clicked="Button_AjustesCuenta"/>
-            <Button Text="Cerrar sesión" Clicked="Button_CerrarSesion"/>
+        <Grid>
+            <BoxView Color="Black"/>
+        <StackLayout>
+                <Label Text="Bienvenido"  TextColor="White" FontSize="30"/>
+
+                <Button Text="Ver productos" Clicked="Button_Productos" BackgroundColor="#ecc42c"/>
+                <Button Text="Mis compras" Clicked="Button_MisCompras" BackgroundColor="#ecc42c"/>
+                <Button Text="Mis abonos" Clicked="Button_MisAbonos" BackgroundColor="#ecc42c"/>
+                <Button Text="Ajustes de la cuenta" Clicked="Button_AjustesCuenta" BackgroundColor="#ecc42c"/>
+                <Button Text="Cerrar sesión" Clicked="Button_CerrarSesion" BackgroundColor="#ecc42c"/>
         </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
