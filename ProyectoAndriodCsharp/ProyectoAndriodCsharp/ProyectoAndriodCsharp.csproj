@@ -18,16 +18,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Forms\TestRoom.xaml.cs">
-      <DependentUpon>TestRoom.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
 	<EmbeddedResource Update="Forms\AbonoConfigForm.xaml">
 	  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 	</EmbeddedResource>
 	<EmbeddedResource Update="Forms\AjustesCuenta.xaml">
+	  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	</EmbeddedResource>
+	<EmbeddedResource Update="Forms\AllAbonosPendientes.xaml">
 	  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 	</EmbeddedResource>
 	<EmbeddedResource Update="Forms\AllFacturas.xaml">
@@ -72,7 +69,7 @@
     <EmbeddedResource Update="Forms\NuevoProducto.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Forms\TestRoom.xaml">
+    <EmbeddedResource Update="Forms\PagarAbono.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Forms\TabbedPage1.xaml">

@@ -17,7 +17,10 @@ namespace ProyectoAndriodCsharp.Controller
             sqliteConn = new SQLiteConnection(ConnectionPath);
             sqliteConn.CreateTable<Model.Usuario>(); // Crea la tabla si no existe.
         }
-
+        public static Usuario GetUserByID(int id) {
+            SQLiteConnection sqliteConn = new SQLiteConnection(DataConnection.GetConnectionPath());
+            return sqliteConn.Table<Model.Usuario>().Where(i => i.UsuarioId == id).FirstOrDefault();
+        }
         public IEnumerable<Usuario> GetAllUsuarios()
         {
             try
@@ -82,7 +85,12 @@ namespace ProyectoAndriodCsharp.Controller
             if (user!=null) { result = true; }
             return result;
         }
-
+        public static void UpdateUser(Usuario user) {
+            using (SQLiteConnection sQLiteConnection=new SQLiteConnection(DataConnection.GetConnectionPath())) {
+                sQLiteConnection.Update(user);
+            
+            }
+        }
         public int ActualizarUsuario(Usuario Usuario)
         {
             int FilasAfectadas = 0;

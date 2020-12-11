@@ -2,10 +2,24 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoAndriodCsharp.Forms.AllFacturas">
+    <NavigationPage.TitleView>
+        <Grid ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button  x:Name="Home" Text="Home" Grid.Column="0" Grid.Row="0" Clicked="Home_Clicked2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        </Grid>
+    </NavigationPage.TitleView>
     <ContentPage.Content>
 
         <ScrollView>
-            <Grid x:Name="GridAllFacturas" Margin="20,10,20,20" BackgroundColor="Black">
+            <StackLayout>
+                    <StackLayout x:Name="UserView">
+                <Grid x:Name="GridAllFacturas" Margin="20,10,20,20" BackgroundColor="Black">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="75" />
                     <RowDefinition Height="75"/>
@@ -24,8 +38,15 @@
                     <RowDefinition Height="75"/>
                     <RowDefinition Height="75"/>
                 </Grid.RowDefinitions>
-                <Label x:Name="NombreUsuario"  TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.ColumnSpan="4" />
+                <Label x:Name="NombreUsuario"  HorizontalTextAlignment="Center" TextColor="White" VerticalTextAlignment="Center" Grid.ColumnSpan="4" />
             </Grid>
+                </StackLayout>
+                <StackLayout x:Name="AdminView">
+                    <Entry x:Name="FacturaID" Keyboard="Numeric" Placeholder="Factura ID"/>
+                    <Button x:Name="Buscar" Clicked="Buscar_Clicked" Text="Buscar"/>
+                </StackLayout>
+            </StackLayout>
         </ScrollView>
+        
     </ContentPage.Content>
 </ContentPage>

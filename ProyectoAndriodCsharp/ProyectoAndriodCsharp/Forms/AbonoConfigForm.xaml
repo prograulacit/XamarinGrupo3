@@ -30,7 +30,7 @@
                 </Grid>
             </StackLayout>
 
-                <Button HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Text="Facturar"  BackgroundColor="#ecc42c" />
+            <Button HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Text="Facturar" BackgroundColor="#ecc42c"/>
 
         </StackLayout>
 

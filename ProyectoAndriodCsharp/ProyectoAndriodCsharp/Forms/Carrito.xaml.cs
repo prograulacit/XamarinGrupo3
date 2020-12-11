@@ -46,18 +46,27 @@ namespace ProyectoAndriodCsharp.Forms
         {
             labelCantidad.Text = String.Format(e.NewValue.ToString());
         }
-
+        public async void Alert(string a,string b,string c) {
+            await DisplayAlert(a, b, c);
+        }
         private void Factura_Clicked(object sender, EventArgs e)
         {
             Memoria.State = "Create";
             decimal total=0;
-            foreach (var product in Memoria.listaCarrito)
+            if (Memoria.listaCarrito.Count == 0)
             {
-                total += ((ProductoRepository.GetProductoByID(product.PRO_ID).PRO_PRECIO) * product.COMP_CANTIDAD);
+                Alert("Alerta","No hay productos en el carrito","Ok");
             }
-            Memoria.compra.US_ID =Memoria.UsuarioActual.UsuarioId;
-            Memoria.compra.COM_PRECIO_TOTAL = total;
-            Application.Current.MainPage = new NavigationPage(new AbonoConfigForm());
+            else
+            {
+                foreach (var product in Memoria.listaCarrito)
+                {
+                    total += ((ProductoRepository.GetProductoByID(product.PRO_ID).PRO_PRECIO) * product.COMP_CANTIDAD);
+                }
+                Memoria.compra.US_ID = Memoria.UsuarioActual.UsuarioId;
+                Memoria.compra.COM_PRECIO_TOTAL = total;
+                Application.Current.MainPage = new NavigationPage(new AbonoConfigForm());
+            }
         }
 
         private void Volver_Clicked(object sender, EventArgs e)
@@ -67,6 +76,7 @@ namespace ProyectoAndriodCsharp.Forms
 
         private void Logout_Clicked(object sender, EventArgs e)
         {
+            
             Memoria.UsuarioActual = null;
             Application.Current.MainPage = new NavigationPage(new LoginRegistro());
         }

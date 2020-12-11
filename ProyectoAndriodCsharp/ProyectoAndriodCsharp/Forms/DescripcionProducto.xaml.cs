@@ -15,6 +15,15 @@ namespace ProyectoAndriodCsharp.Forms
         public DescripcionProducto()
         {
             InitializeComponent();
+            if (String.IsNullOrEmpty(ProductoRepository.GetProductoByID(Memoria.DinamicValue).ImagePath))
+            {
+                FileImage.IsVisible = false;
+
+            }
+            else {
+                FileImage.Source = ProductoRepository.GetProductoByID(Memoria.DinamicValue).ImagePath;
+            }
+            
             btnComprar.IsEnabled = false;
             producto = ProductoRepository.GetProductoByID(Memoria.DinamicValue);
             NombreProducto.Text = producto.PRO_NOMBRE ;
@@ -68,11 +77,6 @@ namespace ProyectoAndriodCsharp.Forms
         private async void btnMenu_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MenuPrincipal());
-        }
-
-        private void btnlogout_Clicked(object sender, EventArgs e)
-        {
-
         }
 
         private async void btnCarrito_Clicked(object sender, EventArgs e)

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAndriodCsharp.Forms.AllAbonosPendientes">
+    <NavigationPage.TitleView>
+    <Grid ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+            
+            <Button  x:Name="Home" Text="Home" Grid.Column="0" Grid.Row="0" Clicked="Home_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        </Grid>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid x:Name="AllFacturasAbonoActivo">
+                <Button x:Name="btnInit" Text="Pagar siguiente Abono" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="Center" Clicked="btnInit_Clicked"/>
+                <Label x:Name="lblInit" Text="Compras con Abonos activos" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                <Label Text="ID" Grid.Column="0" Grid.Row="1" TextColor="Black" />
+                <Label Text="Restante" Grid.Column="1" Grid.Row="1" TextColor="Black" />
+                <Label Text="Total" Grid.Column="2" Grid.Row="1" TextColor="Black" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

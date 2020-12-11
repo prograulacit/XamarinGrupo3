@@ -47,7 +47,7 @@ namespace ProyectoAndriodCsharp.Objects
         public void SeeFactura(object sender, EventArgs e)
         {
             Memoria.DinamicValue = DinamicValue;
-            Memoria.State = "See";
+            Memoria.State = "Create";
             Application.Current.MainPage = new NavigationPage(new Factura());
         }
     }

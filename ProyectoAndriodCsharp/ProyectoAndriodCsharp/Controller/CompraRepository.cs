@@ -8,17 +8,65 @@ namespace ProyectoAndriodCsharp.Controller
 {
     public class CompraRepository
     {
+
+
+        public static IEnumerable<Compra> GetAllComprasAbonosActivosByUserID(int id)
+        {
+            SQLiteConnection sQLiteConnection = new SQLiteConnection(DataConnection.GetConnectionPath());
+            IEnumerable<Compra> comprasEnAbonos = sQLiteConnection.Table<Compra>().Where(v => v.COM_ESTADO.Equals("Abonos") && v.US_ID == id);
+            List<Abono> listComprasAbonos = new List<Abono>();
+            foreach (var compra in comprasEnAbonos)
+            {
+                Abono abono = sQLiteConnection.Table<Abono>().Where(v => v.COM_ID == compra.COM_ID && v.ABO_RESTANTE > 0).FirstOrDefault();
+                if (!(abono == null))
+                {
+                    listComprasAbonos.Add(abono);
+                }
+            }
+            List<Compra> compraFinal = new List<Compra>();
+            foreach (var abono in listComprasAbonos)
+            {
+                compraFinal.Add(sQLiteConnection.Table<Compra>().Where(v => v.COM_ID == abono.COM_ID).FirstOrDefault());
+
+            }
+            return compraFinal;
+
+
+
+
+        }
+        public static Compra GetSiguientePorPagarByUserID(int id)
+        {
+            IEnumerable<Compra>compras=GetAllComprasAbonosActivosByUserID(id);
+            int init = 0;
+            Compra compraByDay=new Compra();
+            foreach (var compra in compras) {
+                if (init == 0) { compraByDay = compra; }
+                init += 1;
+                if (compra.COM_SIGUIENTE_PAGO<compraByDay.COM_SIGUIENTE_PAGO ) { compraByDay = compra; }
+            }
+            return compraByDay;
+        }
         public static void InsertarPrueba()
         {
             DeleteAllRows();
-            Compra c1 = new Compra { US_ID = 1, COM_ESTADO = "Factura", COM_FECHA_COMPRA = DateTime.Now, COM_PRECIO_IVA = 100, COM_PRECIO_TOTAL = 2000 };
-            Compra c2 = new Compra { US_ID = 1, COM_ESTADO = "Factura", COM_FECHA_COMPRA = DateTime.Now, COM_PRECIO_IVA = 200, COM_PRECIO_TOTAL = 3000 };
-            Compra c3 = new Compra { US_ID = 1, COM_ESTADO = "Factura", COM_FECHA_COMPRA = DateTime.Now, COM_PRECIO_IVA = 300, COM_PRECIO_TOTAL = 4000 };
+            Compra c1 = new Compra { US_ID = 1, COM_ESTADO = "Factura", COM_FECHA_COMPRA = DateTime.Now, COM_INTERES = 100, COM_PRECIO_TOTAL = 2000 };
+            Compra c2 = new Compra { US_ID = 1, COM_ESTADO = "Factura", COM_FECHA_COMPRA = DateTime.Now, COM_INTERES = 200, COM_PRECIO_TOTAL = 3000 };
+            Compra c3 = new Compra { US_ID = 1, COM_ESTADO = "Factura", COM_FECHA_COMPRA = DateTime.Now, COM_INTERES = 300, COM_PRECIO_TOTAL = 4000 };
             IngresarCompra(c1);
             IngresarCompra(c2);
             IngresarCompra(c3);
         }
-
+        public static int InsertAndReturn(Compra compra) {
+            using (SQLiteConnection sqliteConnection = new SQLiteConnection(DataConnection.GetConnectionPath())) {
+                sqliteConnection.Insert(compra);
+                int id =sqliteConnection.Table<Compra>().Where(v => v.US_ID == 0 ).FirstOrDefault().COM_ID;
+                compra=GetCompraByID(id);
+                compra.US_ID=(Memoria.UsuarioActual.UsuarioId);
+                UpdateCompra(compra);
+                return id;
+            }
+        }
         public static void CrearTabla()
         {
             SQLiteConnection sQLiteConnection = new SQLiteConnection(DataConnection.GetConnectionPath());

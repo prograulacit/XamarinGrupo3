@@ -7,6 +7,23 @@ namespace ProyectoAndriodCsharp.Controller
 {
     public class CompraProductosRepository
     {
+        public static bool InsertAll(IEnumerable<CompraProductos> list) {
+            using (SQLiteConnection sqliteConnection =new SQLiteConnection(DataConnection.GetConnectionPath()))
+            {
+                int rowsAffected=sqliteConnection.InsertAll(list);
+                if (rowsAffected > 0)
+                {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        }
+        
+
+
+
         public static void CrearTabla()
         {
             SQLiteConnection sQLiteConnection = 

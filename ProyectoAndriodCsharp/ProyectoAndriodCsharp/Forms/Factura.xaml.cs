@@ -13,7 +13,9 @@ namespace ProyectoAndriodCsharp.Forms
     public partial class Factura : ContentPage
     {
         decimal cobroTotal = 0;
-
+        Usuario user = UsuarioController.GetUserByID(CompraRepository.GetCompraByID(Memoria.DinamicValue).US_ID);
+        Compra compra = CompraRepository.GetCompraByID(Memoria.DinamicValue);
+        Abono abono = AbonoRepository.GetAbonoByCompraID(Memoria.DinamicValue);
         public Factura()
         {
             InitializeComponent();
@@ -22,21 +24,23 @@ namespace ProyectoAndriodCsharp.Forms
 
         private void inicializacion()
         {
-            lblCliente.Text = "Cliente: " + Memoria.UsuarioActual.Nombre;
-            lblEmail.Text = "Correo Registrado: ";
-            if (!string.IsNullOrWhiteSpace(Memoria.UsuarioActual.Email))
-                lblEmail.Text += Memoria.UsuarioActual.Email;
+            lblFacturaID.Text += compra.COM_ID.ToString();
+            lblCliente.Text = "Cliente: " + user.Nombre;
+            lblEmail.Text += user.Email;
+            lblEstado.Text += compra.COM_ESTADO;
+            lblFecha.Text += compra.COM_FECHA_COMPRA.ToString("dd/MM/yyyy");
+            if (!string.IsNullOrWhiteSpace(user.Email))
+                lblEmail.Text += user.Email;
             else
-                lblEmail.Text += "correo no registrado";
+                lblEmail.Text += "Correo no registrado";
 
-            if (Memoria.UsuarioActual.US_ROL == "Administrador")
-                Btn_ConfirmarCompra_variable.IsVisible = false;
 
             int contador = 0;
 
             if (Memoria.State.Equals("Create"))
             {
-                foreach (var product in Memoria.listaCarrito)
+
+                foreach (var product in CompraProductosRepository.GetAllCPByCompraID(Memoria.DinamicValue))
                 {
                     listaProductos.Children.Add(new Label { Text = ProductoRepository.GetProductoByID(product.PRO_ID).PRO_NOMBRE, TextColor = Color.White }, 0, contador);
                     listaProductos.Children.Add(new Label { Text = "c/u $" + Math.Truncate(ProductoRepository.GetProductoByID(product.PRO_ID).PRO_PRECIO).ToString(), TextColor = Color.White }, 1, contador);
@@ -60,12 +64,18 @@ namespace ProyectoAndriodCsharp.Forms
             }
 
             lblTotal.Text = "Total: $" + cobroTotal;
+            lblMontoAbono.Text = "Próximo Abono es de: $" + abono.ABO_CANTIDAD_MENSUAL;
+            if (abono.ABO_CANTIDAD_MENSUAL <= 0)
+            {
+                lblMontoAbono.Text = "Monto Cancelado";
+            }
+            lblFechaGarantia.Text += compra.COM_FECHA_COMPRA.AddYears(1).ToString("dd/MM/yyyy");
             btnSalir.Clicked += BtnSalir_Clicked;
         }
 
         private void BtnSalir_Clicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new NavigationPage(new Carrito());
+            Application.Current.MainPage = new NavigationPage(new MenuPrincipalCliente());
         }
 
         private void Btn_ConfirmarCompra(object sender, EventArgs e)
@@ -131,7 +141,7 @@ namespace ProyectoAndriodCsharp.Forms
                 US_ID = Memoria.UsuarioActual.UsuarioId,
                 COM_FECHA_COMPRA = DateTime.Now,
                 COM_ESTADO = "obsoleto",
-                COM_PRECIO_IVA = 0,
+                COM_INTERES = 0,
                 COM_PRECIO_TOTAL = cobroTotal
             };
             return CompraRepository.IngresarCompraRetornarID(compra);

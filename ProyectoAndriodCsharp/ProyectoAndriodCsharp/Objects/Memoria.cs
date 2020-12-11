@@ -23,5 +23,15 @@ namespace ProyectoAndriodCsharp.Objects
 
         //Factura temporal
         public static Compra compra=new Compra();
+
+
+        public static void ResetParameters() {
+            UsuarioActual = null;
+            DinamicValue = 0;
+            listaCarrito = new List<CompraProductos>();
+            State = "";
+            CaracteristicasDesarrollador = false;
+        
+        }
     }
 }

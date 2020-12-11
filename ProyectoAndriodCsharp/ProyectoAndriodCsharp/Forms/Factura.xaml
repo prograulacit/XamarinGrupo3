@@ -15,10 +15,11 @@
             <StackLayout Grid.Row="1" Padding="10,20">
                 <Label Text="FACTURA" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
                 <Label x:Name = "lblTienda"  BackgroundColor="Black" Text="ProTek" TextColor="White" FontAttributes="Bold"/>
-                <Label x:Name = "lblCliente"  BackgroundColor="Black" Text="Cliente:" TextColor="White" FontAttributes="Bold"/>
-                <Label x:Name = "lblEmail"  BackgroundColor="Black" Text="Correo Registrado:" TextColor="White" FontAttributes="Bold"/>
-
-
+                <Label x:Name = "lblCliente"  BackgroundColor="Black" Text="Cliente: " TextColor="White" FontAttributes="Bold"/>
+                <Label x:Name = "lblEmail"  BackgroundColor="Black" Text="Correo Registrado: " TextColor="White" FontAttributes="Bold"/>
+                <Label x:Name = "lblFecha"  BackgroundColor="Black" Text="Fecha de Compra: " TextColor="White" FontAttributes="Bold"/>
+                <Label x:Name = "lblEstado"  BackgroundColor="Black" Text="Estado: " TextColor="White" FontAttributes="Bold"/>
+                <Label x:Name = "lblFacturaID"  BackgroundColor="Black" Text="ID: " TextColor="White" FontAttributes="Bold"/>
                 <ScrollView BackgroundColor="Black">
                     <Grid x:Name="listaProductos" Margin="20,10,20,20">
                         <Grid.RowDefinitions>
@@ -43,8 +44,9 @@
                 </ScrollView>
 
                 <Label x:Name = "lblTotal"  BackgroundColor="Black" Text="Monto Total a Pagar:" TextColor="White" FontAttributes="Bold"/>
-                <Button x:Name="Btn_ConfirmarCompra_variable" Clicked="Btn_ConfirmarCompra" Text="Confirmar compra" BackgroundColor="#ecc42c" TextColor="Black" CornerRadius="20" FontAttributes="Bold"/>
-                <Button x:Name ="btnSalir" Text="Volver"  TextColor="Black" CornerRadius="20" FontAttributes="Bold" BackgroundColor="#ecc42c"/>
+                <Label x:Name="lblMontoAbono"  BackgroundColor="Black" Text="Próximo Abono es de:" TextColor="White" FontAttributes="Bold"/>
+                <Label x:Name="lblFechaGarantia"  BackgroundColor="Black" Text="La garantía aplica hasta: " TextColor="White" FontAttributes="Bold"/>
+                <<Button x:Name ="btnSalir" Text="Volver"  TextColor="Black" CornerRadius="20" FontAttributes="Bold" BackgroundColor="#ecc42c"/>
 
             </StackLayout>
         </Grid>

@@ -10,16 +10,19 @@ namespace ProyectoAndriodCsharp.Forms
         public MenuPrincipalCliente()
         {
             InitializeComponent();
+            if (Memoria.UsuarioActual.US_ROL.Equals("Administrador")) {
+                btn_verCompras.Text="Buscar Compra";
+            }
         }
 
         private void Button_MisCompras(object sender, System.EventArgs e)
         {
-            Application.Current.MainPage = new NavigationPage(new MisCompras());
+            Application.Current.MainPage = new NavigationPage(new AllFacturas());
         }
 
         private void Button_MisAbonos(object sender, System.EventArgs e)
         {
-            MensajeEmergente("Pendiente", "Aun no implementado", "OK");
+            Application.Current.MainPage = new NavigationPage(new AllAbonosPendientes());
         }
 
         private void Button_AjustesCuenta(object sender, System.EventArgs e)

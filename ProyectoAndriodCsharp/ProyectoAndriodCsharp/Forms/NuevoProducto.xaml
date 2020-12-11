@@ -15,8 +15,7 @@
 
             <Button x:Name="Actualizar" Text="Actualizar" Grid.Column="0" Grid.Row="0" Clicked="Actualizar_Clicked"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  BackgroundColor="#ecc42c"/>
             <Button   x:Name="MenuPrincipal" Text="Menu Principal" Grid.Column="1" Grid.Row="0" Clicked="MenuPrincipal_Clicked"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#ecc42c"/>
-            <Button   x:Name="AllFacturas" Text="Facturas" Grid.Column="2" Grid.Row="0" Clicked="AllFacturas_Clicked"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#ecc42c"/>
-        </Grid>
+             </Grid>
     </NavigationPage.TitleView>
 
     <ContentPage.Content>
